@@ -7,7 +7,7 @@ class StateManager:
         self.window = window
         self.currentState = state
 
-    def changeScene(self, state: State):
+    def changeState(self, state: State):
         """
         Switch states
         :param state: The next state to show
