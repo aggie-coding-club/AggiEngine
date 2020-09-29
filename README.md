@@ -6,6 +6,7 @@ AggiEngine is a 2D game engine, designed for making game development easier. Agg
 
 ```bash
 pip install PySide2
+pip install PyOpenGL
 conda install -c conda-forge box2d-py
 pip install tmx
 ```
