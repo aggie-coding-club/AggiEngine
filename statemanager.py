@@ -1,4 +1,5 @@
 from .state import State
+from .gamescreen import GameScreen
 
 
 class StateManager:
@@ -27,6 +28,7 @@ class StateManager:
     def start(self):
         self.currentState.window = self.window  # Give the state a reference to the window
         self.currentState.loadUi()  # Load the states UI
+        self.window.gameScreen = self.window.findChild(GameScreen)
         self.currentState.start()  # Start the state
         pass
 

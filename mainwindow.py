@@ -20,6 +20,7 @@ class MainWindow(QMainWindow):
         """
         QMainWindow.__init__(self, parent)
         self.app = app  # the application created
+        self.gameScreen = None  # where all graphics are drawn
         self.uiManager = UiManager(self, customWidgets=[GameScreen])  # Loads widgets into window from a file
         self.stateManager = StateManager(self, state)  # Manages state updates and transitions
 
@@ -63,6 +64,7 @@ class MainWindow(QMainWindow):
         In here fixed and scene updates are made based on timing
         :return: None
         """
+        # TODO pref counter
         start = time.clock()  # start time of the update call
         if time.clock() - self.lastFixed > self.fixedTiming:  # Has enough time passed for next call
             self.__fixedUpdate()
@@ -71,6 +73,8 @@ class MainWindow(QMainWindow):
         now = time.clock()  # Time after physics has been calculated
         if (now - start) < (self.fixedTiming - self.avgscreenTime):  # Is there enough time left to call update
             if (now - self.lastScreen) >= self.screenTiming:  # Has enough time passed for next call
+                if self.gameScreen is not None:
+                    self.gameScreen.update()
                 self.__stateUpdate()
                 self.screenFrames += 1
 
@@ -118,4 +122,9 @@ class MainWindow(QMainWindow):
             self.screenTiming *= 0.99
         elif self.screenFps > self.targetscreenFPS:
             self.screenTiming *= 1.01
+
+    def resizeEvent(self, event:PySide2.QtGui.QResizeEvent):
+        self.gameScreen: GameScreen
+        if self.gameScreen is not None:
+            self.gameScreen.setGeometry(0, 0, self.width(), self.height())
 

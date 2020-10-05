@@ -13,7 +13,10 @@ class Application(QApplication):
         :param args: System arguments passed in
         :param config: Set application parameters
         """
-        super(Application, self).__init__(args)
+        if args is not None:
+            super(Application, self).__init__(args)
+        else:
+            super(Application, self).__init__()
 
         self.__config = config
         if self.__config is None:

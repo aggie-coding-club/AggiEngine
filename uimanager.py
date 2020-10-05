@@ -1,5 +1,6 @@
 from PySide2.QtCore import QMetaObject
 from PySide2.QtUiTools import QUiLoader
+from PySide2.QtWidgets import QMainWindow
 
 
 class UiManager(QUiLoader):
@@ -22,6 +23,9 @@ class UiManager(QUiLoader):
         :param name: The name of the widget we'll create
         :return: The created widget
         """
+
+        if class_name is QMainWindow:
+            return self.window
 
         if parent is None and self.window:
             return self.window

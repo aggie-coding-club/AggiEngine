@@ -1,4 +1,8 @@
+import random
+
+import OpenGL.arrays.vbo as glvbo
 import OpenGL.GL as gl
+import numpy as np
 from OpenGL.GLU import *
 from PySide2.QtWidgets import QOpenGLWidget
 
@@ -14,35 +18,49 @@ class GameScreen(QOpenGLWidget):
         super(GameScreen, self).__init__(parent=parent)
         print("OpenGL widget created")
 
-    def paintGL(self):
-        """
-        This is the function we'll override to draw to screen
-        :return: None
-        """
-        # Currently just draws random quad
-        gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT)
-        gl.glLoadIdentity()
-        gl.glTranslatef(0, 0, -5.0)
-        gl.glColor3f(0, 1, 1)
-        gl.glPolygonMode(gl.GL_BACK, gl.GL_LINE)
-        gl.glBegin(gl.GL_QUADS)
-        gl.glVertex3f(1.0, -1.2, 0.0)
-        gl.glVertex3f(1.0, 0.0, 0.0)
-        gl.glVertex3f(1.6, 0.0, 0.0)
-        gl.glVertex3f(1.9, -1.2, 0.0)
-        gl.glEnd()
-        gl.glFlush()
-
     def initializeGL(self):
         """
         Here we will override in order to setup OpenGL how we want
         :return: None
         """
-        gl.glClearDepth(1.0)
-        gl.glDepthFunc(gl.GL_LESS)
-        gl.glEnable(gl.GL_DEPTH_TEST)
-        gl.glShadeModel(gl.GL_SMOOTH)
-        gl.glMatrixMode(gl.GL_PROJECTION)
+        self.vertices = np.array([
+            # <- x,y,z ----->  <- r,g,b -->
+            -0.5, -0.2, 0.0, 1.0, 0.0, 0.0,
+             0.5, -0.5, 0.0, 1.0, 0.0, 0.0,
+             0.5, 0.5,  0.0, 1.0, 0.0, 0.0,
+             0.4, -0.2, 0.0, 0.0, 1.0, 0.0,
+             1.4, -0.5, 0.0, 0.0, 1.0, 0.0,
+             1.4, 0.5,  0.0, 0.0, 1.0, 0.0,
+        ], 'f')
+
+        self.vbo = glvbo.VBO(self.vertices)
+        self.vbo.bind()
+
+        self.vao = gl.glGenVertexArrays(1)
+        gl.glBindVertexArray(self.vao)
+
+        gl.glEnableClientState(gl.GL_VERTEX_ARRAY)
+        gl.glEnableClientState(gl.GL_COLOR_ARRAY)
+
+        buffer_offset = ctypes.c_void_p
+        stride = (3+3)*self.vertices.itemsize
+        gl.glVertexPointer(3, gl.GL_FLOAT, stride, None)
+        gl.glColorPointer(3, gl.GL_FLOAT, stride, buffer_offset(12))
+
+        gl.glBindVertexArray(0)
+        self.position = [0, 0, 0]
+
+    def paintGL(self):
+        """
+        This is the function we'll override to draw to screen
+        :return: None
+        """
+        self.position[0] -= 0.001
+        print(self.position)
+        gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT)
+
         gl.glLoadIdentity()
-        gluPerspective(45.0, 1.33, 0.1, 100.0)
-        gl.glMatrixMode(gl.GL_MODELVIEW)
+        gl.glTranslatef(self.position[0], 0, 0)
+        gl.glBindVertexArray(self.vao)
+        gl.glDrawArrays(gl.GL_TRIANGLES, 0, 6)
+        gl.glBindVertexArray(0)
