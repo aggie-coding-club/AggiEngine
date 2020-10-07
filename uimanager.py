@@ -6,7 +6,7 @@ from PySide2.QtWidgets import QMainWindow
 class UiManager(QUiLoader):
 
     def __init__(self, window, customWidgets=None):
-        QUiLoader.__init__(self, window)
+        QUiLoader.__init__(self)
         self.window = window
 
         # Register all the custom widgets so that they can be created later

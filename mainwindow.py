@@ -24,7 +24,7 @@ class MainWindow(QMainWindow):
         self.uiManager = UiManager(self, customWidgets=[GameScreen])  # Loads widgets into window from a file
         self.stateManager = StateManager(self, state)  # Manages state updates and transitions
 
-        self.updateTimer = QTimer(self) # Used to create update calls
+        self.updateTimer = QTimer(self)  # Used to create update calls
         self.updateTimer.setTimerType(Qt.PreciseTimer)
         self.updateTimer.timeout.connect(self.__updateHandler)
 
@@ -57,20 +57,19 @@ class MainWindow(QMainWindow):
         self.stateManager.start()  # start the state
 
         self.updateTimer.start(0)  # start game loops
-        self.updateFPSTimer.start(150)  # start frame timing management
+        self.updateFPSTimer.start(100)  # start frame timing management
 
     def __updateHandler(self):
         """
         In here fixed and scene updates are made based on timing
         :return: None
         """
-        # TODO pref counter
-        start = time.clock()  # start time of the update call
-        if time.clock() - self.lastFixed > self.fixedTiming:  # Has enough time passed for next call
+        start = time.perf_counter()  # start time of the update call
+        if time.perf_counter() - self.lastFixed > self.fixedTiming:  # Has enough time passed for next call
             self.__fixedUpdate()
             self.fixedFrames += 1
 
-        now = time.clock()  # Time after physics has been calculated
+        now = time.perf_counter()  # Time after physics has been calculated
         if (now - start) < (self.fixedTiming - self.avgscreenTime):  # Is there enough time left to call update
             if (now - self.lastScreen) >= self.screenTiming:  # Has enough time passed for next call
                 if self.gameScreen is not None:
@@ -78,16 +77,16 @@ class MainWindow(QMainWindow):
                 self.__stateUpdate()
                 self.screenFrames += 1
 
-        self.avgscreenTime = (self.avgscreenTime + (time.clock() - now)) / 2  # How long the state update took
+        self.avgscreenTime = (self.avgscreenTime + (time.perf_counter() - now)) / 2  # How long the state update took
 
     def __stateUpdate(self):
-        self.screenTime += 1 / (time.clock() - self.lastScreen)
-        self.lastScreen = time.clock()
+        self.screenTime += 1 / (time.perf_counter() - self.lastScreen)
+        self.lastScreen = time.perf_counter()
         self.stateManager.update()
 
     def __fixedUpdate(self):
-        self.fixedTime += 1 / (time.clock() - self.lastFixed)
-        self.lastFixed = time.clock()
+        self.fixedTime += 1 / (time.perf_counter() - self.lastFixed)
+        self.lastFixed = time.perf_counter()
         self.stateManager.fixedUpdate()
 
     def closeEvent(self, event: PySide2.QtGui.QCloseEvent):
@@ -113,15 +112,8 @@ class MainWindow(QMainWindow):
         self.screenTime = 0
         self.screenFrames = 1
 
-        if self.fixedFps < self.targetfixedFPS:
-            self.fixedTiming *= 0.99
-        elif self.fixedFps > self.targetfixedFPS:
-            self.fixedTiming *= 1.01
-
-        if self.screenFps < self.targetscreenFPS:
-            self.screenTiming *= 0.99
-        elif self.screenFps > self.targetscreenFPS:
-            self.screenTiming *= 1.01
+        self.fixedTiming += 0.001 * ((self.fixedFps - self.targetfixedFPS) / self.targetfixedFPS)
+        self.screenTiming += 0.001 * ((self.screenFps - self.targetscreenFPS) / self.targetscreenFPS)
 
     def resizeEvent(self, event:PySide2.QtGui.QResizeEvent):
         self.gameScreen: GameScreen
