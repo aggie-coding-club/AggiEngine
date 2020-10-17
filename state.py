@@ -1,6 +1,6 @@
 import sys
 
-from gameobjecthandler import GameObjectHandler
+from .gameobjecthandler import GameObjectHandler
 
 
 class State:
@@ -21,7 +21,7 @@ class State:
         self.gameObjectHandler.update()
 
     def fixedUpdateGOH(self):
-        self.gameObjectHandler.updateFixed()
+        self.gameObjectHandler.fixedUpdate()
 
     def exitGOH(self):
         self.gameObjectHandler.exit()
@@ -36,4 +36,10 @@ class State:
         pass
 
     def exit(self):
+        pass
+
+    def keyPressed(self, event):
+        pass
+
+    def keyReleased(self, event):
         pass

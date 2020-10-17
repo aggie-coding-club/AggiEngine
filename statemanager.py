@@ -37,3 +37,11 @@ class StateManager:
     def exit(self):
         self.currentState.exitGOH()
         self.currentState.exit()
+
+    def keyPressed(self, event):
+        self.currentState.keyPressed(event)
+        self.currentState.gameObjectHandler.keyPressed(event)
+
+    def keyReleased(self, event):
+        self.currentState.keyReleased(event)
+        self.currentState.gameObjectHandler.keyReleased(event)

@@ -3,6 +3,7 @@ class GameObject:
     def __init__(self):
         self.body = None
         self.active = True
+        self.window = None
         self.vertices = [[0, 0], [0.1, 0], [0.1, 0.1], [0, 0.1]]
         self.color = [1, 1, 1]
         self.position = [0, 0]
@@ -18,4 +19,10 @@ class GameObject:
         pass
 
     def exit(self):
+        pass
+
+    def keyPressed(self, event):
+        pass
+
+    def keyReleased(self, event):
         pass

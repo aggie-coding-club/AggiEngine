@@ -20,7 +20,7 @@ class GameObjectHandler:
             if gameObject.active:
                 gameObject.update()
 
-    def updateFixed(self):
+    def fixedUpdate(self):
         self.world.Step(1 / self.timing, 6, 2)
         self.world.ClearForces()
 
@@ -56,7 +56,16 @@ class GameObjectHandler:
                 gameObject.color = color
             gameObject.position = body.position / self.scale
 
+        gameObject.window = self.window
         gameObject.start()
 
     def exit(self):
         pass
+
+    def keyPressed(self, event):
+        for gameObject in self.gameObjects:
+            gameObject.keyPressed(event)
+
+    def keyReleased(self, event):
+        for gameObject in self.gameObjects:
+            gameObject.keyReleased(event)

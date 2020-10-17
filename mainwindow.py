@@ -120,3 +120,9 @@ class MainWindow(QMainWindow):
         if self.gameScreen is not None:
             self.gameScreen.setGeometry(0, 0, self.width(), self.height())
 
+    def keyPressEvent(self, event:PySide2.QtGui.QKeyEvent):
+        self.stateManager.keyPressed(event)
+
+    def keyReleaseEvent(self, event:PySide2.QtGui.QKeyEvent):
+        self.stateManager.keyReleased(event)
+
