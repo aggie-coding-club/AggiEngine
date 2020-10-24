@@ -8,7 +8,7 @@ class GameObjectHandler:
     def __init__(self, window, scale=128):
         self.timing = window.targetfixedFPS
         self.window = window
-        self.world = Box2D.b2World(gravity=(0, -98))  # create instance of box 2d world
+        self.world = Box2D.b2World(gravity=(0, -9.8))  # create instance of box 2d world
         self.scale = scale  # scaling parameter, is equal to pixels to meter
         self.gameObjects = []  # game object list
 
@@ -39,8 +39,9 @@ class GameObjectHandler:
 
     def add(self, gameObject, bodyDef=None, bodyFixtureDef=None, color=None):
         self.gameObjects.append(gameObject)  # adds game object to list of game objects
+        gameObject.gameObjectHandler = self
 
-        if bodyDef is not None:
+        if bodyDef:
             body = self.world.CreateBody(bodyDef)
             body.CreateFixture(bodyFixtureDef)
             gameObject.body = body
