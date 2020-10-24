@@ -44,11 +44,20 @@ class GameObjectHandler:
             body = self.world.CreateBody(bodyDef)
             body.CreateFixture(bodyFixtureDef)
             gameObject.body = body
+            gameObject.body.userData = gameObject
 
             if type(bodyFixtureDef.shape) is b2PolygonShape:
                 gameObject.vertices.clear()
                 for vertex in bodyFixtureDef.shape.vertices:
                     gameObject.vertices.append([vertex[0] / self.scale, vertex[1] / self.scale])
+            elif type(bodyFixtureDef.shape) is b2CircleShape:
+                vertices = []
+                for i in range(0, 30):
+                    rad = (2 * math.pi * i) / 30
+                    r = bodyFixtureDef.shape.radius / self.scale
+                    vertices.append([(r * math.cos(rad) - (bodyFixtureDef.shape.pos[0] / self.scale)),
+                                     (r * math.sin(rad) - (bodyFixtureDef.shape.pos[1] / self.scale))])
+                gameObject.vertices = vertices
 
             if color is None:
                 gameObject.color = [1, 1, 1]

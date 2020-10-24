@@ -14,6 +14,7 @@ class StateManager:
         :param state: The next state to show
         :return: None
         """
+
         self.currentState.exitGOH()
         self.currentState.exit()
         self.currentState = state
@@ -28,11 +29,13 @@ class StateManager:
         self.currentState.fixedUpdate()
 
     def start(self):
+        #self.window.pause()
         self.currentState.window = self.window  # Give the state a reference to the window
         self.currentState.loadUi()  # Load the states UI
         self.window.gameScreen = self.window.findChild(GameScreen)
         self.currentState.startGOH()
         self.currentState.start()  # Start the state
+        #self.window.resume()
 
     def exit(self):
         self.currentState.exitGOH()
