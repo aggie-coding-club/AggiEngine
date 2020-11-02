@@ -33,3 +33,9 @@ class GameObject:
     def EndContact(self, body):
         pass
     
+    def PreSolve(self, contact, manifold):
+        pass
+
+    def PostSolve(self, contact, impulse):
+        pass
+    

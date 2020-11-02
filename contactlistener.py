@@ -14,3 +14,15 @@ class ContactListener(b2ContactListener):
         bodyB = contact.fixtureB.body
         bodyA.userData.EndContact(bodyB)
         bodyB.userData.EndContact(bodyA)
+
+    def PreSolve(self, contact, manifold):
+        bodyA = contact.fixtureA.body
+        bodyB = contact.fixtureB.body
+        bodyA.userData.PreSolve(bodyB, manifold)
+        bodyB.userData.PreSolve(bodyA, manifold)
+    
+    def PostSolve(self, contact, impulse):
+        bodyA = contact.fixtureA.body
+        bodyB = contact.fixtureB.body
+        bodyA.userData.PostSolve(bodyB, impulse)
+        bodyB.userData.PostSolve(bodyA, impulse)
