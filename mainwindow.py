@@ -55,7 +55,13 @@ class MainWindow(QMainWindow):
         :return: None
         """
         self.stateManager.start()  # start the state
+        self.resume()
 
+    def pause(self):
+        self.updateTimer.stop()  # start game loops
+        self.updateFPSTimer.stop() # start frame timing management
+
+    def resume(self):
         self.updateTimer.start(0)  # start game loops
         self.updateFPSTimer.start(100)  # start frame timing management
 
@@ -72,7 +78,7 @@ class MainWindow(QMainWindow):
         now = time.perf_counter()  # Time after physics has been calculated
         if (now - start) < (self.fixedTiming - self.avgscreenTime):  # Is there enough time left to call update
             if (now - self.lastScreen) >= self.screenTiming:  # Has enough time passed for next call
-                if self.gameScreen is not None:
+                if self.gameScreen:
                     self.gameScreen.update()
                 self.__stateUpdate()
                 self.screenFrames += 1
@@ -116,8 +122,7 @@ class MainWindow(QMainWindow):
         self.screenTiming += 0.001 * ((self.screenFps - self.targetscreenFPS) / self.targetscreenFPS)
 
     def resizeEvent(self, event:PySide2.QtGui.QResizeEvent):
-        self.gameScreen: GameScreen
-        if self.gameScreen is not None:
+        if self.gameScreen:
             self.gameScreen.setGeometry(0, 0, self.width(), self.height())
 
     def keyPressEvent(self, event:PySide2.QtGui.QKeyEvent):
