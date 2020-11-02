@@ -1,3 +1,4 @@
+from AggiEngine.contactlistener import ContactListener
 import math
 
 from Box2D import *
@@ -8,7 +9,10 @@ class GameObjectHandler:
     def __init__(self, window, scale=128):
         self.timing = window.targetfixedFPS
         self.window = window
-        self.world = Box2D.b2World(gravity=(0, -9.8))  # create instance of box 2d world
+        
+        self.world = Box2D.b2World(gravity=(0, -98))  # create instance of box 2d world
+        self.world.contactListener = ContactListener()
+        
         self.scale = scale  # scaling parameter, is equal to pixels to meter
         self.gameObjects = []  # game object list
 
@@ -45,6 +49,8 @@ class GameObjectHandler:
             body = self.world.CreateBody(bodyDef)
             body.CreateFixture(bodyFixtureDef)
             gameObject.body = body
+            gameObject.body.userData = gameObject
+
             gameObject.body.userData = gameObject
 
             if type(bodyFixtureDef.shape) is b2PolygonShape:
