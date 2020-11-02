@@ -1,6 +1,6 @@
 class GameObject:
 
-    def __init__(self):
+    def __init__(self, gameObjectHandler=None):
         self.body = None
         self.active = True
         self.window = None
@@ -8,6 +8,7 @@ class GameObject:
         self.color = [1, 1, 1]
         self.position = [0, 0]
         self.rotation = 0
+        self.gameObjectHandler = gameObjectHandler
 
     def start(self):
         pass

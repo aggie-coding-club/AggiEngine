@@ -24,7 +24,7 @@ class UiManager(QUiLoader):
         :return: The created widget
         """
 
-        if class_name is QMainWindow:
+        if class_name is QMainWindow.__name__:
             return self.window
 
         if parent is None and self.window:
@@ -51,6 +51,7 @@ class UiManager(QUiLoader):
         :param deleteCurrent: Remove old widgets
         :return: None
         """
+
         if len(self.window.children()) > 0 and deleteCurrent:
             for i in reversed(range(4, len(self.window.children()))):
                 self.window.children()[i].deleteLater()

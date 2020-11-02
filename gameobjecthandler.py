@@ -9,8 +9,10 @@ class GameObjectHandler:
     def __init__(self, window, scale=128):
         self.timing = window.targetfixedFPS
         self.window = window
+        
         self.world = Box2D.b2World(gravity=(0, -98))  # create instance of box 2d world
         self.world.contactListener = ContactListener()
+        
         self.scale = scale  # scaling parameter, is equal to pixels to meter
         self.gameObjects = []  # game object list
 
@@ -41,11 +43,13 @@ class GameObjectHandler:
 
     def add(self, gameObject, bodyDef=None, bodyFixtureDef=None, color=None):
         self.gameObjects.append(gameObject)  # adds game object to list of game objects
+        gameObject.gameObjectHandler = self
 
-        if bodyDef is not None:
+        if bodyDef:
             body = self.world.CreateBody(bodyDef)
             body.CreateFixture(bodyFixtureDef)
             gameObject.body = body
+            gameObject.body.userData = gameObject
 
             gameObject.body.userData = gameObject
 
@@ -53,6 +57,14 @@ class GameObjectHandler:
                 gameObject.vertices.clear()
                 for vertex in bodyFixtureDef.shape.vertices:
                     gameObject.vertices.append([vertex[0] / self.scale, vertex[1] / self.scale])
+            elif type(bodyFixtureDef.shape) is b2CircleShape:
+                vertices = []
+                for i in range(0, 30):
+                    rad = (2 * math.pi * i) / 30
+                    r = bodyFixtureDef.shape.radius / self.scale
+                    vertices.append([(r * math.cos(rad) - (bodyFixtureDef.shape.pos[0] / self.scale)),
+                                     (r * math.sin(rad) - (bodyFixtureDef.shape.pos[1] / self.scale))])
+                gameObject.vertices = vertices
 
             if color is None:
                 gameObject.color = [1, 1, 1]
