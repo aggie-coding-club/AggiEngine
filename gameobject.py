@@ -26,3 +26,10 @@ class GameObject:
 
     def keyReleased(self, event):
         pass
+
+    def BeginContact(self, body):
+        pass
+
+    def EndContact(self, body):
+        pass
+    

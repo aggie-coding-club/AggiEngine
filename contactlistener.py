@@ -4,10 +4,13 @@ class ContactListener(b2ContactListener):
     def __init__(self):
         b2ContactListener.__init__(self)
     def BeginContact(self, contact):
-        pass
+        bodyA = contact.fixtureA.body
+        bodyB = contact.fixtureB.body
+        bodyA.userData.BeginContact(bodyB)
+        bodyB.userData.BeginContact(bodyA)
+
     def EndContact(self, contact):
-        pass
-    def PreSolve(self, contact, oldManifold):
-        pass
-    def PostSolve(self, contact, impulse):
-        pass
+        bodyA = contact.fixtureA.body
+        bodyB = contact.fixtureB.body
+        bodyA.userData.EndContact(bodyB)
+        bodyB.userData.EndContact(bodyA)
