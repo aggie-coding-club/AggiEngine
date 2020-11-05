@@ -10,8 +10,8 @@ class GameObject:
         self.rotation = 0
         self.gameObjectHandler = gameObjectHandler
         self.textureID = -1
-        self.height = 0
-        self.width = 0
+        self.height = 1
+        self.width = 1
 
     def start(self):
         pass
