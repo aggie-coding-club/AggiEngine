@@ -1,4 +1,6 @@
 import OpenGL.GL as gl
+import numpy
+from PIL.Image import Image
 from PySide2.QtWidgets import QOpenGLWidget
 
 
@@ -87,4 +89,14 @@ class GameScreen(QOpenGLWidget):
         gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAX_LEVEL, 0)
         gl.glTexImage2D(gl.GL_TEXTURE_2D, 0, gl.GL_RGBA, width, height, 0, gl.GL_RGBA, gl.GL_UNSIGNED_BYTE, imageData)
         return textureID
+
+    def image_loader(self, filename, colorkey, **kwargs):
+        image = Image.open(filename)
+
+        def extract_image(rect, flags):
+            crop = image  # .crop((rect[0], rect[1], rect[0] + rect[2], rect[1] + rect[3]))
+            imageData = numpy.array(list(crop.getdata()), numpy.uint8)
+            return self.loadTexture(imageData, crop.width, crop.height)
+
+        return extract_image
 
