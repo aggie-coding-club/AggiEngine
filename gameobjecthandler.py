@@ -32,7 +32,7 @@ class GameObjectHandler:
         for gameObject in self.gameObjects:
             info = [gameObject.textureID]
 
-            if gameObject.textureID != -1:
+            if gameObject.textureID == -1:
                 info += [gameObject.vertices, gameObject.color]
             else:
                 info += [gameObject.width, gameObject.height]

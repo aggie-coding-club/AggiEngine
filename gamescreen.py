@@ -41,6 +41,7 @@ class GameScreen(QOpenGLWidget):
         for renderInfo in self.renderInfoList:
 
             if renderInfo[0] == -1:
+                print(renderInfo)
                 gl.glPushMatrix()
                 gl.glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
                 gl.glRotatef(renderInfo[4], 0, 0, 1)
