@@ -1,5 +1,5 @@
 from .gameobjecthandler import GameObjectHandler
-
+from .tileloader import TileMap
 
 class State:
 
@@ -23,6 +23,9 @@ class State:
 
     def exitGOH(self):
         self.gameObjectHandler.exit()
+
+    def loadTileMap(self, fileTMX):
+        self.TileMap = TileMap(fileTMX,self.gameObjectHandler)
 
     def start(self):
         pass
