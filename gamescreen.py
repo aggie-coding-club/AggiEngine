@@ -41,7 +41,6 @@ class GameScreen(QOpenGLWidget):
         for renderInfo in self.renderInfoList:
 
             if renderInfo[0] == -1:
-                print(renderInfo)
                 gl.glPushMatrix()
                 gl.glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
                 gl.glRotatef(renderInfo[4], 0, 0, 1)
@@ -54,21 +53,24 @@ class GameScreen(QOpenGLWidget):
                 gl.glFlush()
                 gl.glPopMatrix()
             else:
+                gl.glEnable(gl.GL_TEXTURE_2D)
+                gl.glBindTexture(gl.GL_TEXTURE_2D, renderInfo[0])
                 gl.glPushMatrix()
                 gl.glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
                 gl.glRotatef(renderInfo[4], 0, 0, 1)
                 gl.glBegin(gl.GL_QUADS)
-                gl.glVertex(0, 0, 0)
+                gl.glVertex2f(0, 0)
                 gl.glTexCoord2f(0, 0)
-                gl.glVertex(renderInfo[1], 0, 0)
+                gl.glVertex2f(renderInfo[1], 0, 0)
                 gl.glTexCoord2f(0, 1)
-                gl.glVertex(renderInfo[1], renderInfo[2], 0)
+                gl.glVertex2f(renderInfo[1], renderInfo[2], 0)
                 gl.glTexCoord2f(1, 1)
-                gl.glVertex(0, renderInfo[2], 0)
+                gl.glVertex2f(0, renderInfo[2], 0)
                 gl.glTexCoord2f(1, 0)
                 gl.glEnd()
                 gl.glFlush()
                 gl.glPopMatrix()
+                gl.glDisable(gl.GL_TEXTURE_2D)
 
     def resizeGL(self, w, h):
         gl.glViewport(0, 0, w, h)
@@ -87,6 +89,5 @@ class GameScreen(QOpenGLWidget):
         gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MIN_FILTER, gl.GL_LINEAR)
         gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAG_FILTER, gl.GL_LINEAR)
         gl.glTexImage2D(gl.GL_TEXTURE_2D, 0, gl.GL_RGB, width, height, 0, gl.GL_RGB, gl.GL_UNSIGNED_BYTE, imageData)
-        gl.glEnable(gl.GL_TEXTURE_2D)
         return textureID
 
