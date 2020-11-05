@@ -10,7 +10,7 @@ class GameObjectHandler:
         self.timing = window.targetfixedFPS
         self.window = window
         
-        self.world = Box2D.b2World(gravity=(0, -98))  # create instance of box 2d world
+        self.world = Box2D.b2World(gravity=(0, -9.8))  # create instance of box 2d world
         self.world.contactListener = ContactListener()
         
         self.scale = scale  # scaling parameter, is equal to pixels to meter

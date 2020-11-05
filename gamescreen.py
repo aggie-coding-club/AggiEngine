@@ -1,11 +1,4 @@
-import random
-from collections import namedtuple
-
-import OpenGL.arrays.vbo as glvbo
 import OpenGL.GL as gl
-import numpy as np
-from OpenGL import GLU
-from OpenGL.GLU import *
 from PySide2.QtWidgets import QOpenGLWidget
 
 
@@ -28,6 +21,8 @@ class GameScreen(QOpenGLWidget):
         Here we will override in order to setup OpenGL how we want
         :return: None
         """
+        gl.glEnable(gl.GL_BLEND)
+        gl.glBlendFunc(gl.GL_SRC_ALPHA, gl.GL_ONE_MINUS_SRC_ALPHA)
 
     def paintGL(self):
         """
@@ -35,6 +30,7 @@ class GameScreen(QOpenGLWidget):
         :return: None
         """
 
+        gl.glClearColor(0, 1, 1, 1)
         gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT)
         gl.glLoadIdentity()
         gl.glTranslatef(-self.cameraPosition[0], -self.cameraPosition[1], 0)
@@ -58,15 +54,17 @@ class GameScreen(QOpenGLWidget):
                 gl.glPushMatrix()
                 gl.glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
                 gl.glRotatef(renderInfo[4], 0, 0, 1)
+                w = renderInfo[1] / 2
+                h = renderInfo[2] / 2
                 gl.glBegin(gl.GL_QUADS)
-                gl.glVertex2f(0, 0)
                 gl.glTexCoord2f(0, 0)
-                gl.glVertex2f(renderInfo[1], 0)
+                gl.glVertex2f(-w, -h)
                 gl.glTexCoord2f(0, 1)
-                gl.glVertex2f(renderInfo[1], renderInfo[2])
+                gl.glVertex2f(w, -h)
                 gl.glTexCoord2f(1, 1)
-                gl.glVertex2f(0, renderInfo[2])
+                gl.glVertex2f(w, h)
                 gl.glTexCoord2f(1, 0)
+                gl.glVertex2f(-w, h)
                 gl.glEnd()
                 gl.glFlush()
                 gl.glPopMatrix()
@@ -83,11 +81,10 @@ class GameScreen(QOpenGLWidget):
 
     def loadTexture(self, imageData, width, height):
         textureID = gl.glGenTextures(1)
+        gl.glPixelStorei(gl.GL_UNPACK_ALIGNMENT, 4)
         gl.glBindTexture(gl.GL_TEXTURE_2D, textureID)
-        gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_WRAP_S, gl.GL_REPEAT)
-        gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_WRAP_T, gl.GL_REPEAT)
-        gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MIN_FILTER, gl.GL_LINEAR)
-        gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAG_FILTER, gl.GL_LINEAR)
-        gl.glTexImage2D(gl.GL_TEXTURE_2D, 0, gl.GL_RGB, width, height, 0, gl.GL_RGB, gl.GL_UNSIGNED_BYTE, imageData)
+        gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_BASE_LEVEL, 0)
+        gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAX_LEVEL, 0)
+        gl.glTexImage2D(gl.GL_TEXTURE_2D, 0, gl.GL_RGBA, width, height, 0, gl.GL_RGBA, gl.GL_UNSIGNED_BYTE, imageData)
         return textureID
 
