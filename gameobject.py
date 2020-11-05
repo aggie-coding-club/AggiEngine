@@ -30,3 +30,16 @@ class GameObject:
 
     def keyReleased(self, event):
         pass
+
+    def BeginContact(self, body):
+        pass
+
+    def EndContact(self, body):
+        pass
+    
+    def PreSolve(self, contact, manifold):
+        pass
+
+    def PostSolve(self, contact, impulse):
+        pass
+    
