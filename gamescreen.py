@@ -81,7 +81,7 @@ class GameScreen(QOpenGLWidget):
         gl.glMatrixMode(gl.GL_MODELVIEW)
         gl.glLoadIdentity()
 
-    def loadTexture(self, imageData, height, width):
+    def loadTexture(self, imageData, width, height):
         textureID = gl.glGenTextures(1)
         gl.glBindTexture(gl.GL_TEXTURE_2D, textureID)
         gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_WRAP_S, gl.GL_REPEAT)
