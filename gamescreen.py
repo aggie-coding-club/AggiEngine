@@ -39,19 +39,37 @@ class GameScreen(QOpenGLWidget):
         gl.glLoadIdentity()
         gl.glTranslatef(-self.cameraPosition[0], -self.cameraPosition[1], 0)
         for renderInfo in self.renderInfoList:
-            gl.glPushMatrix()
-            gl.glTranslatef(renderInfo[2][0], renderInfo[2][1], 0)
-            gl.glRotatef(renderInfo[3], 0, 0, 1)
-            gl.glColor3f(renderInfo[1][0], renderInfo[1][1], renderInfo[1][2])
-            gl.glPolygonMode(gl.GL_FRONT, gl.GL_FILL)
-            gl.glBegin(gl.GL_POLYGON)
-            for vertex in renderInfo[0]:
-                gl.glVertex3f(vertex[0], vertex[1], 0)
-            gl.glEnd()
-            gl.glFlush()
-            gl.glPopMatrix()
 
-    def resizeGL(self, w:int, h:int):
+            if renderInfo[0] == -1:
+                gl.glPushMatrix()
+                gl.glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
+                gl.glRotatef(renderInfo[4], 0, 0, 1)
+                gl.glColor3f(renderInfo[2][0], renderInfo[2][1], renderInfo[2][2])
+                gl.glPolygonMode(gl.GL_FRONT, gl.GL_FILL)
+                gl.glBegin(gl.GL_POLYGON)
+                for vertex in renderInfo[1]:
+                    gl.glVertex3f(vertex[0], vertex[1], 0)
+                gl.glEnd()
+                gl.glFlush()
+                gl.glPopMatrix()
+            else:
+                gl.glPushMatrix()
+                gl.glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
+                gl.glRotatef(renderInfo[4], 0, 0, 1)
+                gl.glBegin(gl.GL_QUADS)
+                gl.glVertex(0, 0, 0)
+                gl.glTexCoord2f(0, 0)
+                gl.glVertex(renderInfo[1], 0, 0)
+                gl.glTexCoord2f(0, 1)
+                gl.glVertex(renderInfo[1], renderInfo[2], 0)
+                gl.glTexCoord2f(1, 1)
+                gl.glVertex(0, renderInfo[2], 0)
+                gl.glTexCoord2f(1, 0)
+                gl.glEnd()
+                gl.glFlush()
+                gl.glPopMatrix()
+
+    def resizeGL(self, w, h):
         gl.glViewport(0, 0, w, h)
         gl.glMatrixMode(gl.GL_PROJECTION)
         gl.glLoadIdentity()
@@ -59,4 +77,15 @@ class GameScreen(QOpenGLWidget):
         gl.glOrtho(aspect, -aspect, -1.0, 1.0, 1.0, -1.0)
         gl.glMatrixMode(gl.GL_MODELVIEW)
         gl.glLoadIdentity()
+
+    def loadTexture(self, imageData, height, width):
+        textureID = gl.glGenTextures(1)
+        gl.glBindTexture(gl.GL_TEXTURE_2D, textureID)
+        gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_WRAP_S, gl.GL_REPEAT)
+        gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_WRAP_T, gl.GL_REPEAT)
+        gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MIN_FILTER, gl.GL_LINEAR)
+        gl.glTexParameteri(gl.GL_TEXTURE_2D, gl.GL_TEXTURE_MAG_FILTER, gl.GL_LINEAR)
+        gl.glTexImage2D(gl.GL_TEXTURE_2D, 0, gl.GL_RGB, width, height, 0, gl.GL_RGB, gl.GL_UNSIGNED_BYTE, imageData)
+        gl.glEnable(gl.GL_TEXTURE_2D)
+        return textureID
 

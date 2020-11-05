@@ -1,5 +1,3 @@
-import sys
-
 from .gameobjecthandler import GameObjectHandler
 
 
