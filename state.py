@@ -8,6 +8,9 @@ class State:
         self.window = window
         self.gameObjectHandler = None
 
+    def loadMap(self, filePath):
+        TileMap(filePath, self.gameObjectHandler, self.window.gameScreen)
+
     def loadUi(self):
         if self.ui_path is not None:
             self.window.uiManager.loadWidgets(self.ui_path, True)
@@ -23,9 +26,6 @@ class State:
 
     def exitGOH(self):
         self.gameObjectHandler.exit()
-
-    def loadTileMap(self, fileTMX):
-        self.TileMap = TileMap(fileTMX,self.gameObjectHandler)
 
     def start(self):
         pass

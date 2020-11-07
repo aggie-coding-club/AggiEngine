@@ -1,6 +1,6 @@
 import OpenGL.GL as gl
 import numpy
-from PIL.Image import Image
+from PIL import Image
 from PySide2.QtWidgets import QOpenGLWidget
 
 
@@ -32,7 +32,7 @@ class GameScreen(QOpenGLWidget):
         :return: None
         """
 
-        gl.glClearColor(0, 1, 1, 1)
+        gl.glClearColor(0, 0, 0, 1)
         gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT)
         gl.glLoadIdentity()
         gl.glTranslatef(-self.cameraPosition[0], -self.cameraPosition[1], 0)
@@ -94,7 +94,7 @@ class GameScreen(QOpenGLWidget):
         image = Image.open(filename)
 
         def extract_image(rect, flags):
-            crop = image  # .crop((rect[0], rect[1], rect[0] + rect[2], rect[1] + rect[3]))
+            crop = image.crop((rect[0], rect[1], rect[0] + rect[2], rect[1] + rect[3]))
             imageData = numpy.array(list(crop.getdata()), numpy.uint8)
             return self.loadTexture(imageData, crop.width, crop.height)
 
