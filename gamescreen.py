@@ -113,7 +113,7 @@ class GameScreen(QOpenGLWidget):
             
             # Making sure the images face the right direction
             crop = ImageOps.flip(crop)
-            crop = crop.rotate(90)
+            crop = crop.transpose(Image.ROTATE_90)
             crop.putalpha(256)
             # Making image data for OpenGL
             imageData = numpy.array(list(crop.getdata()), numpy.uint8)
