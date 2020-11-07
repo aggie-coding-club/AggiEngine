@@ -6,7 +6,7 @@ from Box2D import *
 
 class GameObjectHandler:
 
-    def __init__(self, window, scale=128):
+    def __init__(self, window, scale=16):
         self.timing = window.targetfixedFPS
         self.window = window
         

@@ -22,8 +22,8 @@ class TileMap:
 
                     gm = className()
                     gm.textureID = image
-                    gm.width = tiled_map.tilewidth / gameObjectHandler.scale
-                    gm.height = tiled_map.tileheight / gameObjectHandler.scale
+                    gm.width = 0.125  # B2 8 PPM Tiled 32 = 0.5 (16/32) B2 16 Tiled 32 = 0.125 (4/32)
+                    gm.height = 0.125
                     # create box
                     bodyDef = Box2D.b2BodyDef()
                     if layer.properties['dynamic']:
@@ -32,8 +32,10 @@ class TileMap:
                         bodyDef.type = Box2D.b2_staticBody
               
                     bodyFixtureDef = Box2D.b2FixtureDef(shape=Box2D.b2PolygonShape(
-                        box=(tiled_map.tilewidth / gameObjectHandler.scale, tiled_map.tilewidth / gameObjectHandler.scale)))
+                        box=((tiled_map.tilewidth / gameObjectHandler.scale) / 2,
+                             (tiled_map.tileheight / gameObjectHandler.scale) / 2)))
                     bodyFixtureDef.density = layer.properties['density']
-                    bodyDef.position = (-x*tiled_map.tilewidth, -y*tiled_map.tileheight)
+                    bodyDef.position = (
+                        -(x*tiled_map.tilewidth) / gameObjectHandler.scale, -(y*tiled_map.tileheight) / gameObjectHandler.scale)
                     # adds box
                     gameObjectHandler.add(gm, bodyDef, bodyFixtureDef)

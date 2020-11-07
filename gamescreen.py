@@ -17,7 +17,7 @@ class GameScreen(QOpenGLWidget):
         print("OpenGL widget created")
 
         self.cameraPosition = [0, 0]
-        self.cameraScale = 0.25
+        self.cameraScale = 1
         self.renderInfoList = []
 
     def initializeGL(self):
@@ -59,8 +59,8 @@ class GameScreen(QOpenGLWidget):
                 gl.glPushMatrix()
                 gl.glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
                 gl.glRotatef(renderInfo[4], 0, 0, 1)
-                w = renderInfo[1] / 2
-                h = renderInfo[2] / 2
+                w = renderInfo[1] / 2.0
+                h = renderInfo[2] / 2.0
                 gl.glBegin(gl.GL_QUADS)
                 gl.glTexCoord2f(0, 0)
                 gl.glVertex2f(-w, -h)
@@ -83,6 +83,7 @@ class GameScreen(QOpenGLWidget):
         gl.glOrtho(aspect, -aspect, -1.0, 1.0, 1.0, -1.0)
         gl.glMatrixMode(gl.GL_MODELVIEW)
         gl.glLoadIdentity()
+        print(w, h)
 
     def loadTexture(self, imageData, width, height):
         textureID = gl.glGenTextures(1)
