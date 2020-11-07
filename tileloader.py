@@ -13,11 +13,14 @@ class TileMap:
             if isinstance(layer, pytmx.TiledTileLayer):
                 for x, y, image in layer.tiles():
                     # Gets class name and gets class name definition
-                    # className = layer.properties.get('class-name', 'GameObject')
-                    # print(className)
-                    # className = getattr(importlib.import_module('__main__'), className)
-                    className = GameObject
-                    gm = GameObject()
+                    className = layer.properties.get('class', 'GameObject')
+
+                    if className != 'GameObject':
+                        className = getattr(importlib.import_module('__main__'), className)
+                    else:
+                        className = GameObject
+
+                    gm = className()
                     gm.textureID = image
                     gm.width = tiled_map.tilewidth / gameObjectHandler.scale
                     gm.height = tiled_map.tileheight / gameObjectHandler.scale
@@ -28,8 +31,9 @@ class TileMap:
                     else:
                         bodyDef.type = Box2D.b2_staticBody
               
-                    bodyFixtureDef = Box2D.b2FixtureDef(shape=Box2D.b2PolygonShape(box=(tiled_map.tilewidth / gameObjectHandler.scale, tiled_map.tilewidth / gameObjectHandler.scale)))
+                    bodyFixtureDef = Box2D.b2FixtureDef(shape=Box2D.b2PolygonShape(
+                        box=(tiled_map.tilewidth / gameObjectHandler.scale, tiled_map.tilewidth / gameObjectHandler.scale)))
                     bodyFixtureDef.density = layer.properties['density']
-                    bodyDef.position = (x*tiled_map.tilewidth, -y*tiled_map.tileheight)
+                    bodyDef.position = (-x*tiled_map.tilewidth, -y*tiled_map.tileheight)
                     # adds box
                     gameObjectHandler.add(gm, bodyDef, bodyFixtureDef)
