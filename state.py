@@ -1,4 +1,5 @@
 from .gameobjecthandler import GameObjectHandler
+from .tileloader import TileMap
 
 
 class State:
@@ -7,6 +8,9 @@ class State:
         self.ui_path = ui_path
         self.window = window
         self.gameObjectHandler = None
+
+    def loadMap(self, filePath):
+        TileMap(filePath, self.gameObjectHandler, self.window.gameScreen)
 
     def loadUi(self):
         if self.ui_path is not None:
