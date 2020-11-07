@@ -77,11 +77,11 @@ class MainWindow(QMainWindow):
 
         now = time.perf_counter()  # Time after physics has been calculated
         if (now - start) < (self.fixedTiming - self.avgscreenTime):  # Is there enough time left to call update
-            if (now - self.lastScreen) >= self.screenTiming:  # Has enough time passed for next call
-                if self.gameScreen:
-                    self.gameScreen.update()
-                self.__stateUpdate()
-                self.screenFrames += 1
+        #if (now - self.lastScreen) >= self.screenTiming:  # Has enough time passed for next call
+            if self.gameScreen:
+                self.gameScreen.update()
+            self.__stateUpdate()
+            self.screenFrames += 1
 
         self.avgscreenTime = (self.avgscreenTime + (time.perf_counter() - now)) / 2  # How long the state update took
 
@@ -118,8 +118,8 @@ class MainWindow(QMainWindow):
         self.screenTime = 0
         self.screenFrames = 1
 
-        self.fixedTiming += 0.001 * ((self.fixedFps - self.targetfixedFPS) / self.targetfixedFPS)
-        self.screenTiming += 0.001 * ((self.screenFps - self.targetscreenFPS) / self.targetscreenFPS)
+        #self.fixedTiming += 0.001 * ((self.fixedFps - self.targetfixedFPS) / self.targetfixedFPS)
+        #self.screenTiming += 0.001 * ((self.screenFps - self.targetscreenFPS) / self.targetscreenFPS)
 
     def resizeEvent(self, event:PySide2.QtGui.QResizeEvent):
         if self.gameScreen:

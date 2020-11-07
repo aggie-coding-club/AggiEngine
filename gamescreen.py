@@ -71,7 +71,6 @@ class GameScreen(QOpenGLWidget):
                 glTexCoord2f(1, 0)
                 glVertex2f(-w, h)
                 glEnd()
-                glFlush()
                 glPopMatrix()
                 glDisable(GL_TEXTURE_2D)
 
@@ -98,21 +97,27 @@ class GameScreen(QOpenGLWidget):
     def image_loader(self, filename, colorkey, **kwargs):
         image = Image.open(filename)
 
-        def extract_image(rect, flags):
+        def extract_image(rect=None, flags=None):
             # Cropping the image to the necessary size
-            crop = image.crop((rect[0], rect[1], rect[0] + rect[2], rect[1] + rect[3]))
-            # Handling the flags
-            if flags.flipped_horizontally:
-                crop = ImageOps.mirror(crop)
-            if flags.flipped_vertically:
-                crop = ImageOps.flip(crop)
+            if rect:
+                crop = image.crop((rect[0], rect[1], rect[0] + rect[2], rect[1] + rect[3]))
+            else:
+                crop = image
+
+            if flags:
+                # Handling the flags
+                if flags.flipped_horizontally:
+                    crop = ImageOps.mirror(crop)
+                if flags.flipped_vertically:
+                    crop = ImageOps.flip(crop)
             
             # Making sure the images face the right direction
             crop = ImageOps.flip(crop)
             crop = crop.rotate(90)
+            crop.putalpha(256)
             # Making image data for OpenGL
             imageData = numpy.array(list(crop.getdata()), numpy.uint8)
-            return self.loadTexture(imageData, crop.width, crop.height)
+            return self.loadTexture(imageData, crop.width, crop.height), crop.width, crop.height
 
         return extract_image
 

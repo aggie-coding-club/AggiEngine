@@ -20,7 +20,7 @@ class Application(QApplication):
 
         self.__config = config
         if self.__config is None:
-            self.__config = self.Config(screenFPS=120, fixedFPS=50)
+            self.__config = self.Config(screenFPS=60, fixedFPS=100)
 
         self.window = MainWindow(self, state, self.__config.screenFPS, self.__config.fixedFPS)
 
