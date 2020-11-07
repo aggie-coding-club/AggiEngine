@@ -16,6 +16,7 @@ class GameScreen(QOpenGLWidget):
         print("OpenGL widget created")
 
         self.cameraPosition = [0, 0]
+        self.cameraScale = 0.25
         self.renderInfoList = []
 
     def initializeGL(self):
@@ -35,6 +36,7 @@ class GameScreen(QOpenGLWidget):
         gl.glClearColor(0, 0, 0, 1)
         gl.glClear(gl.GL_COLOR_BUFFER_BIT | gl.GL_DEPTH_BUFFER_BIT)
         gl.glLoadIdentity()
+        gl.glScalef(self.cameraScale, self.cameraScale, 0)
         gl.glTranslatef(-self.cameraPosition[0], -self.cameraPosition[1], 0)
         for renderInfo in self.renderInfoList:
 

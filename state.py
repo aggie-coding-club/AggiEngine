@@ -1,6 +1,7 @@
 from .gameobjecthandler import GameObjectHandler
 from .tileloader import TileMap
 
+
 class State:
 
     def __init__(self, ui_path=None, window=None):
