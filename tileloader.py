@@ -27,6 +27,7 @@ class TileMap:
                         bodyDef.type = Box2D.b2_dynamicBody
                     else:
                         bodyDef.type = Box2D.b2_staticBody
+              
                     bodyFixtureDef = Box2D.b2FixtureDef(shape=Box2D.b2PolygonShape(box=(32 / 128, 32 / 128)))
                     bodyFixtureDef.density = layer.properties['density']
                     bodyDef.position = (-x*16, -y*16)
