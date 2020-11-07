@@ -96,6 +96,7 @@ class GameScreen(QOpenGLWidget):
 
     def image_loader(self, filename, colorkey, **kwargs):
         image = Image.open(filename)
+        transparent = filename.split(".")[-1] == "png"
 
         def extract_image(rect=None, flags=None):
             # Cropping the image to the necessary size
@@ -114,7 +115,8 @@ class GameScreen(QOpenGLWidget):
             # Making sure the images face the right direction
             crop = ImageOps.flip(crop)
             crop = crop.transpose(Image.ROTATE_90)
-            crop.putalpha(256)
+            if not transparent:
+                crop.putalpha(256)
             # Making image data for OpenGL
             imageData = numpy.array(list(crop.getdata()), numpy.uint8)
             return self.loadTexture(imageData, crop.width, crop.height), crop.width, crop.height
