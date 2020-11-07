@@ -1,6 +1,7 @@
 import OpenGL.GL as gl
 import numpy
 from PIL import Image
+from PIL import ImageOps
 from PySide2.QtWidgets import QOpenGLWidget
 
 
@@ -96,7 +97,18 @@ class GameScreen(QOpenGLWidget):
         image = Image.open(filename)
 
         def extract_image(rect, flags):
+            # Cropping the image to the necessary size
             crop = image.crop((rect[0], rect[1], rect[0] + rect[2], rect[1] + rect[3]))
+            # Handling the flags
+            if flags.flipped_horizontally:
+                crop = ImageOps.mirror(crop)
+            if flags.flipped_vertically:
+                crop = ImageOps.flip(crop)
+            
+            # Making sure the images face the right direction
+            crop = ImageOps.flip(crop)
+            crop = crop.rotate(90)
+            # Making image data for OpenGL
             imageData = numpy.array(list(crop.getdata()), numpy.uint8)
             return self.loadTexture(imageData, crop.width, crop.height)
 
