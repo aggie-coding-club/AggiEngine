@@ -95,7 +95,7 @@ class GameScreen(QOpenGLWidget):
         image = Image.open(filename)
 
         def extract_image(rect, flags):
-            # Fropping the image to the necessary size
+            # Cropping the image to the necessary size
             crop = image.crop((rect[0], rect[1], rect[0] + rect[2], rect[1] + rect[3]))
             # Handling the flags
             if flags.flipped_horizontally:
