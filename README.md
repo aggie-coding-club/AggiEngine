@@ -9,6 +9,8 @@ pip install PySide2
 pip install PyOpenGL
 conda install -c conda-forge box2d-py
 pip install tmx
+pip install pillow
+pip install numpy
 ```
 
 ## Usage
