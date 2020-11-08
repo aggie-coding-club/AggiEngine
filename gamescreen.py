@@ -63,13 +63,13 @@ class GameScreen(QOpenGLWidget):
                 h = renderInfo[2] / 2
                 glBegin(GL_QUADS)
                 glTexCoord2f(0, 0)
-                glVertex2f(-w, -h)
-                glTexCoord2f(0, 1)
-                glVertex2f(w, -h)
-                glTexCoord2f(1, 1)
                 glVertex2f(w, h)
                 glTexCoord2f(1, 0)
                 glVertex2f(-w, h)
+                glTexCoord2f(1, 1)
+                glVertex2f(-w, -h)
+                glTexCoord2f(0, 1)
+                glVertex2f(w, -h)
                 glEnd()
                 glPopMatrix()
                 glDisable(GL_TEXTURE_2D)
@@ -112,9 +112,7 @@ class GameScreen(QOpenGLWidget):
                 if flags.flipped_vertically:
                     crop = ImageOps.flip(crop)
             
-            # Making sure the images face the right direction
-            crop = ImageOps.flip(crop)
-            crop = crop.transpose(Image.ROTATE_90)
+            # Add alpha if the base image doesn't have one
             if not transparent:
                 crop.putalpha(256)
             # Making image data for OpenGL
