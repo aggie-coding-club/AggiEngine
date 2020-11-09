@@ -29,18 +29,23 @@ class TileMap:
                     # create box
                     bodyDef = Box2D.b2BodyDef()
                     dynamic = layer.properties.get('dynamic', 0)
-                    if dynamic:
-                        bodyDef.type = Box2D.b2_dynamicBody
-                    else:
-                        bodyDef.type = Box2D.b2_staticBody
-              
-                    bodyFixtureDef = Box2D.b2FixtureDef(shape=Box2D.b2PolygonShape(
-                        box=((image[1] / gameObjectHandler.scale) / 2,
-                             (image[2] / gameObjectHandler.scale) / 2)))
-                    bodyFixtureDef.density = layer.properties.get('density', 1)
+                    if dynamic == 1 or dynamic == 0:
+                        if dynamic == 0:
+                            bodyDef.type = Box2D.b2_staticBody
+                        else:
+                            bodyDef.type = Box2D.b2_dynamicBody
 
-                    bodyDef.position = (
-                        -(x*tiled_map.tilewidth) / gameObjectHandler.scale,
-                        -(y*tiled_map.tileheight) / gameObjectHandler.scale)
-                    # adds box
-                    gameObjectHandler.add(gm, bodyDef, bodyFixtureDef)
+                        bodyFixtureDef = Box2D.b2FixtureDef(shape=Box2D.b2PolygonShape(
+                            box=((image[1] / gameObjectHandler.scale) / 2,
+                                 (image[2] / gameObjectHandler.scale) / 2)))
+                        bodyFixtureDef.density = layer.properties.get('density', 1)
+
+                        bodyDef.position = (
+                            -(x * tiled_map.tilewidth) / gameObjectHandler.scale,
+                            -(y * tiled_map.tileheight) / gameObjectHandler.scale)
+
+                        # adds box
+                        gameObjectHandler.add(gm, bodyDef, bodyFixtureDef)
+                    else:
+                        gm.position = (-x / gameObjectHandler.scale, -y / gameObjectHandler.scale)
+                        gameObjectHandler.add(gm)
