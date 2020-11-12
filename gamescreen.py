@@ -28,6 +28,8 @@ class GameScreen(QOpenGLWidget):
         """
         glEnable(GL_BLEND)
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+        glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
     def paintGL(self):
         """
@@ -52,7 +54,6 @@ class GameScreen(QOpenGLWidget):
                 for vertex in renderInfo[1]:
                     glVertex3f(vertex[0], vertex[1], 0)
                 glEnd()
-                glFlush()
                 glPopMatrix()
             else:
                 glEnable(GL_TEXTURE_2D)

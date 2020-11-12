@@ -1,5 +1,3 @@
-import math
-
 import pytmx
 import Box2D
 import importlib
