@@ -24,7 +24,7 @@ class MainWindow(QMainWindow):
         self.uiManager = UiManager(self, customWidgets=[GameScreen])  # Loads widgets into window from a file
         self.stateManager = StateManager(self, state)  # Manages state updates and transitions
 
-        self.updateTimer = QTimer(self)
+        self.updateTimer = QTimer()
         self.updateTimer.setTimerType(Qt.PreciseTimer)
         self.updateTimer.timeout.connect(self.__updateHandler)
 
