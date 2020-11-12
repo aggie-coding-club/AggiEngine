@@ -23,6 +23,9 @@ class ExampleState(ag.State):
 
     def __init__(self, ui_path):
         ag.State.__init__(self, ui_path)
+        
+    def start(self):
+        self.loadMap('example_map.tmx')
     
     def update(self):
         print("Updated!")
