@@ -5,7 +5,7 @@ class GameObject:
         self.active = True
         self.window = None
         self.vertices = [[0, 0], [0.1, 0], [0.1, 0.1], [0, 0.1]]
-        self.color = [1, 1, 1]
+        self.color = [1, 1, 1, 1]
         self.position = [0, 0]
         self.rotation = 0
         self.gameObjectHandler = gameObjectHandler

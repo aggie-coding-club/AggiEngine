@@ -73,7 +73,7 @@ class GameObjectHandler:
                 gameObject.vertices = vertices
 
             if color is None:
-                gameObject.color = [1, 1, 1]
+                gameObject.color = [1, 1, 1, 1]
             else:
                 gameObject.color = color
             gameObject.position = body.position / self.scale

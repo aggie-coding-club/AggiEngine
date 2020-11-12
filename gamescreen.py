@@ -40,6 +40,7 @@ class GameScreen(QOpenGLWidget):
 
         glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        glColor3f(1, 1, 1)
         glLoadIdentity()
         glScalef(self.cameraScale, self.cameraScale, 0)
         glTranslatef(-self.cameraPosition[0], -self.cameraPosition[1], 0)
@@ -49,7 +50,7 @@ class GameScreen(QOpenGLWidget):
                 glPushMatrix()
                 glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
                 glRotatef(renderInfo[4], 0, 0, 1)
-                glColor3f(renderInfo[2][0], renderInfo[2][1], renderInfo[2][2])
+                glColor4f(0, 0, 1, 1)
                 glPolygonMode(GL_FRONT, GL_FILL)
                 glBegin(GL_POLYGON)
                 for vertex in renderInfo[1]:
@@ -71,6 +72,7 @@ class GameScreen(QOpenGLWidget):
                 glTexCoord2f(0, 1)
                 glVertex2f(renderInfo[1], -renderInfo[2])
                 glEnd()
+                glBindTexture(GL_TEXTURE_2D, 0)
                 glPopMatrix()
 
     def resizeGL(self, w, h):
