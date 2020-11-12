@@ -8,6 +8,7 @@ class State:
         self.ui_path = ui_path
         self.window = window
         self.gameObjectHandler = None
+        self.active = True
 
     def loadMap(self, filePath):
         TileMap(filePath, self.gameObjectHandler, self.window.gameScreen)

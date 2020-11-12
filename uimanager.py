@@ -53,7 +53,7 @@ class UiManager(QUiLoader):
         """
 
         if len(self.window.children()) > 0 and deleteCurrent:
-            for i in reversed(range(2, len(self.window.children()))):
+            for i in reversed(range(3, len(self.window.children()))):
                 self.window.children()[i].deleteLater()
 
         widgets = self.load(ui_file)  # load widgets

@@ -9,7 +9,6 @@ from .statemanager import StateManager
 from .state import State
 from .gamescreen import GameScreen
 
-
 class MainWindow(QMainWindow):
 
     def __init__(self, app, state: State, screenFPS, fixedFPS, parent=None):
@@ -24,7 +23,7 @@ class MainWindow(QMainWindow):
         self.uiManager = UiManager(self, customWidgets=[GameScreen])  # Loads widgets into window from a file
         self.stateManager = StateManager(self, state)  # Manages state updates and transitions
 
-        self.updateTimer = QTimer()
+        self.updateTimer = QTimer(self)
         self.updateTimer.setTimerType(Qt.PreciseTimer)
         self.updateTimer.timeout.connect(self.__updateHandler)
 
@@ -39,6 +38,10 @@ class MainWindow(QMainWindow):
 
         self.targetFixedFPS = fixedFPS
         self.targetUpdateFPS = screenFPS
+        self.fixedTiming = 1 / self.targetFixedFPS
+        self.screenTiming = 1000 / self.targetUpdateFPS
+        self.fixedNeeded = fixedFPS
+        self.screenNeeded = screenFPS
         self.lastTime = 0
 
     def start(self):
@@ -54,7 +57,7 @@ class MainWindow(QMainWindow):
         self.updateFPSTimer.stop()  # start frame timing management
 
     def resume(self):
-        self.updateTimer.start(0)  # start game loops
+        self.updateTimer.start(self.screenTiming if self.screenTiming > 0 else 0)  # start game loops
         self.updateFPSTimer.start(100)  # start frame timing management
 
     def __updateHandler(self):
@@ -62,8 +65,6 @@ class MainWindow(QMainWindow):
         In here fixed and scene updates are made based on timing
         :return: None
         """
-        self.stateManager.fixedUpdate()
-        self.fixedFrames += 1
 
         if self.gameScreen:
             self.gameScreen.update()
@@ -86,12 +87,25 @@ class MainWindow(QMainWindow):
         :return: None
         """
 
-        print(self.fixedFps, self.screenFps)
         self.fixedFps = self.fixedFrames / (time.perf_counter() - self.lastTime)
         self.fixedFrames = 0
 
         self.screenFps = self.screenFrames / (time.perf_counter() - self.lastTime)
         self.screenFrames = 0
+
+        if -0.5 < (self.targetFixedFPS - self.fixedFps) / self.targetFixedFPS < 0.5 and self.fixedNeeded > 30:
+            self.fixedNeeded += (self.targetFixedFPS - self.fixedFps) * 0.25
+            self.fixedTiming = 1 / self.fixedNeeded
+
+        if self.screenTiming > 0:
+            self.pause()
+            if -0.5 < (self.screenNeeded - self.screenFps) / self.targetUpdateFPS < 0.5 and self.screenNeeded > 30:
+                self.screenNeeded += (self.targetUpdateFPS - self.screenFps) * 0.15
+                self.screenTiming = 1000 / self.screenNeeded
+            self.resume()
+        else:
+            self.screenTiming = 0
+
         self.lastTime = time.perf_counter()
 
     def resizeEvent(self, event: PySide2.QtGui.QResizeEvent):
