@@ -19,6 +19,7 @@ class GameScreen(QOpenGLWidget):
         self.cameraPosition = [0, 0]
         self.cameraScale = 1
         self.renderInfoList = []
+        self.bgColor = [0, 0, 0]
 
     def initializeGL(self):
         """
@@ -34,7 +35,7 @@ class GameScreen(QOpenGLWidget):
         :return: None
         """
 
-        glClearColor(0, 0, 0, 1)
+        glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         glLoadIdentity()
         glScalef(self.cameraScale, self.cameraScale, 0)

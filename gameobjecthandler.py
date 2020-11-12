@@ -6,8 +6,8 @@ from Box2D import *
 
 class GameObjectHandler:
 
-    def __init__(self, window, scale=64):
-        self.timing = window.targetfixedFPS
+    def __init__(self, window, scale=16):
+        self.timing = window.targetFixedFPS
         self.window = window
         
         self.world = Box2D.b2World(gravity=(0, -9.8))  # create instance of box 2d world

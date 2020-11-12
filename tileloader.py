@@ -3,6 +3,7 @@ import math
 import pytmx
 import Box2D
 import importlib
+from PIL import ImageColor
 from .gameobject import GameObject
 
 
@@ -10,6 +11,9 @@ class TileMap:
 
     def __init__(self, tmxFile, gameObjectHandler, gameScreen):
         tiled_map = pytmx.TiledMap(tmxFile, image_loader=gameScreen.image_loader)
+        if tiled_map.background_color:
+            color = ImageColor.getcolor(tiled_map.background_color, 'RGB')
+            gameScreen.bgColor = [color[0] / 256, color[1] / 256, color[2] / 256]
         for layer in tiled_map:
             # Checks for layers with tiles
             if isinstance(layer, pytmx.TiledTileLayer):
