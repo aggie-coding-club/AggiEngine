@@ -1,6 +1,7 @@
 import pytmx
 import Box2D
 import importlib
+from PIL import ImageColor
 from .gameobject import GameObject
 
 
@@ -8,6 +9,10 @@ class TileMap:
 
     def __init__(self, tmxFile, gameObjectHandler, gameScreen):
         tiled_map = pytmx.TiledMap(tmxFile, image_loader=gameScreen.image_loader)
+        if tiled_map.background_color:
+            color = ImageColor.getcolor(tiled_map.background_color, 'RGB')
+            gameScreen.bgColor = [color[0] / 256, color[1] / 256, color[2] / 256]
+         
         hitboxes = {}
         objects = tiled_map.objects
 
@@ -17,7 +22,7 @@ class TileMap:
             for pair in obj.points:
                 pairPoints.append((-(pair[0]-obj.x)/gameObjectHandler.scale,-(pair[1]-obj.y)/gameObjectHandler.scale))
             hitboxes[obj.name] = pairPoints
-            
+
         for layer in tiled_map:
             # Checks for layers with tiles
             if isinstance(layer, pytmx.TiledTileLayer):
@@ -32,46 +37,64 @@ class TileMap:
                     # Sets up Texture
                     gm = className()
                     gm.textureID = image[0]
-                    gm.width = image[1] / gameObjectHandler.scale ** 2
-                    gm.height = image[2] / gameObjectHandler.scale ** 2
 
-                    # Sets up Body Type
-                    bodyDef = Box2D.b2BodyDef()
-                    bodyType = layer.properties.get('bodyType', 'static')
-                    if bodyType=='dynamic':
-                        bodyDef.type = Box2D.b2_dynamicBody
-                    elif bodyType=='static':
-                        bodyDef.type = Box2D.b2_staticBody
-                    else:
-                        bodyDef.type = Box2D.b2_kinematicBody
-                    bodyDef.linearDamping = layer.properties.get('linearDamping',0)
-                    bodyDef.angularDamping = layer.properties.get('angularDamping',0.01)
+                    gm.setWidth(image[1] / gameObjectHandler.scale ** 2)
+                    gm.setHeight(image[2] / gameObjectHandler.scale ** 2)
                     
-                    # Linear Vel (Broken)
-                    linearVel = layer.properties.get('linearVel',None)
-                    if linearVel:
-                        linearVel=linearVel.split(',')
-                        linearVel =  [float(x) for x in linearVel]
-                        bodyDef.linearVelocity = (linearVel[0],bodyDef.linearVelocity.x)
-                        bodyDef.linearVelocity = (linearVel[1],bodyDef.linearVelocity.y)
+                    # Sets up Color
+                    color = layer.properties.get('color', None)
+                    
+                    # Sets up Hitbox
+                    verticesName = layer.properties.get('hitboxName', None)
+                    
+                    # Sets up Body Type
+                    bodyType = layer.properties.get('bodyType', 'none')
+                    if bodyType != 'none':
+                        bodyDef = Box2D.b2BodyDef()
+                        if bodyType == 'dynamic':
+                            bodyDef.type = Box2D.b2_dynamicBody
+                        elif bodyType == 'static':
+                            bodyDef.type = Box2D.b2_staticBody
+                        else:
+                            bodyDef.type = Box2D.b2_kinematicBody
+                        bodyDef.linearDamping = layer.properties.get('linearDamping', 0)
+                        bodyDef.angularDamping = layer.properties.get('angularDamping', 0)
+                    
+                        # Linear Vel (Broken)
+                        linearVel = layer.properties.get('linearVel', None)
+                        if linearVel:
+                            linearVel=linearVel.split(',')
+                            linearVel =  [float(x) for x in linearVel]
+                            bodyDef.linearVelocity = (linearVel[0],bodyDef.linearVelocity.x)
+                            bodyDef.linearVelocity = (linearVel[1],bodyDef.linearVelocity.y)
             
-                    # Sets up body Fixture
-                    verticesName = layer.properties.get('hitboxName',0)
-                    if verticesName:
-                        vertices = hitboxes[verticesName]
-                        bodyFixtureDef = Box2D.b2FixtureDef(shape=Box2D.b2PolygonShape(vertices=vertices))
-                        gm.textureID = -1 # Temporary
-                    else:
-                        bodyFixtureDef = Box2D.b2FixtureDef(shape=Box2D.b2PolygonShape(
+                        # Sets up body Fixture
+                        if verticesName:
+                            bodyFixtureDef = Box2D.b2FixtureDef(
+                              shape=Box2D.b2PolygonShape(vertices=hitboxes[verticesName]))
+                        else:
+                            bodyFixtureDef = Box2D.b2FixtureDef(shape=Box2D.b2PolygonShape(
                             box=((image[1] / gameObjectHandler.scale) / 2,
                                 (image[2] / gameObjectHandler.scale) / 2)))
-                    bodyFixtureDef.density = layer.properties.get('density', 1)
-                    bodyFixtureDef.friction = layer.properties.get('friction',0)
-                    bodyFixtureDef.restitution = layer.properties.get('restitution',0)
-                    # Sets up Position
-                    bodyDef.position = (
-                        -(x*tiled_map.tilewidth) / gameObjectHandler.scale,
-                        -(y*tiled_map.tileheight) / gameObjectHandler.scale)
-                    # adds box
-                    gameObjectHandler.add(gm, bodyDef, bodyFixtureDef)
-                    
+                        bodyFixtureDef.density = layer.properties.get('density', 1)
+                        bodyFixtureDef.friction = layer.properties.get('friction',0)
+                        bodyFixtureDef.restitution = layer.properties.get('restitution',0)
+                        # Sets up Position
+                        bodyDef.position = (
+                            -(x*tiled_map.tilewidth) / gameObjectHandler.scale,
+                            -(y*tiled_map.tileheight) / gameObjectHandler.scale)
+                       # adds box
+                       if color:
+                          gm.textureID = -1
+                          gameObjectHandler.add(gm, bodyDef, bodyFixtureDef, color)
+                       else:
+                          gameObjectHandler.add(gm, bodyDef, bodyFixtureDef)
+                    else:
+                       gm.position = (-x / gameObjectHandler.scale, -y / gameObjectHandler.scale)
+                       if color:
+                          gm.textureID = -1
+                          gm.vertices = hitboxes[verticesName]       
+                          gameObjectHandler.add(gm, color=color)
+                       else:
+                          gameObjectHandler.add(gm)
+                          

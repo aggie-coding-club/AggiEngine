@@ -19,6 +19,7 @@ class GameScreen(QOpenGLWidget):
         self.cameraPosition = [0, 0]
         self.cameraScale = 1
         self.renderInfoList = []
+        self.bgColor = [0, 0, 0]
 
     def initializeGL(self):
         """
@@ -27,6 +28,9 @@ class GameScreen(QOpenGLWidget):
         """
         glEnable(GL_BLEND)
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+        glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        glEnable(GL_TEXTURE_2D)
 
     def paintGL(self):
         """
@@ -34,7 +38,7 @@ class GameScreen(QOpenGLWidget):
         :return: None
         """
 
-        glClearColor(0, 0, 0, 1)
+        glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         glLoadIdentity()
         glScalef(self.cameraScale, self.cameraScale, 0)
@@ -51,28 +55,23 @@ class GameScreen(QOpenGLWidget):
                 for vertex in renderInfo[1]:
                     glVertex3f(vertex[0], vertex[1], 0)
                 glEnd()
-                glFlush()
                 glPopMatrix()
             else:
-                glEnable(GL_TEXTURE_2D)
-                glBindTexture(GL_TEXTURE_2D, renderInfo[0])
                 glPushMatrix()
                 glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
                 glRotatef(renderInfo[4], 0, 0, 1)
-                w = renderInfo[1] / 2
-                h = renderInfo[2] / 2
+                glBindTexture(GL_TEXTURE_2D, renderInfo[0])
                 glBegin(GL_QUADS)
                 glTexCoord2f(0, 0)
-                glVertex2f(-w, -h)
-                glTexCoord2f(0, 1)
-                glVertex2f(w, -h)
-                glTexCoord2f(1, 1)
-                glVertex2f(w, h)
+                glVertex2f(renderInfo[1], renderInfo[2])
                 glTexCoord2f(1, 0)
-                glVertex2f(-w, h)
+                glVertex2f(-renderInfo[1], renderInfo[2])
+                glTexCoord2f(1, 1)
+                glVertex2f(-renderInfo[1], -renderInfo[2])
+                glTexCoord2f(0, 1)
+                glVertex2f(renderInfo[1], -renderInfo[2])
                 glEnd()
                 glPopMatrix()
-                glDisable(GL_TEXTURE_2D)
 
     def resizeGL(self, w, h):
         glViewport(0, 0, w, h)
@@ -112,9 +111,7 @@ class GameScreen(QOpenGLWidget):
                 if flags.flipped_vertically:
                     crop = ImageOps.flip(crop)
             
-            # Making sure the images face the right direction
-            crop = ImageOps.flip(crop)
-            crop = crop.transpose(Image.ROTATE_90)
+            # Add alpha if the base image doesn't have one
             if not transparent:
                 crop.putalpha(256)
             # Making image data for OpenGL

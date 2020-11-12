@@ -13,6 +13,18 @@ class GameObject:
         self.height = 1
         self.width = 1
 
+    def getWidth(self):
+        return self.width * 2
+
+    def getHeight(self):
+        return self.height * 2
+
+    def setWidth(self, width):
+        self.width = width / 2
+
+    def setHeight(self, height):
+        self.height = height / 2
+
     def start(self):
         pass
 

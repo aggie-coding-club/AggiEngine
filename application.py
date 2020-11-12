@@ -1,12 +1,10 @@
-from collections import namedtuple
 from PySide2.QtWidgets import QApplication
 from .mainwindow import MainWindow
 
 
 class Application(QApplication):
-    Config = namedtuple('Config', ['screenFPS', 'fixedFPS'])
 
-    def __init__(self, state, args=None, config: Config = None):
+    def __init__(self, state, args=None, screenFps=-1, fixedFps=144):
         """
         Creates and starts the application.
         :param state: The initial state to launch the Application with
@@ -18,11 +16,7 @@ class Application(QApplication):
         else:
             super(Application, self).__init__()
 
-        self.__config = config
-        if self.__config is None:
-            self.__config = self.Config(screenFPS=60, fixedFPS=100)
-
-        self.window = MainWindow(self, state, self.__config.screenFPS, self.__config.fixedFPS)
+        self.window = MainWindow(self, state, screenFps, fixedFps)
 
     def run(self):
         """

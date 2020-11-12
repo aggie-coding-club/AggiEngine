@@ -7,7 +7,7 @@ from Box2D import *
 class GameObjectHandler:
 
     def __init__(self, window, scale=16):
-        self.timing = window.targetfixedFPS
+        self.timing = 1 / window.targetFixedFPS
         self.window = window
         
         self.world = Box2D.b2World(gravity=(0, -9.8))  # create instance of box 2d world
@@ -25,7 +25,7 @@ class GameObjectHandler:
                 gameObject.update()
 
     def fixedUpdate(self):
-        self.world.Step(1 / self.timing, 6, 2)
+        self.world.Step(self.timing, 6, 2)
         self.world.ClearForces()
 
         newRenderInfoList = []

@@ -1,5 +1,28 @@
+from PySide2.QtCore import QRunnable, Slot, QThreadPool
+
 from .state import State
 from .gamescreen import GameScreen
+
+import time
+
+
+class Worker(QRunnable):
+
+    def __init__(self, fixedUpdate, state):
+        QRunnable.__init__(self)
+        self.fixedUpdate = fixedUpdate
+        self.window = state.window
+        self.state = state
+        self.setAutoDelete(False)
+
+    @Slot()  # QtCore.Slot
+    def run(self):
+        while self.state.active:
+            start = time.perf_counter()
+            self.fixedUpdate()
+            self.window.fixedFrames += 1
+            wait = self.window.fixedTiming - (time.perf_counter() - start)
+            time.sleep(wait if wait > 0 else 0)
 
 
 class StateManager:
@@ -7,6 +30,8 @@ class StateManager:
     def __init__(self, window, state: State):
         self.window = window
         self.currentState = state
+        self.threadpool = QThreadPool()
+        self.worker = None
 
     def changeState(self, state: State):
         """
@@ -15,6 +40,7 @@ class StateManager:
         :return: None
         """
 
+        self.currentState.active = False
         self.currentState.exitGOH()
         self.currentState.exit()
         self.currentState = state
@@ -35,9 +61,12 @@ class StateManager:
         self.window.gameScreen = self.window.findChild(GameScreen)
         self.currentState.startGOH()
         self.currentState.start()  # Start the state
+        self.worker = Worker(self.fixedUpdate, self.currentState)
+        self.threadpool.start(self.worker)
         self.window.resume()
 
     def exit(self):
+        self.currentState.active = False
         self.currentState.exitGOH()
         self.currentState.exit()
 
