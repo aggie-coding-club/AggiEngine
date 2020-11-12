@@ -30,6 +30,7 @@ class GameScreen(QOpenGLWidget):
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
         glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        glEnable(GL_TEXTURE_2D)
 
     def paintGL(self):
         """
@@ -56,25 +57,21 @@ class GameScreen(QOpenGLWidget):
                 glEnd()
                 glPopMatrix()
             else:
-                glEnable(GL_TEXTURE_2D)
-                glBindTexture(GL_TEXTURE_2D, renderInfo[0])
                 glPushMatrix()
                 glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
                 glRotatef(renderInfo[4], 0, 0, 1)
-                w = renderInfo[1] / 2
-                h = renderInfo[2] / 2
+                glBindTexture(GL_TEXTURE_2D, renderInfo[0])
                 glBegin(GL_QUADS)
                 glTexCoord2f(0, 0)
-                glVertex2f(w, h)
+                glVertex2f(renderInfo[1], renderInfo[2])
                 glTexCoord2f(1, 0)
-                glVertex2f(-w, h)
+                glVertex2f(-renderInfo[1], renderInfo[2])
                 glTexCoord2f(1, 1)
-                glVertex2f(-w, -h)
+                glVertex2f(-renderInfo[1], -renderInfo[2])
                 glTexCoord2f(0, 1)
-                glVertex2f(w, -h)
+                glVertex2f(renderInfo[1], -renderInfo[2])
                 glEnd()
                 glPopMatrix()
-                glDisable(GL_TEXTURE_2D)
 
     def resizeGL(self, w, h):
         glViewport(0, 0, w, h)

@@ -26,8 +26,8 @@ class TileMap:
 
                     gm = className()
                     gm.textureID = image[0]
-                    gm.width = image[1] / gameObjectHandler.scale ** 2
-                    gm.height = image[2] / gameObjectHandler.scale ** 2
+                    gm.setWidth(image[1] / gameObjectHandler.scale ** 2)
+                    gm.setHeight(image[2] / gameObjectHandler.scale ** 2)
                     # create box
                     bodyDef = Box2D.b2BodyDef()
                     dynamic = layer.properties.get('dynamic', 0)

@@ -86,6 +86,7 @@ class MainWindow(QMainWindow):
         :return: None
         """
 
+        print(self.fixedFps, self.screenFps)
         self.fixedFps = self.fixedFrames / (time.perf_counter() - self.lastTime)
         self.fixedFrames = 0
 
