@@ -4,14 +4,14 @@ from .mainwindow import MainWindow
 
 class Application(QApplication):
 
-    def __init__(self, state, args=None, screenFps=-1, fixedFps=60):
+    def __init__(self, state, screenFps=-1, fixedFps=60, args=None):
         """
         Creates and starts the application.
         :param state: The initial state to launch the Application with
         :param args: System arguments passed in
         :param config: Set application parameters
         """
-        if args is not None:
+        if args:
             super(Application, self).__init__(args)
         else:
             super(Application, self).__init__()
