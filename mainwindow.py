@@ -37,8 +37,6 @@ class MainWindow(QMainWindow):
         self.targetUpdateFPS = screenFPS
         self.fixedTiming = 1 / self.targetFixedFPS
         self.screenTiming = 1 / self.targetUpdateFPS
-        if self.screenTiming < 0:
-            self.screenTiming = 0
         self.fixedNeeded = fixedFPS
         self.screenNeeded = screenFPS
         self.lastTime = 0
@@ -82,12 +80,9 @@ class MainWindow(QMainWindow):
             self.fixedNeeded += (self.targetFixedFPS - self.fixedFps) * 0.25
             self.fixedTiming = 1 / self.fixedNeeded
 
-        if self.screenTiming > 0:
-            if -0.5 < (self.screenNeeded - self.screenFps) / self.targetUpdateFPS < 0.5 and self.screenNeeded > 30:
-                self.screenNeeded += (self.targetUpdateFPS - self.screenFps) * 0.15
-                self.screenTiming = 1 / self.screenNeeded
-        else:
-            self.screenTiming = 0
+        if -0.5 < (self.screenNeeded - self.screenFps) / self.targetUpdateFPS < 0.5 and self.screenNeeded > 30:
+            self.screenNeeded += (self.targetUpdateFPS - self.screenFps) * 0.15
+            self.screenTiming = 1 / self.screenNeeded
 
         self.lastTime = time.perf_counter()
 

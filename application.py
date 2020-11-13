@@ -4,7 +4,7 @@ from .mainwindow import MainWindow
 
 class Application(QApplication):
 
-    def __init__(self, state, screenFps=-1, fixedFps=60, args=None):
+    def __init__(self, state, screenFps=120, fixedFps=60, args=None):
         """
         Creates and starts the application.
         :param state: The initial state to launch the Application with
