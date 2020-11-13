@@ -50,7 +50,7 @@ class GameScreen(QOpenGLWidget):
                 glPushMatrix()
                 glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
                 glRotatef(renderInfo[4], 0, 0, 1)
-                glColor4f(0, 0, 1, 1)
+                glColor4f(renderInfo[2][0], renderInfo[2][1], renderInfo[2][2], renderInfo[2][3])
                 glPolygonMode(GL_FRONT, GL_FILL)
                 glBegin(GL_POLYGON)
                 for vertex in renderInfo[1]:

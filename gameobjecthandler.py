@@ -33,6 +33,8 @@ class GameObjectHandler:
             info = [gameObject.textureID]
 
             if gameObject.textureID == -1:
+                if len(gameObject.color) < 4:
+                    gameObject.color.append(1)
                 info += [gameObject.vertices, gameObject.color]
             else:
                 info += [gameObject.width, gameObject.height]
