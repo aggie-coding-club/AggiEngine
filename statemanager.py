@@ -6,7 +6,7 @@ from .gamescreen import GameScreen
 import time
 
 
-class Worker(QRunnable):
+class Physics(QRunnable):
 
     def __init__(self, fixedUpdate, state):
         QRunnable.__init__(self)
@@ -25,13 +25,33 @@ class Worker(QRunnable):
             time.sleep(wait if wait > 0 else 0)
 
 
+class Rendering(QRunnable):
+
+    def __init__(self, update, state):
+        QRunnable.__init__(self)
+        self.update = update
+        self.window = state.window
+        self.state = state
+        self.setAutoDelete(False)
+
+    @Slot()  # QtCore.Slot
+    def run(self):
+        while self.state.active:
+            start = time.perf_counter()
+            if self.window.gameScreen:
+                self.window.gameScreen.update()
+            self.update()
+            self.window.screenFrames += 1
+            wait = self.window.screenTiming - (time.perf_counter() - start)
+            time.sleep(wait if wait > 0 else 0)
+
+
 class StateManager:
 
     def __init__(self, window, state: State):
         self.window = window
         self.currentState = state
-        self.threadpool = QThreadPool()
-        self.worker = None
+        self.threadPool = QThreadPool()
 
     def changeState(self, state: State):
         """
@@ -61,8 +81,8 @@ class StateManager:
         self.window.gameScreen = self.window.findChild(GameScreen)
         self.currentState.startGOH()
         self.currentState.start()  # Start the state
-        self.worker = Worker(self.fixedUpdate, self.currentState)
-        self.threadpool.start(self.worker)
+        self.threadPool.start(Physics(self.fixedUpdate, self.currentState))
+        self.threadPool.start(Rendering(self.update, self.currentState))
         self.window.resume()
 
     def exit(self):
