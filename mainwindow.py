@@ -40,6 +40,7 @@ class MainWindow(QMainWindow):
         self.fixedNeeded = fixedFPS
         self.screenNeeded = screenFPS
         self.lastTime = 0
+        self.setMouseTracking(True)
 
     def start(self):
         """
@@ -95,3 +96,12 @@ class MainWindow(QMainWindow):
 
     def keyReleaseEvent(self, event: PySide2.QtGui.QKeyEvent):
         self.stateManager.keyReleased(event)
+
+    def mouseMoveEvent(self, event: PySide2.QtGui.QMouseEvent):
+        self.stateManager.mouseMoved(event)
+
+    def mousePressEvent(self, event: PySide2.QtGui.QMouseEvent):
+        self.stateManager.mousePressed(event)
+
+    def mouseReleaseEvent(self, event: PySide2.QtGui.QMouseEvent):
+        self.stateManager.mouseReleased(event)

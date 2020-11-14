@@ -46,3 +46,12 @@ class State:
 
     def keyReleased(self, event):
         pass
+
+    def mouseMoved(self, event):
+        pass
+
+    def mousePressed(self, event):
+        pass
+
+    def mouseReleased(self, event):
+        pass

@@ -97,3 +97,15 @@ class StateManager:
     def keyReleased(self, event):
         self.currentState.keyReleased(event)
         self.currentState.gameObjectHandler.keyReleased(event)
+
+    def mouseMoved(self, event):
+        self.currentState.mouseMoved(event)
+        self.currentState.gameObjectHandler.mouseMoved(event)
+
+    def mousePressed(self, event):
+        self.currentState.mousePressed(event)
+        self.currentState.gameObjectHandler.mousePressed(event)
+
+    def mouseReleased(self, event):
+        self.currentState.mouseReleased(event)
+        self.currentState.gameObjectHandler.mouseReleased(event)

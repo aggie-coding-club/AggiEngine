@@ -93,3 +93,15 @@ class GameObjectHandler:
     def keyReleased(self, event):
         for gameObject in self.gameObjects:
             gameObject.keyReleased(event)
+
+    def mouseMoved(self, event):
+        for gameObject in self.gameObjects:
+            gameObject.mouseMoved(event)
+
+    def mousePressed(self, event):
+        for gameObject in self.gameObjects:
+            gameObject.mousePressed(event)
+
+    def mouseReleased(self, event):
+        for gameObject in self.gameObjects:
+            gameObject.mouseReleased(event)
