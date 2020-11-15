@@ -15,6 +15,7 @@ class GameObjectHandler:
         
         self.scale = scale  # scaling parameter, is equal to pixels to meter
         self.gameObjects = []  # game object list
+        self.removeList = []
 
     def setScale(self, scale):
         self.scale = scale
@@ -48,6 +49,10 @@ class GameObjectHandler:
             newRenderInfoList.append(info)
         if self.window.gameScreen is not None:
             self.window.gameScreen.renderInfoList = newRenderInfoList
+
+        for gameObject in self.removeList:
+            self.gameObjects.remove(gameObject)
+            self.world.DestroyBody(gameObject)
 
     def add(self, gameObject, bodyDef=None, bodyFixtureDef=None, color=None):
         self.gameObjects.append(gameObject)  # adds game object to list of game objects
@@ -83,8 +88,29 @@ class GameObjectHandler:
         gameObject.window = self.window
         gameObject.start()
 
+    def getGameObject(self, typeOf):
+        for gameObject in self.gameObjects:
+            if isinstance(gameObject, typeOf):
+                return gameObject
+
+    def getGameObjects(self, typeOf):
+        gameObjects = []
+        for gameObject in self.gameObjects:
+            if isinstance(gameObject, typeOf):
+                gameObjects.append(gameObject)
+        return gameObjects
+
+    def removeGameObject(self, toRemove):
+        self.removeList.append(toRemove)
+
+    def removeGameObjects(self, typeOf):
+        for gameObject in self.gameObjects:
+            if isinstance(gameObject, typeOf):
+                self.removeList.append(gameObject)
+
     def exit(self):
-        pass
+        for gameObject in self.gameObjects:
+            gameObject.exit()
 
     def keyPressed(self, event):
         for gameObject in self.gameObjects:
