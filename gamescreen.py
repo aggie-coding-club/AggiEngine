@@ -55,7 +55,7 @@ class GameScreen(QOpenGLWidget):
                 glPolygonMode(GL_FRONT, GL_FILL)
                 glBegin(GL_POLYGON)
                 for vertex in renderInfo[1]:
-                    glVertex3f(vertex[0], vertex[1], 0)
+                    glVertex2f(vertex[0], vertex[1])
                 glEnd()
                 glPopMatrix()
             else:

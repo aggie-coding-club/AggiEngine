@@ -16,7 +16,6 @@ class GameObjectHandler:
         self.scale = scale  # scaling parameter, is equal to pixels to meter
         self.gameObjects = []  # game object list
         self.removeList = []
-        self.renderInfoList = []
 
     def setScale(self, scale):
         self.scale = scale
@@ -30,7 +29,7 @@ class GameObjectHandler:
         self.world.Step(self.timing, 6, 2)
         self.world.ClearForces()
 
-        self.renderInfoList = []
+        newRenderInfoList = []
         for gameObject in self.gameObjects:
             info = [gameObject.textureID]
 
@@ -47,9 +46,9 @@ class GameObjectHandler:
                     gameObject.position = gameObject.body.position / self.scale
                     gameObject.rotation = gameObject.body.angle
                 info += [gameObject.position, math.degrees(gameObject.rotation)]
-            self.renderInfoList.append(info)
+            newRenderInfoList.append(info)
         if self.window.gameScreen is not None:
-            self.window.gameScreen.renderInfoList = self.renderInfoList
+            self.window.gameScreen.renderInfoList = newRenderInfoList
 
         for gameObject in self.removeList:
             self.gameObjects.remove(gameObject)
