@@ -15,6 +15,8 @@ class UiManager(QUiLoader):
             for wid in customWidgets:
                 self.registerCustomWidget(wid)
 
+        self.keepWidgets = []
+
     def createWidget(self, class_name, parent=None, name=''):
         """
         Overrides QUiLoader to createWidget in current window rather than a new one
@@ -53,8 +55,10 @@ class UiManager(QUiLoader):
         """
 
         if len(self.window.children()) > 0 and deleteCurrent:
-            for i in reversed(range(3, len(self.window.children()))):
-                self.window.children()[i].deleteLater()
+            for i in range(0, len(self.window.children())):
+                if not(self.window.children()[i] in self.keepWidgets):
+                    self.window.children()[i].deleteLater()
+                    print(type(self.window.children()[i]), self.window.children()[i].objectName())
 
         widgets = self.load(ui_file)  # load widgets
         QMetaObject.connectSlotsByName(widgets)

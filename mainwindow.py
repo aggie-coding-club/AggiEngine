@@ -42,19 +42,17 @@ class MainWindow(QMainWindow):
         self.lastTime = 0
         self.setMouseTracking(True)
 
+        self.uiManager.keepWidgets = self.children()
+        for child in self.children():
+            print(child.objectName, type(child))
+
     def start(self):
         """
         Called to start the window
         :return: None
         """
-        self.stateManager.start()  # start the state
-        self.resume()
-
-    def pause(self):
-        self.updateFPSTimer.stop()  # start frame timing management
-
-    def resume(self):
-        self.updateFPSTimer.start(200)  # start frame timing management
+        self.stateManager.initializeState()  # start the state
+        self.updateFPSTimer.start(100)
 
     def closeEvent(self, event: PySide2.QtGui.QCloseEvent):
         """
@@ -105,3 +103,6 @@ class MainWindow(QMainWindow):
 
     def mouseReleaseEvent(self, event: PySide2.QtGui.QMouseEvent):
         self.stateManager.mouseReleased(event)
+
+    def waitForLoad(self):
+        QTimer(self).singleShot(0, self.stateManager.start)

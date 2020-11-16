@@ -64,7 +64,7 @@ class StateManager:
         self.currentState.exitGOH()
         self.currentState.exit()
         self.currentState = state
-        self.start()
+        self.initializeState()
 
     def update(self):
         self.currentState.updateGOH()
@@ -74,16 +74,17 @@ class StateManager:
         self.currentState.fixedUpdateGOH()
         self.currentState.fixedUpdate()
 
-    def start(self):
-        self.window.pause()
+    def initializeState(self):
         self.currentState.window = self.window  # Give the state a reference to the window
         self.currentState.loadUi()  # Load the states UI
+        self.window.waitForLoad()
+
+    def start(self):
         self.window.gameScreen = self.window.findChild(GameScreen)
         self.currentState.startGOH()
         self.currentState.start()  # Start the state
         self.threadPool.start(Physics(self.fixedUpdate, self.currentState))
         self.threadPool.start(Rendering(self.update, self.currentState))
-        self.window.resume()
 
     def exit(self):
         self.currentState.active = False
