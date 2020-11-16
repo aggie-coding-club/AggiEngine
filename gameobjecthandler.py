@@ -52,7 +52,7 @@ class GameObjectHandler:
 
         for gameObject in self.removeList:
             self.gameObjects.remove(gameObject)
-            self.world.DestroyBody(gameObject)
+            self.world.DestroyBody(gameObject.body)
 
     def add(self, gameObject, bodyDef=None, bodyFixtureDef=None, color=None):
         self.gameObjects.append(gameObject)  # adds game object to list of game objects
