@@ -28,7 +28,7 @@ class Particles:
         self.colorFade = colorFade
         self.time = 0
 
-    def update(self, position):
+    def update(self):
         toRemove = []
         for particle in self.particles:
             if abs(particle[1][0][0] - particle[1][1][0]) < self.endSize:
