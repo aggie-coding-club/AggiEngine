@@ -58,7 +58,6 @@ class UiManager(QUiLoader):
             for i in range(0, len(self.window.children())):
                 if not(self.window.children()[i] in self.keepWidgets):
                     self.window.children()[i].deleteLater()
-                    print(type(self.window.children()[i]), self.window.children()[i].objectName())
 
         widgets = self.load(ui_file)  # load widgets
         QMetaObject.connectSlotsByName(widgets)

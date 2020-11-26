@@ -64,6 +64,7 @@ class TileMap:
                             bodyDef.type = Box2D.b2_kinematicBody
                         bodyDef.linearDamping = layer.properties.get('linearDamping', 0)
                         bodyDef.angularDamping = layer.properties.get('angularDamping', 0)
+                        bodyDef.fixedRotation = layer.properties.get('fixedRotation', False)
 
                         # Linear Vel (Broken)
                         linearVel = layer.properties.get('linearVel', None)

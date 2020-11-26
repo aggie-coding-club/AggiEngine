@@ -52,15 +52,14 @@ class GameObject:
     def mouseReleased(self, event):
         pass
 
-    def BeginContact(self, body):
+    def beginContact(self, body):
         pass
 
-    def EndContact(self, body):
+    def endContact(self, body):
         pass
     
-    def PreSolve(self, contact, manifold):
+    def preSolve(self, contact, manifold):
         pass
 
-    def PostSolve(self, contact, impulse):
+    def postSolve(self, contact, impulse):
         pass
-    

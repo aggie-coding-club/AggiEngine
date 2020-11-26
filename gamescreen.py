@@ -96,6 +96,17 @@ class GameScreen(QOpenGLWidget):
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData)
         return textureID
 
+    def loadImageTexture(self, fileName):
+        image = Image.open(fileName)
+
+        # Add alpha if the base image doesn't have one
+        if not (fileName.split(".")[-1] == "png"):
+            image.putalpha(256)
+
+        # Making image data for OpenGL
+        imageData = numpy.array(list(image.getdata()), numpy.uint8)
+        return self.loadTexture(imageData, image.width, image.height)
+
     def image_loader(self, filename, colorkey, **kwargs):
         image = Image.open(filename)
         transparent = filename.split(".")[-1] == "png"
