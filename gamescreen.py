@@ -14,7 +14,6 @@ class GameScreen(QOpenGLWidget):
         :param parent: The widget that the this held under usually MainWindow
         """
         super(GameScreen, self).__init__(parent=parent)
-        print("OpenGL widget created")
 
         self.cameraPosition = [0, 0]
         self.cameraScale = 1
@@ -31,7 +30,6 @@ class GameScreen(QOpenGLWidget):
         glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         glEnable(GL_TEXTURE_2D)
-        print('OpenGL widget ready')
 
     def paintGL(self):
         """
