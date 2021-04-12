@@ -43,8 +43,6 @@ class MainWindow(QMainWindow):
         self.setMouseTracking(True)
 
         self.uiManager.keepWidgets = self.children()
-        for child in self.children():
-            print(child.objectName, type(child))
 
     def start(self):
         """

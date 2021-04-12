@@ -38,9 +38,9 @@ class Rendering(QRunnable):
     def run(self):
         while self.state.active:
             start = time.perf_counter()
+            self.update()
             if self.window.gameScreen:
                 self.window.gameScreen.update()
-            self.update()
             self.window.screenFrames += 1
             wait = self.window.screenTiming - (time.perf_counter() - start)
             time.sleep(wait if wait > 0 else 0)

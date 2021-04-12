@@ -14,7 +14,6 @@ class GameScreen(QOpenGLWidget):
         :param parent: The widget that the this held under usually MainWindow
         """
         super(GameScreen, self).__init__(parent=parent)
-        print("OpenGL widget created")
 
         self.cameraPosition = [0, 0]
         self.cameraScale = 1
@@ -31,7 +30,6 @@ class GameScreen(QOpenGLWidget):
         glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         glEnable(GL_TEXTURE_2D)
-        print('OpenGL widget ready')
 
     def paintGL(self):
         """
@@ -55,7 +53,7 @@ class GameScreen(QOpenGLWidget):
                 glPolygonMode(GL_FRONT, GL_FILL)
                 glBegin(GL_POLYGON)
                 for vertex in renderInfo[1]:
-                    glVertex3f(vertex[0], vertex[1], 0)
+                    glVertex2f(vertex[0], vertex[1])
                 glEnd()
                 glPopMatrix()
             else:
@@ -95,6 +93,17 @@ class GameScreen(QOpenGLWidget):
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData)
         return textureID
+
+    def loadImageTexture(self, fileName):
+        image = Image.open(fileName)
+
+        # Add alpha if the base image doesn't have one
+        if not (fileName.split(".")[-1] == "png"):
+            image.putalpha(256)
+
+        # Making image data for OpenGL
+        imageData = numpy.array(list(image.getdata()), numpy.uint8)
+        return self.loadTexture(imageData, image.width, image.height)
 
     def image_loader(self, filename, colorkey, **kwargs):
         image = Image.open(filename)

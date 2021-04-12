@@ -2,7 +2,7 @@ import numpy as np
 
 class Particles:
 
-    def __init__(self, gameObjectHandler, startColor=None, endColor=None, shape=None,
+    def __init__(self, gameScreen, startColor=None, endColor=None, shape=None,
                  rate=0.5, count=100, endSize=0.01, sizeDecrease=0.95, colorFade=0.05):
         if not endColor:
             self.endColor = [1, 1, 1, 1]
@@ -19,7 +19,7 @@ class Particles:
         else:
             self.shape = shape
 
-        self.gameObjectHandler = gameObjectHandler
+        self.gameScreen = gameScreen
         self.particles = []
         self.rate = rate
         self.count = count
@@ -28,7 +28,7 @@ class Particles:
         self.colorFade = colorFade
         self.time = 0
 
-    def update(self, position):
+    def update(self):
         toRemove = []
         for particle in self.particles:
             if abs(particle[1][0][0] - particle[1][1][0]) < self.endSize:
@@ -40,7 +40,7 @@ class Particles:
             particle[1] = shape
             particle[2] = self.getColor(particle[-1])
             particle[-1] -= self.colorFade
-            self.gameObjectHandler.renderInfoList.append(particle)
+            self.gameScreen.renderInfoList.append(particle)
 
         for particle in toRemove:
             self.particles.remove(particle)
