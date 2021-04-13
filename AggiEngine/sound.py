@@ -1,4 +1,5 @@
 import simpleaudio as sa
+import asyncio
 
 class Sound():
     def __init__(self) -> None:
@@ -16,18 +17,12 @@ class Sound():
         """
         Plays your sound
         :param key: The key used when loading the sound
+        :return: a PlayObject from the simpleaudio library
         """
-        self.sounds[key].play()
+        return self.sounds[key].play()
     
     def stop_all(self):
         """
         Stops all sounds from playing
         """
         sa.stop_all()
-    
-    def stop(self, key):
-        """
-        Stops the selected sound from playing
-        :param key: The key you used when loading the sound
-        """
-        self.sounds[key].stop()
