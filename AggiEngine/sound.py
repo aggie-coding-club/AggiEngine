@@ -1,5 +1,4 @@
 import simpleaudio as sa
-import asyncio
 
 class Sound():
     def __init__(self) -> None:
