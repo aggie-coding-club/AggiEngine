@@ -17,6 +17,7 @@ setup(
         'pytmx',
         'pillow',
         'numpy',
+        'simpleaudio'
     ],
   classifiers=[
         'Development Status :: 3 - Alpha',
