@@ -25,7 +25,8 @@ class ExampleState(ag.State):
     def update(self):
         print("Updated!")
 
-app = ag.Application(ExampleState("example.ui"))
+state = ExampeState("example.ui")
+app = ag.Application(state)
 app.run()
 ```
 
