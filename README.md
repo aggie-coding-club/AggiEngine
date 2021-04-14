@@ -2,15 +2,10 @@
 
 AggiEngine is a 2D game engine, designed for making game development easier. AggiEngine provides GUI, physics, state management and more...
 
-## Dependencies
+## Installation
 
 ```bash
-pip install PySide2
-pip install PyOpenGL
-conda install -c conda-forge box2d-py
-pip install pytmx
-pip install pillow
-pip install numpy
+pip install AggiEngine
 ```
 
 ## Usage
@@ -30,7 +25,7 @@ class ExampleState(ag.State):
     def update(self):
         print("Updated!")
 
-state = ExampleState("example.ui")
+state = ExampeState("example.ui")
 app = ag.Application(state)
 app.run()
 ```
