@@ -2,13 +2,10 @@
 
 AggiEngine is a 2D game engine, designed for making game development easier. AggiEngine provides GUI, physics, state management and more...
 
-## Dependencies
+## Installation
 
 ```bash
-pip install PySide2
-pip install PyOpenGL
-conda install -c conda-forge box2d-py
-pip install tmx
+pip install AggiEngine
 ```
 
 ## Usage
@@ -21,6 +18,9 @@ class ExampleState(ag.State):
 
     def __init__(self, ui_path):
         ag.State.__init__(self, ui_path)
+        
+    def start(self):
+        self.loadMap('example_map.tmx')
     
     def update(self):
         print("Updated!")

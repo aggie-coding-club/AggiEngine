@@ -1,4 +1,5 @@
 from .gameobjecthandler import GameObjectHandler
+from .tileloader import TileMap
 
 
 class State:
@@ -7,6 +8,10 @@ class State:
         self.ui_path = ui_path
         self.window = window
         self.gameObjectHandler = None
+        self.active = True
+
+    def loadMap(self, filePath):
+        TileMap(filePath, self.gameObjectHandler, self.window.gameScreen)
 
     def loadUi(self):
         if self.ui_path is not None:
@@ -40,4 +45,13 @@ class State:
         pass
 
     def keyReleased(self, event):
+        pass
+
+    def mouseMoved(self, event):
+        pass
+
+    def mousePressed(self, event):
+        pass
+
+    def mouseReleased(self, event):
         pass
