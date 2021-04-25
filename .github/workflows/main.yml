@@ -28,6 +28,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Updates the documentation folder
         run: |
-          rm ./docs/*
+          rm -r ./docs/*
           pip install pdoc==6.4.4
           pdoc -o ./docs ./AggiEngine
