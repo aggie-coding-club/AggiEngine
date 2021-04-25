@@ -14,10 +14,6 @@ class GameObject:
         self.width = 1
 
     def getWidth(self):
-        """
-        Returns the width of the GameObject
-        :return: Returns a float of the width of the game object
-        """
         return self.width * 2
 
     def getHeight(self):

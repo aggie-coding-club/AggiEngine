@@ -20,10 +20,9 @@ class UiManager(QUiLoader):
     def createWidget(self, class_name, parent=None, name=''):
         """
         Overrides QUiLoader to createWidget in current window rather than a new one
-        :param class_name: The class we want to create
-        :param parent: The parent widget
-        :param name: The name of the widget we'll create
-        :return: The created widget
+        ``class_name:`` The class we want to create  
+        ``parent:`` The parent widget  
+        ``name:`` The name of the widget we'll create  
         """
 
         if class_name is QMainWindow.__name__:
@@ -49,9 +48,8 @@ class UiManager(QUiLoader):
     def loadWidgets(self, ui_file, deleteCurrent=False):
         """
         Loads the current ui_file and if wanted deleted old widgets
-        :param ui_file: The file path to load
-        :param deleteCurrent: Remove old widgets
-        :return: None
+        ``ui_file:`` The file path to load  
+        ``deleteCurrent:`` Remove old widgets  
         """
 
         if len(self.window.children()) > 0 and deleteCurrent:

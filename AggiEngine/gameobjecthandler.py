@@ -21,11 +21,17 @@ class GameObjectHandler:
         self.scale = scale
 
     def update(self):
+        '''
+        calls update on all game objects, not a fixed time interval
+        '''
         for gameObject in self.gameObjects:
             if gameObject.active:
                 gameObject.update()
 
     def fixedUpdate(self):
+        '''
+        Updates the Box2D world on a fixed time interval
+        '''
         self.world.Step(self.timing, 6, 2)
         self.world.ClearForces()
 
@@ -56,6 +62,9 @@ class GameObjectHandler:
         self.removeList = []
 
     def add(self, gameObject, bodyDef=None, bodyFixtureDef=None, color=None):
+        '''
+        Adds a game object to the Box2D world
+        '''
         self.gameObjects.append(gameObject)  # adds game object to list of game objects
         gameObject.gameObjectHandler = self
 
@@ -90,11 +99,17 @@ class GameObjectHandler:
         gameObject.start()
 
     def getGameObject(self, typeOf):
+        '''
+        Returns the first instance of the gameObject with the type typeOf
+        '''
         for gameObject in self.gameObjects:
             if isinstance(gameObject, typeOf):
                 return gameObject
 
     def getGameObjects(self, typeOf):
+        '''
+        Returns all instances of gameObjects with the type typeOf
+        '''
         gameObjects = []
         for gameObject in self.gameObjects:
             if isinstance(gameObject, typeOf):
@@ -102,9 +117,15 @@ class GameObjectHandler:
         return gameObjects
 
     def removeGameObject(self, toRemove):
+        '''
+        Removes the gameObject toRemove
+        '''
         self.removeList.append(toRemove)
 
     def removeGameObjects(self, typeOf):
+        '''
+        Removes all game objects with the type typeOf
+        '''
         for gameObject in self.gameObjects:
             if isinstance(gameObject, typeOf):
                 self.removeList.append(gameObject)

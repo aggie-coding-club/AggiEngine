@@ -11,7 +11,7 @@ class GameScreen(QOpenGLWidget):
         """
         Subclass of the QOpenGLWidget, this is promoted in Qt Designer so that
         we can draw to the widget.
-        :param parent: The widget that the this held under usually MainWindow
+        ``parent:`` The widget that the this held under usually MainWindow  
         """
         super(GameScreen, self).__init__(parent=parent)
 
@@ -23,7 +23,6 @@ class GameScreen(QOpenGLWidget):
     def initializeGL(self):
         """
         Here we will override in order to setup OpenGL how we want
-        :return: None
         """
         glEnable(GL_BLEND)
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
@@ -34,7 +33,6 @@ class GameScreen(QOpenGLWidget):
     def paintGL(self):
         """
         This is the function we'll override to draw to screen
-        :return: None
         """
 
         glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
