@@ -56,8 +56,7 @@ class StateManager:
     def changeState(self, state: State):
         """
         Switch states
-        :param state: The next state to show
-        :return: None
+        ``state:`` The next state to show  
         """
 
         self.currentState.active = False
