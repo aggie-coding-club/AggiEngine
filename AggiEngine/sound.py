@@ -6,7 +6,7 @@ class Sound():
     
     def load(self, key, filestr):
         """
-        Loads a wav file for future playback
+        ads a wav file for future playback
         ``key:`` A key you will use to access the audio playback  
         ``filestr:`` The file path for a wav file to play  
         """
