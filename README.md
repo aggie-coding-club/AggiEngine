@@ -42,6 +42,9 @@ app = ag.Application(state)
 app.run()
 ```
 
+## Documentation
+[Check out the docs here.](https://aggie-coding-club.github.io/AggiEngine/index.html)
+
 ## Issues
 Feel free to report any [issues](https://github.com/aggie-coding-club/AggiEngine/issues) you may find.
 If there is a feature you would like added we'll do our best to implement it.
