@@ -30,6 +30,9 @@
 
 
 class ContactListener(b2ContactListener):
+    &#34;&#34;&#34;
+    Receives contact information from Box2D and passes it along to the GameObjects in the collision.
+    &#34;&#34;&#34;
 
     def __init__(self):
         b2ContactListener.__init__(self)
@@ -55,18 +58,18 @@ class ContactListener(b2ContactListener):
         bodyB.userData.endContact(bodyA)
 
     def PreSolve(self, contact: b2Contact, manifold: b2Manifold) -&gt; None:
-        &#39;&#39;&#39;
+        &#34;&#34;&#34;
         Called before Box2D handles a contact while the bodies are still overlapping
-        &#39;&#39;&#39;
+        &#34;&#34;&#34;
         bodyA = contact.fixtureA.body
         bodyB = contact.fixtureB.body
         bodyA.userData.preSolve(bodyB, manifold)
         bodyB.userData.preSolve(bodyA, manifold)
 
     def PostSolve(self, contact: b2Contact, impulse: b2Vec2) -&gt; None:
-        &#39;&#39;&#39;
+        &#34;&#34;&#34;
         Called after Box2D handles a contact while the bodies are no longer overlapping
-        &#39;&#39;&#39;
+        &#34;&#34;&#34;
         bodyA = contact.fixtureA.body
         bodyB = contact.fixtureB.body
         bodyA.userData.postSolve(bodyB, impulse)
@@ -86,14 +89,15 @@ class ContactListener(b2ContactListener):
 <span>class <span class="ident">ContactListener</span></span>
 </code></dt>
 <dd>
-<div class="desc"><p>Implement this class to get contact information. You can use these results for things like sounds and game logic. You can also get contact results by traversing the contact lists after the time step. However, you might miss some contacts because continuous physics leads to sub-stepping. Additionally you may receive multiple callbacks for the same contact in a single time step. You should strive to make your callbacks efficient because there may be many callbacks per time step.
-WARNING:
-You cannot create/destroy Box2D entities inside these callbacks.</p></div>
+<div class="desc"><p>Receives contact information from Box2D and passes it along to the GameObjects in the collision.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class ContactListener(b2ContactListener):
+    &#34;&#34;&#34;
+    Receives contact information from Box2D and passes it along to the GameObjects in the collision.
+    &#34;&#34;&#34;
 
     def __init__(self):
         b2ContactListener.__init__(self)
@@ -119,18 +123,18 @@ You cannot create/destroy Box2D entities inside these callbacks.</p></div>
         bodyB.userData.endContact(bodyA)
 
     def PreSolve(self, contact: b2Contact, manifold: b2Manifold) -&gt; None:
-        &#39;&#39;&#39;
+        &#34;&#34;&#34;
         Called before Box2D handles a contact while the bodies are still overlapping
-        &#39;&#39;&#39;
+        &#34;&#34;&#34;
         bodyA = contact.fixtureA.body
         bodyB = contact.fixtureB.body
         bodyA.userData.preSolve(bodyB, manifold)
         bodyB.userData.preSolve(bodyA, manifold)
 
     def PostSolve(self, contact: b2Contact, impulse: b2Vec2) -&gt; None:
-        &#39;&#39;&#39;
+        &#34;&#34;&#34;
         Called after Box2D handles a contact while the bodies are no longer overlapping
-        &#39;&#39;&#39;
+        &#34;&#34;&#34;
         bodyA = contact.fixtureA.body
         bodyB = contact.fixtureB.body
         bodyA.userData.postSolve(bodyB, impulse)
@@ -194,9 +198,9 @@ You cannot create/destroy Box2D entities inside these callbacks.</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def PostSolve(self, contact: b2Contact, impulse: b2Vec2) -&gt; None:
-    &#39;&#39;&#39;
+    &#34;&#34;&#34;
     Called after Box2D handles a contact while the bodies are no longer overlapping
-    &#39;&#39;&#39;
+    &#34;&#34;&#34;
     bodyA = contact.fixtureA.body
     bodyB = contact.fixtureB.body
     bodyA.userData.postSolve(bodyB, impulse)
@@ -213,9 +217,9 @@ You cannot create/destroy Box2D entities inside these callbacks.</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def PreSolve(self, contact: b2Contact, manifold: b2Manifold) -&gt; None:
-    &#39;&#39;&#39;
+    &#34;&#34;&#34;
     Called before Box2D handles a contact while the bodies are still overlapping
-    &#39;&#39;&#39;
+    &#34;&#34;&#34;
     bodyA = contact.fixtureA.body
     bodyB = contact.fixtureB.body
     bodyA.userData.preSolve(bodyB, manifold)

@@ -35,11 +35,14 @@ from .mainwindow import MainWindow
 
 
 class Application(QApplication):
+    &#34;&#34;&#34;
+    This is the core class of an AggiEngine application.
+    &#34;&#34;&#34;
 
     def __init__(self, state: State, screenFps: Optional[float] = 120, fixedFps: Optional[float] = 60,
                  args: Optional[list] = None) -&gt; None:
         &#34;&#34;&#34;
-        Creates and starts the application.  
+        Creates and initializes QWidgets for the application to start.
         ``state:`` The initial state to launch the Application with    
         ``args:`` System arguments passed in    
         ``config:`` Set application parameters    
@@ -53,7 +56,7 @@ class Application(QApplication):
 
     def run(self) -&gt; None:
         &#34;&#34;&#34;
-        Execute the application, this will start the state
+        Execute the application, this will start the passed State
         &#34;&#34;&#34;
         self.window.start()
         self.window.show()
@@ -74,9 +77,8 @@ class Application(QApplication):
 <span>(</span><span>state: <a title="AggiEngine.state.State" href="state.html#AggiEngine.state.State">State</a>, screenFps: typing.Union[float, NoneType] = 120, fixedFps: typing.Union[float, NoneType] = 60, args: typing.Union[list, NoneType] = None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>QApplication(self) -&gt; None
-QApplication(self, arg__1: typing.Sequence[str]) -&gt; None</p>
-<p>Creates and starts the application.<br>
+<div class="desc"><p>This is the core class of an AggiEngine application.</p>
+<p>Creates and initializes QWidgets for the application to start.
 <code>state:</code> The initial state to launch the Application with
 <br>
 <code>args:</code> System arguments passed in
@@ -87,11 +89,14 @@ QApplication(self, arg__1: typing.Sequence[str]) -&gt; None</p>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Application(QApplication):
+    &#34;&#34;&#34;
+    This is the core class of an AggiEngine application.
+    &#34;&#34;&#34;
 
     def __init__(self, state: State, screenFps: Optional[float] = 120, fixedFps: Optional[float] = 60,
                  args: Optional[list] = None) -&gt; None:
         &#34;&#34;&#34;
-        Creates and starts the application.  
+        Creates and initializes QWidgets for the application to start.
         ``state:`` The initial state to launch the Application with    
         ``args:`` System arguments passed in    
         ``config:`` Set application parameters    
@@ -105,7 +110,7 @@ QApplication(self, arg__1: typing.Sequence[str]) -&gt; None</p>
 
     def run(self) -&gt; None:
         &#34;&#34;&#34;
-        Execute the application, this will start the state
+        Execute the application, this will start the passed State
         &#34;&#34;&#34;
         self.window.start()
         self.window.show()
@@ -132,14 +137,14 @@ QApplication(self, arg__1: typing.Sequence[str]) -&gt; None</p>
 <span>def <span class="ident">run</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Execute the application, this will start the state</p></div>
+<div class="desc"><p>Execute the application, this will start the passed State</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def run(self) -&gt; None:
     &#34;&#34;&#34;
-    Execute the application, this will start the state
+    Execute the application, this will start the passed State
     &#34;&#34;&#34;
     self.window.start()
     self.window.show()
