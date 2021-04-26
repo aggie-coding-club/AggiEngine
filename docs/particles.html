@@ -63,6 +63,9 @@ class Particles:
         self.time = 0
 
     def update(self) -&gt; None:
+        &#39;&#39;&#39;
+        Updates the particles, color, size and  deletes old particles.
+        &#39;&#39;&#39;
         toRemove = []
         for particle in self.particles:
             if abs(particle[1][0][0] - particle[1][1][0]) &lt; self.endSize:
@@ -82,16 +85,25 @@ class Particles:
         self.time += self.rate
 
     def emit(self, position: list) -&gt; None:
+        &#39;&#39;&#39;
+        Appends are new particle to the particle list.
+        &#39;&#39;&#39;
+        
         if self.time &gt; 1:
             if len(self.particles) &lt; self.count:
                 self.particles.append([-1, self.shape, self.getColor(0), position, 0, 0])
             self.time = 0
 
     def getColor(self, amount: float) -&gt; list:
+        &#39;&#39;&#39;
+        Interpolates the start and end color values and returns the value.
+        &#39;&#39;&#39;
+        
         r = abs(self.startColor[0] - self.endColor[0]) * amount + self.startColor[0]
         g = abs(self.startColor[1] - self.endColor[1]) * amount + self.startColor[1]
         b = abs(self.startColor[2] - self.endColor[2]) * amount + self.startColor[2]
         a = abs(self.startColor[3] - self.endColor[3]) * amount + self.startColor[3]
+        
         return [max(r, self.endColor[0]), max(g, self.endColor[1]), max(b, self.endColor[2]), max(a, self.endColor[3])]</code></pre>
 </details>
 </section>
@@ -144,6 +156,9 @@ class Particles:
         self.time = 0
 
     def update(self) -&gt; None:
+        &#39;&#39;&#39;
+        Updates the particles, color, size and  deletes old particles.
+        &#39;&#39;&#39;
         toRemove = []
         for particle in self.particles:
             if abs(particle[1][0][0] - particle[1][1][0]) &lt; self.endSize:
@@ -163,16 +178,25 @@ class Particles:
         self.time += self.rate
 
     def emit(self, position: list) -&gt; None:
+        &#39;&#39;&#39;
+        Appends are new particle to the particle list.
+        &#39;&#39;&#39;
+        
         if self.time &gt; 1:
             if len(self.particles) &lt; self.count:
                 self.particles.append([-1, self.shape, self.getColor(0), position, 0, 0])
             self.time = 0
 
     def getColor(self, amount: float) -&gt; list:
+        &#39;&#39;&#39;
+        Interpolates the start and end color values and returns the value.
+        &#39;&#39;&#39;
+        
         r = abs(self.startColor[0] - self.endColor[0]) * amount + self.startColor[0]
         g = abs(self.startColor[1] - self.endColor[1]) * amount + self.startColor[1]
         b = abs(self.startColor[2] - self.endColor[2]) * amount + self.startColor[2]
         a = abs(self.startColor[3] - self.endColor[3]) * amount + self.startColor[3]
+        
         return [max(r, self.endColor[0]), max(g, self.endColor[1]), max(b, self.endColor[2]), max(a, self.endColor[3])]</code></pre>
 </details>
 <h3>Methods</h3>
@@ -181,12 +205,16 @@ class Particles:
 <span>def <span class="ident">emit</span></span>(<span>self, position: list) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Appends are new particle to the particle list.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def emit(self, position: list) -&gt; None:
+    &#39;&#39;&#39;
+    Appends are new particle to the particle list.
+    &#39;&#39;&#39;
+    
     if self.time &gt; 1:
         if len(self.particles) &lt; self.count:
             self.particles.append([-1, self.shape, self.getColor(0), position, 0, 0])
@@ -197,16 +225,21 @@ class Particles:
 <span>def <span class="ident">getColor</span></span>(<span>self, amount: float) ‑> list</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Interpolates the start and end color values and returns the value.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def getColor(self, amount: float) -&gt; list:
+    &#39;&#39;&#39;
+    Interpolates the start and end color values and returns the value.
+    &#39;&#39;&#39;
+    
     r = abs(self.startColor[0] - self.endColor[0]) * amount + self.startColor[0]
     g = abs(self.startColor[1] - self.endColor[1]) * amount + self.startColor[1]
     b = abs(self.startColor[2] - self.endColor[2]) * amount + self.startColor[2]
     a = abs(self.startColor[3] - self.endColor[3]) * amount + self.startColor[3]
+    
     return [max(r, self.endColor[0]), max(g, self.endColor[1]), max(b, self.endColor[2]), max(a, self.endColor[3])]</code></pre>
 </details>
 </dd>
@@ -214,12 +247,16 @@ class Particles:
 <span>def <span class="ident">update</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Updates the particles, color, size and
+deletes old particles.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def update(self) -&gt; None:
+    &#39;&#39;&#39;
+    Updates the particles, color, size and  deletes old particles.
+    &#39;&#39;&#39;
     toRemove = []
     for particle in self.particles:
         if abs(particle[1][0][0] - particle[1][1][0]) &lt; self.endSize:
