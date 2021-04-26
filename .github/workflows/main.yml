@@ -29,7 +29,6 @@ jobs:
       - name: Updates the documentation folder
         run: |
           rm -r ./docs/*
-          sudo apt-get install build-essential
           sudo apt-get install libasound2-dev
           pip install PySide2
           pip install PyOpenGL
