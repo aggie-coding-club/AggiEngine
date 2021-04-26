@@ -2,6 +2,9 @@ from Box2D import b2ContactListener, b2Contact, b2Manifold, b2Vec2
 
 
 class ContactListener(b2ContactListener):
+    """
+    Receives contact information from Box2D and passes it along to the GameObjects in the collision.
+    """
 
     def __init__(self):
         b2ContactListener.__init__(self)
@@ -27,18 +30,18 @@ class ContactListener(b2ContactListener):
         bodyB.userData.endContact(bodyA)
 
     def PreSolve(self, contact: b2Contact, manifold: b2Manifold) -> None:
-        '''
+        """
         Called before Box2D handles a contact while the bodies are still overlapping
-        '''
+        """
         bodyA = contact.fixtureA.body
         bodyB = contact.fixtureB.body
         bodyA.userData.preSolve(bodyB, manifold)
         bodyB.userData.preSolve(bodyA, manifold)
 
     def PostSolve(self, contact: b2Contact, impulse: b2Vec2) -> None:
-        '''
+        """
         Called after Box2D handles a contact while the bodies are no longer overlapping
-        '''
+        """
         bodyA = contact.fixtureA.body
         bodyB = contact.fixtureB.body
         bodyA.userData.postSolve(bodyB, impulse)
