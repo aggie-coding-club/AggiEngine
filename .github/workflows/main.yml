@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [ docs ]
   pull_request:
     branches: [ master ]
 
@@ -43,13 +43,7 @@ jobs:
           git add .
           git commit -m "Auto updating docs"
       - name: Push changes # push the output folder to your repo
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@docs
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
-      # Deploy the site
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
