@@ -39,6 +39,11 @@ import time
 class Physics(QRunnable):
 
     def __init__(self, fixedUpdate: Callable, state: State):
+        &#39;&#39;&#39;
+        Runs all physics related events on a separate loop and thread.
+        ``fixedUpdate:`` State Managers fixedUpdate function
+        ``state:`` The current state loaded
+        &#39;&#39;&#39;
         QRunnable.__init__(self)
         self.fixedUpdate = fixedUpdate
         self.window = state.window
@@ -47,6 +52,9 @@ class Physics(QRunnable):
 
     @Slot()  # QtCore.Slot
     def run(self) -&gt; None:
+        &#39;&#39;&#39;
+        Starts the physics loop
+        &#39;&#39;&#39;
         while self.state.active:
             start = time.perf_counter()
             self.fixedUpdate()
@@ -58,6 +66,11 @@ class Physics(QRunnable):
 class Rendering(QRunnable):
 
     def __init__(self, update: Callable, state: State):
+        &#39;&#39;&#39;
+        Runs all rendering related events on a separate loop and thread.
+        ``update:`` State Managers update function
+        ``state:`` The current state loaded
+        &#39;&#39;&#39;
         QRunnable.__init__(self)
         self.update = update
         self.window = state.window
@@ -66,6 +79,9 @@ class Rendering(QRunnable):
 
     @Slot()  # QtCore.Slot
     def run(self) -&gt; None:
+        &#39;&#39;&#39;
+        Starts the rendering loop
+        &#39;&#39;&#39;
         while self.state.active:
             start = time.perf_counter()
             self.update()
@@ -79,16 +95,19 @@ class Rendering(QRunnable):
 class StateManager:
 
     def __init__(self, window: object, state: State):
+        &#39;&#39;&#39;
+        ``window:`` The main window class on the application
+        ``state:`` The initial state to be displayed
+        &#39;&#39;&#39;
         self.window = window
         self.currentState = state
         self.threadPool = QThreadPool()
 
     def changeState(self, state: State) -&gt; None:
-        &#34;&#34;&#34;
+        &#39;&#39;&#39;
         Switch states
         ``state:`` The next state to show  
-        &#34;&#34;&#34;
-
+        &#39;&#39;&#39;
         self.currentState.active = False
         self.currentState.exitGOH()
         self.currentState.exit()
@@ -96,19 +115,31 @@ class StateManager:
         self.initializeState()
 
     def update(self) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered after a frame draw
+        &#39;&#39;&#39;
         self.currentState.updateGOH()
         self.currentState.update()
 
     def fixedUpdate(self) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered after a physics update
+        &#39;&#39;&#39;
         self.currentState.fixedUpdateGOH()
         self.currentState.fixedUpdate()
 
     def initializeState(self) -&gt; None:
+        &#39;&#39;&#39;
+        Prepares State for execution
+        &#39;&#39;&#39;
         self.currentState.window = self.window  # Give the state a reference to the window
         self.currentState.loadUi()  # Load the states UI
         self.window.waitForLoad()
 
     def start(self) -&gt; None:
+        &#39;&#39;&#39;
+        Starts game loops and starts the State
+        &#39;&#39;&#39;
         self.window.gameScreen = self.window.findChild(GameScreen)
         self.currentState.startGOH()
         self.currentState.start()  # Start the state
@@ -116,27 +147,50 @@ class StateManager:
         self.threadPool.start(Rendering(self.update, self.currentState))
 
     def exit(self) -&gt; None:
+        &#39;&#39;&#39;
+        Stops the State
+        &#39;&#39;&#39;
         self.currentState.active = False
         self.currentState.exitGOH()
         self.currentState.exit()
 
     def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when a key is pressed down
+        ``event:`` The key event contains the key(s) pressed
+        &#39;&#39;&#39;
         self.currentState.keyPressed(event)
         self.currentState.gameObjectHandler.keyPressed(event)
 
     def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when a key is released
+        ``event:`` The key event contains the key(s) released
+        &#39;&#39;&#39;
         self.currentState.keyReleased(event)
         self.currentState.gameObjectHandler.keyReleased(event)
 
     def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when the mouse is moved
+        ``event:`` The mouse event contains the new mouse positions
+        &#39;&#39;&#39;
         self.currentState.mouseMoved(event)
         self.currentState.gameObjectHandler.mouseMoved(event)
 
     def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when mouse buttons are pressed
+        ``event:`` The mouse event contains the mouse buttons pressed
+        &#39;&#39;&#39;
         self.currentState.mousePressed(event)
         self.currentState.gameObjectHandler.mousePressed(event)
 
     def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when mouse buttons are released
+        ``event:`` The mouse event contains the mouse buttons released
+        &#39;&#39;&#39;
         self.currentState.mouseReleased(event)
         self.currentState.gameObjectHandler.mouseReleased(event)</code></pre>
 </details>
@@ -155,7 +209,10 @@ class StateManager:
 <span>(</span><span>fixedUpdate: typing.Callable, state: <a title="AggiEngine.state.State" href="state.html#AggiEngine.state.State">State</a>)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>QRunnable(self) -&gt; None</p></div>
+<div class="desc"><p>QRunnable(self) -&gt; None</p>
+<p>Runs all physics related events on a separate loop and thread.
+<code>fixedUpdate:</code> State Managers fixedUpdate function
+<code>state:</code> The current state loaded</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -163,6 +220,11 @@ class StateManager:
 <pre><code class="python">class Physics(QRunnable):
 
     def __init__(self, fixedUpdate: Callable, state: State):
+        &#39;&#39;&#39;
+        Runs all physics related events on a separate loop and thread.
+        ``fixedUpdate:`` State Managers fixedUpdate function
+        ``state:`` The current state loaded
+        &#39;&#39;&#39;
         QRunnable.__init__(self)
         self.fixedUpdate = fixedUpdate
         self.window = state.window
@@ -171,6 +233,9 @@ class StateManager:
 
     @Slot()  # QtCore.Slot
     def run(self) -&gt; None:
+        &#39;&#39;&#39;
+        Starts the physics loop
+        &#39;&#39;&#39;
         while self.state.active:
             start = time.perf_counter()
             self.fixedUpdate()
@@ -189,13 +254,16 @@ class StateManager:
 <span>def <span class="ident">run</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"><p>run(self) -&gt; None</p></div>
+<div class="desc"><p>Starts the physics loop</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@Slot()  # QtCore.Slot
 def run(self) -&gt; None:
+    &#39;&#39;&#39;
+    Starts the physics loop
+    &#39;&#39;&#39;
     while self.state.active:
         start = time.perf_counter()
         self.fixedUpdate()
@@ -211,7 +279,10 @@ def run(self) -&gt; None:
 <span>(</span><span>update: typing.Callable, state: <a title="AggiEngine.state.State" href="state.html#AggiEngine.state.State">State</a>)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>QRunnable(self) -&gt; None</p></div>
+<div class="desc"><p>QRunnable(self) -&gt; None</p>
+<p>Runs all rendering related events on a separate loop and thread.
+<code>update:</code> State Managers update function
+<code>state:</code> The current state loaded</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -219,6 +290,11 @@ def run(self) -&gt; None:
 <pre><code class="python">class Rendering(QRunnable):
 
     def __init__(self, update: Callable, state: State):
+        &#39;&#39;&#39;
+        Runs all rendering related events on a separate loop and thread.
+        ``update:`` State Managers update function
+        ``state:`` The current state loaded
+        &#39;&#39;&#39;
         QRunnable.__init__(self)
         self.update = update
         self.window = state.window
@@ -227,6 +303,9 @@ def run(self) -&gt; None:
 
     @Slot()  # QtCore.Slot
     def run(self) -&gt; None:
+        &#39;&#39;&#39;
+        Starts the rendering loop
+        &#39;&#39;&#39;
         while self.state.active:
             start = time.perf_counter()
             self.update()
@@ -247,13 +326,16 @@ def run(self) -&gt; None:
 <span>def <span class="ident">run</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"><p>run(self) -&gt; None</p></div>
+<div class="desc"><p>Starts the rendering loop</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">@Slot()  # QtCore.Slot
 def run(self) -&gt; None:
+    &#39;&#39;&#39;
+    Starts the rendering loop
+    &#39;&#39;&#39;
     while self.state.active:
         start = time.perf_counter()
         self.update()
@@ -271,7 +353,8 @@ def run(self) -&gt; None:
 <span>(</span><span>window: object, state: <a title="AggiEngine.state.State" href="state.html#AggiEngine.state.State">State</a>)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p><code>window:</code> The main window class on the application
+<code>state:</code> The initial state to be displayed</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -279,16 +362,19 @@ def run(self) -&gt; None:
 <pre><code class="python">class StateManager:
 
     def __init__(self, window: object, state: State):
+        &#39;&#39;&#39;
+        ``window:`` The main window class on the application
+        ``state:`` The initial state to be displayed
+        &#39;&#39;&#39;
         self.window = window
         self.currentState = state
         self.threadPool = QThreadPool()
 
     def changeState(self, state: State) -&gt; None:
-        &#34;&#34;&#34;
+        &#39;&#39;&#39;
         Switch states
         ``state:`` The next state to show  
-        &#34;&#34;&#34;
-
+        &#39;&#39;&#39;
         self.currentState.active = False
         self.currentState.exitGOH()
         self.currentState.exit()
@@ -296,19 +382,31 @@ def run(self) -&gt; None:
         self.initializeState()
 
     def update(self) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered after a frame draw
+        &#39;&#39;&#39;
         self.currentState.updateGOH()
         self.currentState.update()
 
     def fixedUpdate(self) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered after a physics update
+        &#39;&#39;&#39;
         self.currentState.fixedUpdateGOH()
         self.currentState.fixedUpdate()
 
     def initializeState(self) -&gt; None:
+        &#39;&#39;&#39;
+        Prepares State for execution
+        &#39;&#39;&#39;
         self.currentState.window = self.window  # Give the state a reference to the window
         self.currentState.loadUi()  # Load the states UI
         self.window.waitForLoad()
 
     def start(self) -&gt; None:
+        &#39;&#39;&#39;
+        Starts game loops and starts the State
+        &#39;&#39;&#39;
         self.window.gameScreen = self.window.findChild(GameScreen)
         self.currentState.startGOH()
         self.currentState.start()  # Start the state
@@ -316,27 +414,50 @@ def run(self) -&gt; None:
         self.threadPool.start(Rendering(self.update, self.currentState))
 
     def exit(self) -&gt; None:
+        &#39;&#39;&#39;
+        Stops the State
+        &#39;&#39;&#39;
         self.currentState.active = False
         self.currentState.exitGOH()
         self.currentState.exit()
 
     def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when a key is pressed down
+        ``event:`` The key event contains the key(s) pressed
+        &#39;&#39;&#39;
         self.currentState.keyPressed(event)
         self.currentState.gameObjectHandler.keyPressed(event)
 
     def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when a key is released
+        ``event:`` The key event contains the key(s) released
+        &#39;&#39;&#39;
         self.currentState.keyReleased(event)
         self.currentState.gameObjectHandler.keyReleased(event)
 
     def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when the mouse is moved
+        ``event:`` The mouse event contains the new mouse positions
+        &#39;&#39;&#39;
         self.currentState.mouseMoved(event)
         self.currentState.gameObjectHandler.mouseMoved(event)
 
     def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when mouse buttons are pressed
+        ``event:`` The mouse event contains the mouse buttons pressed
+        &#39;&#39;&#39;
         self.currentState.mousePressed(event)
         self.currentState.gameObjectHandler.mousePressed(event)
 
     def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when mouse buttons are released
+        ``event:`` The mouse event contains the mouse buttons released
+        &#39;&#39;&#39;
         self.currentState.mouseReleased(event)
         self.currentState.gameObjectHandler.mouseReleased(event)</code></pre>
 </details>
@@ -353,11 +474,10 @@ def run(self) -&gt; None:
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def changeState(self, state: State) -&gt; None:
-    &#34;&#34;&#34;
+    &#39;&#39;&#39;
     Switch states
     ``state:`` The next state to show  
-    &#34;&#34;&#34;
-
+    &#39;&#39;&#39;
     self.currentState.active = False
     self.currentState.exitGOH()
     self.currentState.exit()
@@ -369,12 +489,15 @@ def run(self) -&gt; None:
 <span>def <span class="ident">exit</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Stops the State</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def exit(self) -&gt; None:
+    &#39;&#39;&#39;
+    Stops the State
+    &#39;&#39;&#39;
     self.currentState.active = False
     self.currentState.exitGOH()
     self.currentState.exit()</code></pre>
@@ -384,12 +507,15 @@ def run(self) -&gt; None:
 <span>def <span class="ident">fixedUpdate</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered after a physics update</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def fixedUpdate(self) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered after a physics update
+    &#39;&#39;&#39;
     self.currentState.fixedUpdateGOH()
     self.currentState.fixedUpdate()</code></pre>
 </details>
@@ -398,12 +524,15 @@ def run(self) -&gt; None:
 <span>def <span class="ident">initializeState</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Prepares State for execution</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def initializeState(self) -&gt; None:
+    &#39;&#39;&#39;
+    Prepares State for execution
+    &#39;&#39;&#39;
     self.currentState.window = self.window  # Give the state a reference to the window
     self.currentState.loadUi()  # Load the states UI
     self.window.waitForLoad()</code></pre>
@@ -413,12 +542,17 @@ def run(self) -&gt; None:
 <span>def <span class="ident">keyPressed</span></span>(<span>self, event: PySide2.QtGui.QKeyEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered when a key is pressed down
+<code>event:</code> The key event contains the key(s) pressed</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered when a key is pressed down
+    ``event:`` The key event contains the key(s) pressed
+    &#39;&#39;&#39;
     self.currentState.keyPressed(event)
     self.currentState.gameObjectHandler.keyPressed(event)</code></pre>
 </details>
@@ -427,12 +561,17 @@ def run(self) -&gt; None:
 <span>def <span class="ident">keyReleased</span></span>(<span>self, event: PySide2.QtGui.QKeyEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered when a key is released
+<code>event:</code> The key event contains the key(s) released</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered when a key is released
+    ``event:`` The key event contains the key(s) released
+    &#39;&#39;&#39;
     self.currentState.keyReleased(event)
     self.currentState.gameObjectHandler.keyReleased(event)</code></pre>
 </details>
@@ -441,12 +580,17 @@ def run(self) -&gt; None:
 <span>def <span class="ident">mouseMoved</span></span>(<span>self, event: PySide2.QtGui.QMouseEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered when the mouse is moved
+<code>event:</code> The mouse event contains the new mouse positions</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered when the mouse is moved
+    ``event:`` The mouse event contains the new mouse positions
+    &#39;&#39;&#39;
     self.currentState.mouseMoved(event)
     self.currentState.gameObjectHandler.mouseMoved(event)</code></pre>
 </details>
@@ -455,12 +599,17 @@ def run(self) -&gt; None:
 <span>def <span class="ident">mousePressed</span></span>(<span>self, event: PySide2.QtGui.QMouseEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered when mouse buttons are pressed
+<code>event:</code> The mouse event contains the mouse buttons pressed</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered when mouse buttons are pressed
+    ``event:`` The mouse event contains the mouse buttons pressed
+    &#39;&#39;&#39;
     self.currentState.mousePressed(event)
     self.currentState.gameObjectHandler.mousePressed(event)</code></pre>
 </details>
@@ -469,12 +618,17 @@ def run(self) -&gt; None:
 <span>def <span class="ident">mouseReleased</span></span>(<span>self, event: PySide2.QtGui.QMouseEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered when mouse buttons are released
+<code>event:</code> The mouse event contains the mouse buttons released</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered when mouse buttons are released
+    ``event:`` The mouse event contains the mouse buttons released
+    &#39;&#39;&#39;
     self.currentState.mouseReleased(event)
     self.currentState.gameObjectHandler.mouseReleased(event)</code></pre>
 </details>
@@ -483,12 +637,15 @@ def run(self) -&gt; None:
 <span>def <span class="ident">start</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Starts game loops and starts the State</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def start(self) -&gt; None:
+    &#39;&#39;&#39;
+    Starts game loops and starts the State
+    &#39;&#39;&#39;
     self.window.gameScreen = self.window.findChild(GameScreen)
     self.currentState.startGOH()
     self.currentState.start()  # Start the state
@@ -500,12 +657,15 @@ def run(self) -&gt; None:
 <span>def <span class="ident">update</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered after a frame draw</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def update(self) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered after a frame draw
+    &#39;&#39;&#39;
     self.currentState.updateGOH()
     self.currentState.update()</code></pre>
 </details>
