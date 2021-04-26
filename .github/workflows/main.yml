@@ -39,3 +39,7 @@ jobs:
           pip install simpleaudio
           pip install pdoc==6.4.4
           pdoc -o ./docs ./AggiEngine
+          git add .
+          git commit -m "Auto updating docs"
+          git fetch origin master
+          git push origin HEAD:master
