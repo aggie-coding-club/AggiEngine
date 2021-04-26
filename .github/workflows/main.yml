@@ -29,5 +29,12 @@ jobs:
       - name: Updates the documentation folder
         run: |
           rm -r ./docs/*
+          pip install PySide2
+          pip install PyOpenGL
+          pip install Box2D
+          pip install pytmx
+          pip install pillow
+          pip install numpy
+          pip install simpleaudio
           pip install pdoc==6.4.4
           pdoc -o ./docs ./AggiEngine
