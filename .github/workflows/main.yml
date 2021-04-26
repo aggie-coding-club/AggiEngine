@@ -41,5 +41,8 @@ jobs:
           pdoc -o ./docs ./AggiEngine
           git add .
           git commit -m "Auto updating docs"
-          git fetch origin master
-          git push origin HEAD:master
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
