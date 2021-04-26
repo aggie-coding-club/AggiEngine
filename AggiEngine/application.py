@@ -1,10 +1,15 @@
+from typing import Optional
+
 from PySide2.QtWidgets import QApplication
+
+from . import State
 from .mainwindow import MainWindow
 
 
 class Application(QApplication):
 
-    def __init__(self, state, screenFps=120, fixedFps=60, args=None):
+    def __init__(self, state: State, screenFps: Optional[float] = 120, fixedFps: Optional[float] = 60,
+                 args: Optional[list] = None) -> None:
         """
         Creates and starts the application.
         :param state: The initial state to launch the Application with
@@ -18,7 +23,7 @@ class Application(QApplication):
 
         self.window = MainWindow(self, state, screenFps, fixedFps)
 
-    def run(self):
+    def run(self) -> None:
         """
         Execute the application, this will start the state
         :return: None

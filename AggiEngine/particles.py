@@ -1,9 +1,15 @@
+from typing import Optional
+
 import numpy as np
+
+from AggiEngine import GameScreen
+
 
 class Particles:
 
-    def __init__(self, gameScreen, startColor=None, endColor=None, shape=None,
-                 rate=0.5, count=100, endSize=0.01, sizeDecrease=0.95, colorFade=0.05):
+    def __init__(self, gameScreen: GameScreen, startColor: Optional[list] = None,
+                 endColor: Optional[list] = None, shape: Optional[list] = None, rate=0.5,
+                 count=100, endSize=0.01, sizeDecrease=0.95, colorFade=0.05):
         if not endColor:
             self.endColor = [1, 1, 1, 1]
         else:
@@ -28,7 +34,7 @@ class Particles:
         self.colorFade = colorFade
         self.time = 0
 
-    def update(self):
+    def update(self) -> None:
         toRemove = []
         for particle in self.particles:
             if abs(particle[1][0][0] - particle[1][1][0]) < self.endSize:
@@ -47,13 +53,13 @@ class Particles:
 
         self.time += self.rate
 
-    def emit(self, position):
+    def emit(self, position: list) -> None:
         if self.time > 1:
             if len(self.particles) < self.count:
                 self.particles.append([-1, self.shape, self.getColor(0), position, 0, 0])
             self.time = 0
 
-    def getColor(self, amount):
+    def getColor(self, amount: float) -> list:
         r = abs(self.startColor[0] - self.endColor[0]) * amount + self.startColor[0]
         g = abs(self.startColor[1] - self.endColor[1]) * amount + self.startColor[1]
         b = abs(self.startColor[2] - self.endColor[2]) * amount + self.startColor[2]

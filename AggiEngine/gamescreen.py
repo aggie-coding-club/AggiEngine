@@ -1,13 +1,16 @@
+from typing import Optional, Callable
+
 from OpenGL.GL import *
 import numpy
 from PIL import Image
 from PIL import ImageOps
+from PySide2.QtWidgets import QWidget
 from PySide2.QtWidgets import QOpenGLWidget
 
 
 class GameScreen(QOpenGLWidget):
 
-    def __init__(self, parent):
+    def __init__(self, parent: QWidget):
         """
         Subclass of the QOpenGLWidget, this is promoted in Qt Designer so that
         we can draw to the widget.
@@ -20,7 +23,7 @@ class GameScreen(QOpenGLWidget):
         self.renderInfoList = []
         self.bgColor = [0, 0, 0]
 
-    def initializeGL(self):
+    def initializeGL(self) -> None:
         """
         Here we will override in order to setup OpenGL how we want
         :return: None
@@ -31,7 +34,7 @@ class GameScreen(QOpenGLWidget):
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         glEnable(GL_TEXTURE_2D)
 
-    def paintGL(self):
+    def paintGL(self) -> None:
         """
         This is the function we'll override to draw to screen
         :return: None
@@ -74,7 +77,7 @@ class GameScreen(QOpenGLWidget):
                 glBindTexture(GL_TEXTURE_2D, 0)
                 glPopMatrix()
 
-    def resizeGL(self, w, h):
+    def resizeGL(self, w, h) -> None:
         glViewport(0, 0, w, h)
         glMatrixMode(GL_PROJECTION)
         glLoadIdentity()
@@ -83,7 +86,7 @@ class GameScreen(QOpenGLWidget):
         glMatrixMode(GL_MODELVIEW)
         glLoadIdentity()
 
-    def loadTexture(self, imageData, width, height):
+    def loadTexture(self, imageData: [int], width: int, height: int) -> int:
         textureID = glGenTextures(1)
         glPixelStorei(GL_UNPACK_ALIGNMENT, 4)
         glBindTexture(GL_TEXTURE_2D, textureID)
@@ -94,7 +97,7 @@ class GameScreen(QOpenGLWidget):
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData)
         return textureID
 
-    def loadImageTexture(self, fileName):
+    def loadImageTexture(self, fileName: str) -> int:
         image = Image.open(fileName)
 
         # Add alpha if the base image doesn't have one
@@ -105,11 +108,11 @@ class GameScreen(QOpenGLWidget):
         imageData = numpy.array(list(image.getdata()), numpy.uint8)
         return self.loadTexture(imageData, image.width, image.height)
 
-    def image_loader(self, filename, colorkey, **kwargs):
+    def image_loader(self, filename: str, colorkey, **kwargs) -> Callable:
         image = Image.open(filename)
         transparent = filename.split(".")[-1] == "png"
 
-        def extract_image(rect=None, flags=None):
+        def extract_image(rect: Optional[list] = None, flags=None) -> int:
             # Cropping the image to the necessary size
             if rect:
                 crop = image.crop((rect[0], rect[1], rect[0] + rect[2], rect[1] + rect[3]))

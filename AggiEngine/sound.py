@@ -1,10 +1,12 @@
 import simpleaudio as sa
 
-class Sound():
+
+class Sound:
+
     def __init__(self) -> None:
         self.sounds = dict()
     
-    def load(self, key, filestr):
+    def load(self, key: Any, filestr: str) -> None:
         """
         Loads a wav file for future playback
         :param key: A key you will use to access the audio playback
@@ -12,7 +14,7 @@ class Sound():
         """
         self.sounds[key] = sa.WaveObject.from_wave_file(filestr)
     
-    def play(self, key):
+    def play(self, key: Any) -> sa.PlayObject:
         """
         Plays your sound
         :param key: The key used when loading the sound
@@ -20,7 +22,7 @@ class Sound():
         """
         return self.sounds[key].play()
     
-    def stop_all(self):
+    def stop_all(self) -> None:
         """
         Stops all sounds from playing
         """
