@@ -1,7 +1,12 @@
-# AggiEngine
+[![Build Status](https://img.shields.io/github/workflow/status/aggie-coding-club/AggiEngine/CI?style=for-the-badge)](https://github.com/aggie-coding-club/AggiEngine/actions)
+[![AggiEngine on PyPI](https://img.shields.io/pypi/v/AggiEngine.svg?color=blue&style=for-the-badge)](https://pypi.org/project/AggiEngine)
+[![package downloads](https://img.shields.io/pypi/dm/AggiEngine.svg?color=skyblue&style=for-the-badge)](https://pypi.org/project/AggiEngine)
 
+# AggiEngine
 AggiEngine is a 2D game engine, designed for making game development easier. AggiEngine provides GUI, physics, state management and more...
 
+## Documentation
+[Check out the docs here.](https://aggie-coding-club.github.io/AggiEngine/index.html)
 
 ## Easy Installation
 
@@ -41,9 +46,6 @@ state = ExampleState("example.ui")
 app = ag.Application(state)
 app.run()
 ```
-
-## Documentation
-[Check out the docs here.](https://aggie-coding-club.github.io/AggiEngine/index.html)
 
 ## Issues
 Feel free to report any [issues](https://github.com/aggie-coding-club/AggiEngine/issues) you may find.
