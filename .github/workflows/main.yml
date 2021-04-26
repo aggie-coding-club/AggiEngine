@@ -29,5 +29,30 @@ jobs:
       - name: Updates the documentation folder
         run: |
           rm -r ./docs/*
-          pip install pdoc==6.4.4
-          pdoc -o ./docs ./AggiEngine
+          sudo apt-get install libasound2-dev
+          pip install PySide2
+          pip install PyOpenGL
+          pip install Box2D
+          pip install pytmx
+          pip install pillow
+          pip install numpy
+          pip install simpleaudio
+          pip install pdoc3
+          pdoc3 --html --output-dir ./docs ./AggiEngine
+          cd ./docs
+          mv AggiEngine/* .
+          rm -r ./AggiEngine
+          git config --local user.name "action"
+          git add .
+          git commit -m "Auto updating docs"
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true
+      # Deploy the site
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs

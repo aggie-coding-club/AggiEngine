@@ -1,11 +1,28 @@
-# AggiEngine
+[![Build Status](https://img.shields.io/github/workflow/status/aggie-coding-club/AggiEngine/CI?style=for-the-badge)](https://github.com/aggie-coding-club/AggiEngine/actions)
+[![AggiEngine on PyPI](https://img.shields.io/pypi/v/AggiEngine.svg?color=blue&style=for-the-badge)](https://pypi.org/project/AggiEngine)
+[![package downloads](https://img.shields.io/pypi/dm/AggiEngine.svg?color=skyblue&style=for-the-badge)](https://pypi.org/project/AggiEngine)
 
+# AggiEngine
 AggiEngine is a 2D game engine, designed for making game development easier. AggiEngine provides GUI, physics, state management and more...
 
-## Installation
+## Documentation
+[Check out the docs here.](https://aggie-coding-club.github.io/AggiEngine/index.html)
+
+## Easy Installation
 
 ```bash
-pip install AggiEngine
+$ pip install AggiEngine
+```
+
+## Manual Installation
+```bash
+$ pip install PySide2
+$ pip install PyOpenGL
+$ pip install Box2D
+$ pip install pytmx
+$ pip install pillow
+$ pip install numpy
+$ pip install simpleaudio
 ```
 
 ## Usage
@@ -32,4 +49,4 @@ app.run()
 
 ## Issues
 Feel free to report any [issues](https://github.com/aggie-coding-club/AggiEngine/issues) you may find.
-If there is a feature you would like added we'll do our best to implement it.
+Also if there is a feature you would like to add feel free to make a pull request!

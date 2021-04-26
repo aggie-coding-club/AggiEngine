@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>AggiEngine.gamescreen API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>AggiEngine.gamescreen</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from typing import Optional, Callable
+
+from OpenGL.GL import *
+import numpy
+from PIL import Image
+from PIL import ImageOps
+from PySide2.QtWidgets import QWidget
+from PySide2.QtWidgets import QOpenGLWidget
+
+
+class GameScreen(QOpenGLWidget):
+
+    def __init__(self, parent: QWidget):
+        &#34;&#34;&#34;
+        Subclass of the QOpenGLWidget, this is promoted in Qt Designer so that
+        we can draw to the widget.
+        ``parent:`` The widget that the this held under usually MainWindow  
+        &#34;&#34;&#34;
+        super(GameScreen, self).__init__(parent=parent)
+
+        self.cameraPosition = [0, 0]
+        self.cameraScale = 1
+        self.renderInfoList = []
+        self.bgColor = [0, 0, 0]
+
+    def initializeGL(self) -&gt; None:
+        &#34;&#34;&#34;
+        Here we will override in order to setup OpenGL how we want
+        &#34;&#34;&#34;
+        glEnable(GL_BLEND)
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+        glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        glEnable(GL_TEXTURE_2D)
+
+    def paintGL(self) -&gt; None:
+        &#34;&#34;&#34;
+        This is the function we&#39;ll override to draw to screen
+        &#34;&#34;&#34;
+
+        glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        glColor3f(1, 1, 1)
+        glLoadIdentity()
+        glScalef(self.cameraScale, self.cameraScale, 0)
+        glTranslatef(-self.cameraPosition[0], -self.cameraPosition[1], 0)
+        for renderInfo in self.renderInfoList:
+
+            if renderInfo[0] == -1:
+                glPushMatrix()
+                glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
+                glRotatef(renderInfo[4], 0, 0, 1)
+                glColor4f(renderInfo[2][0], renderInfo[2][1], renderInfo[2][2], renderInfo[2][3])
+                glPolygonMode(GL_FRONT, GL_FILL)
+                glBegin(GL_POLYGON)
+                for vertex in renderInfo[1]:
+                    glVertex2f(vertex[0], vertex[1])
+                glEnd()
+                glPopMatrix()
+            else:
+                glPushMatrix()
+                glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
+                glRotatef(renderInfo[4], 0, 0, 1)
+                glBindTexture(GL_TEXTURE_2D, renderInfo[0])
+                glBegin(GL_QUADS)
+                glTexCoord2f(0, 0)
+                glVertex2f(renderInfo[1], renderInfo[2])
+                glTexCoord2f(1, 0)
+                glVertex2f(-renderInfo[1], renderInfo[2])
+                glTexCoord2f(1, 1)
+                glVertex2f(-renderInfo[1], -renderInfo[2])
+                glTexCoord2f(0, 1)
+                glVertex2f(renderInfo[1], -renderInfo[2])
+                glEnd()
+                glBindTexture(GL_TEXTURE_2D, 0)
+                glPopMatrix()
+
+    def resizeGL(self, w, h) -&gt; None:
+        glViewport(0, 0, w, h)
+        glMatrixMode(GL_PROJECTION)
+        glLoadIdentity()
+        aspect = w / h
+        glOrtho(aspect, -aspect, -1.0, 1.0, 1.0, -1.0)
+        glMatrixMode(GL_MODELVIEW)
+        glLoadIdentity()
+
+    def loadTexture(self, imageData: [int], width: int, height: int) -&gt; int:
+        textureID = glGenTextures(1)
+        glPixelStorei(GL_UNPACK_ALIGNMENT, 4)
+        glBindTexture(GL_TEXTURE_2D, textureID)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData)
+        return textureID
+
+    def loadImageTexture(self, fileName: str) -&gt; int:
+        image = Image.open(fileName)
+
+        # Add alpha if the base image doesn&#39;t have one
+        if not (fileName.split(&#34;.&#34;)[-1] == &#34;png&#34;):
+            image.putalpha(256)
+
+        # Making image data for OpenGL
+        imageData = numpy.array(list(image.getdata()), numpy.uint8)
+        return self.loadTexture(imageData, image.width, image.height)
+
+    def image_loader(self, filename: str, colorkey, **kwargs) -&gt; Callable:
+        image = Image.open(filename)
+        transparent = filename.split(&#34;.&#34;)[-1] == &#34;png&#34;
+
+        def extract_image(rect: Optional[list] = None, flags=None) -&gt; int:
+            # Cropping the image to the necessary size
+            if rect:
+                crop = image.crop((rect[0], rect[1], rect[0] + rect[2], rect[1] + rect[3]))
+            else:
+                crop = image
+
+            if flags:
+                # Handling the flags
+                if flags.flipped_horizontally:
+                    crop = ImageOps.mirror(crop)
+                if flags.flipped_vertically:
+                    crop = ImageOps.flip(crop)
+            
+            # Add alpha if the base image doesn&#39;t have one
+            if not transparent:
+                crop.putalpha(256)
+            # Making image data for OpenGL
+            imageData = numpy.array(list(crop.getdata()), numpy.uint8)
+            return self.loadTexture(imageData, crop.width, crop.height), crop.width, crop.height
+
+        return extract_image</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="AggiEngine.gamescreen.GameScreen"><code class="flex name class">
+<span>class <span class="ident">GameScreen</span></span>
+<span>(</span><span>parent: PySide2.QtWidgets.QWidget)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>QOpenGLWidget(self, parent: typing.Union[PySide2.QtWidgets.QWidget, NoneType] = None, f: PySide2.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -&gt; None</p>
+<p>Subclass of the QOpenGLWidget, this is promoted in Qt Designer so that
+we can draw to the widget.
+<code>parent:</code> The widget that the this held under usually MainWindow</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GameScreen(QOpenGLWidget):
+
+    def __init__(self, parent: QWidget):
+        &#34;&#34;&#34;
+        Subclass of the QOpenGLWidget, this is promoted in Qt Designer so that
+        we can draw to the widget.
+        ``parent:`` The widget that the this held under usually MainWindow  
+        &#34;&#34;&#34;
+        super(GameScreen, self).__init__(parent=parent)
+
+        self.cameraPosition = [0, 0]
+        self.cameraScale = 1
+        self.renderInfoList = []
+        self.bgColor = [0, 0, 0]
+
+    def initializeGL(self) -&gt; None:
+        &#34;&#34;&#34;
+        Here we will override in order to setup OpenGL how we want
+        &#34;&#34;&#34;
+        glEnable(GL_BLEND)
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+        glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        glEnable(GL_TEXTURE_2D)
+
+    def paintGL(self) -&gt; None:
+        &#34;&#34;&#34;
+        This is the function we&#39;ll override to draw to screen
+        &#34;&#34;&#34;
+
+        glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        glColor3f(1, 1, 1)
+        glLoadIdentity()
+        glScalef(self.cameraScale, self.cameraScale, 0)
+        glTranslatef(-self.cameraPosition[0], -self.cameraPosition[1], 0)
+        for renderInfo in self.renderInfoList:
+
+            if renderInfo[0] == -1:
+                glPushMatrix()
+                glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
+                glRotatef(renderInfo[4], 0, 0, 1)
+                glColor4f(renderInfo[2][0], renderInfo[2][1], renderInfo[2][2], renderInfo[2][3])
+                glPolygonMode(GL_FRONT, GL_FILL)
+                glBegin(GL_POLYGON)
+                for vertex in renderInfo[1]:
+                    glVertex2f(vertex[0], vertex[1])
+                glEnd()
+                glPopMatrix()
+            else:
+                glPushMatrix()
+                glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
+                glRotatef(renderInfo[4], 0, 0, 1)
+                glBindTexture(GL_TEXTURE_2D, renderInfo[0])
+                glBegin(GL_QUADS)
+                glTexCoord2f(0, 0)
+                glVertex2f(renderInfo[1], renderInfo[2])
+                glTexCoord2f(1, 0)
+                glVertex2f(-renderInfo[1], renderInfo[2])
+                glTexCoord2f(1, 1)
+                glVertex2f(-renderInfo[1], -renderInfo[2])
+                glTexCoord2f(0, 1)
+                glVertex2f(renderInfo[1], -renderInfo[2])
+                glEnd()
+                glBindTexture(GL_TEXTURE_2D, 0)
+                glPopMatrix()
+
+    def resizeGL(self, w, h) -&gt; None:
+        glViewport(0, 0, w, h)
+        glMatrixMode(GL_PROJECTION)
+        glLoadIdentity()
+        aspect = w / h
+        glOrtho(aspect, -aspect, -1.0, 1.0, 1.0, -1.0)
+        glMatrixMode(GL_MODELVIEW)
+        glLoadIdentity()
+
+    def loadTexture(self, imageData: [int], width: int, height: int) -&gt; int:
+        textureID = glGenTextures(1)
+        glPixelStorei(GL_UNPACK_ALIGNMENT, 4)
+        glBindTexture(GL_TEXTURE_2D, textureID)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData)
+        return textureID
+
+    def loadImageTexture(self, fileName: str) -&gt; int:
+        image = Image.open(fileName)
+
+        # Add alpha if the base image doesn&#39;t have one
+        if not (fileName.split(&#34;.&#34;)[-1] == &#34;png&#34;):
+            image.putalpha(256)
+
+        # Making image data for OpenGL
+        imageData = numpy.array(list(image.getdata()), numpy.uint8)
+        return self.loadTexture(imageData, image.width, image.height)
+
+    def image_loader(self, filename: str, colorkey, **kwargs) -&gt; Callable:
+        image = Image.open(filename)
+        transparent = filename.split(&#34;.&#34;)[-1] == &#34;png&#34;
+
+        def extract_image(rect: Optional[list] = None, flags=None) -&gt; int:
+            # Cropping the image to the necessary size
+            if rect:
+                crop = image.crop((rect[0], rect[1], rect[0] + rect[2], rect[1] + rect[3]))
+            else:
+                crop = image
+
+            if flags:
+                # Handling the flags
+                if flags.flipped_horizontally:
+                    crop = ImageOps.mirror(crop)
+                if flags.flipped_vertically:
+                    crop = ImageOps.flip(crop)
+            
+            # Add alpha if the base image doesn&#39;t have one
+            if not transparent:
+                crop.putalpha(256)
+            # Making image data for OpenGL
+            imageData = numpy.array(list(crop.getdata()), numpy.uint8)
+            return self.loadTexture(imageData, crop.width, crop.height), crop.width, crop.height
+
+        return extract_image</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>PySide2.QtWidgets.QOpenGLWidget</li>
+<li>PySide2.QtWidgets.QWidget</li>
+<li>PySide2.QtCore.QObject</li>
+<li>PySide2.QtGui.QPaintDevice</li>
+<li>Shiboken.Object</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="AggiEngine.gamescreen.GameScreen.staticMetaObject"><code class="name">var <span class="ident">staticMetaObject</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="AggiEngine.gamescreen.GameScreen.image_loader"><code class="name flex">
+<span>def <span class="ident">image_loader</span></span>(<span>self, filename: str, colorkey, **kwargs) ‑> typing.Callable</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def image_loader(self, filename: str, colorkey, **kwargs) -&gt; Callable:
+    image = Image.open(filename)
+    transparent = filename.split(&#34;.&#34;)[-1] == &#34;png&#34;
+
+    def extract_image(rect: Optional[list] = None, flags=None) -&gt; int:
+        # Cropping the image to the necessary size
+        if rect:
+            crop = image.crop((rect[0], rect[1], rect[0] + rect[2], rect[1] + rect[3]))
+        else:
+            crop = image
+
+        if flags:
+            # Handling the flags
+            if flags.flipped_horizontally:
+                crop = ImageOps.mirror(crop)
+            if flags.flipped_vertically:
+                crop = ImageOps.flip(crop)
+        
+        # Add alpha if the base image doesn&#39;t have one
+        if not transparent:
+            crop.putalpha(256)
+        # Making image data for OpenGL
+        imageData = numpy.array(list(crop.getdata()), numpy.uint8)
+        return self.loadTexture(imageData, crop.width, crop.height), crop.width, crop.height
+
+    return extract_image</code></pre>
+</details>
+</dd>
+<dt id="AggiEngine.gamescreen.GameScreen.initializeGL"><code class="name flex">
+<span>def <span class="ident">initializeGL</span></span>(<span>self) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Here we will override in order to setup OpenGL how we want</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def initializeGL(self) -&gt; None:
+    &#34;&#34;&#34;
+    Here we will override in order to setup OpenGL how we want
+    &#34;&#34;&#34;
+    glEnable(GL_BLEND)
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+    glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+    glEnable(GL_TEXTURE_2D)</code></pre>
+</details>
+</dd>
+<dt id="AggiEngine.gamescreen.GameScreen.loadImageTexture"><code class="name flex">
+<span>def <span class="ident">loadImageTexture</span></span>(<span>self, fileName: str) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def loadImageTexture(self, fileName: str) -&gt; int:
+    image = Image.open(fileName)
+
+    # Add alpha if the base image doesn&#39;t have one
+    if not (fileName.split(&#34;.&#34;)[-1] == &#34;png&#34;):
+        image.putalpha(256)
+
+    # Making image data for OpenGL
+    imageData = numpy.array(list(image.getdata()), numpy.uint8)
+    return self.loadTexture(imageData, image.width, image.height)</code></pre>
+</details>
+</dd>
+<dt id="AggiEngine.gamescreen.GameScreen.loadTexture"><code class="name flex">
+<span>def <span class="ident">loadTexture</span></span>(<span>self, imageData: [<class 'int'>], width: int, height: int) ‑> int</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def loadTexture(self, imageData: [int], width: int, height: int) -&gt; int:
+    textureID = glGenTextures(1)
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 4)
+    glBindTexture(GL_TEXTURE_2D, textureID)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST)
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, imageData)
+    return textureID</code></pre>
+</details>
+</dd>
+<dt id="AggiEngine.gamescreen.GameScreen.paintGL"><code class="name flex">
+<span>def <span class="ident">paintGL</span></span>(<span>self) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This is the function we'll override to draw to screen</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def paintGL(self) -&gt; None:
+    &#34;&#34;&#34;
+    This is the function we&#39;ll override to draw to screen
+    &#34;&#34;&#34;
+
+    glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+    glColor3f(1, 1, 1)
+    glLoadIdentity()
+    glScalef(self.cameraScale, self.cameraScale, 0)
+    glTranslatef(-self.cameraPosition[0], -self.cameraPosition[1], 0)
+    for renderInfo in self.renderInfoList:
+
+        if renderInfo[0] == -1:
+            glPushMatrix()
+            glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
+            glRotatef(renderInfo[4], 0, 0, 1)
+            glColor4f(renderInfo[2][0], renderInfo[2][1], renderInfo[2][2], renderInfo[2][3])
+            glPolygonMode(GL_FRONT, GL_FILL)
+            glBegin(GL_POLYGON)
+            for vertex in renderInfo[1]:
+                glVertex2f(vertex[0], vertex[1])
+            glEnd()
+            glPopMatrix()
+        else:
+            glPushMatrix()
+            glTranslatef(renderInfo[3][0], renderInfo[3][1], 0)
+            glRotatef(renderInfo[4], 0, 0, 1)
+            glBindTexture(GL_TEXTURE_2D, renderInfo[0])
+            glBegin(GL_QUADS)
+            glTexCoord2f(0, 0)
+            glVertex2f(renderInfo[1], renderInfo[2])
+            glTexCoord2f(1, 0)
+            glVertex2f(-renderInfo[1], renderInfo[2])
+            glTexCoord2f(1, 1)
+            glVertex2f(-renderInfo[1], -renderInfo[2])
+            glTexCoord2f(0, 1)
+            glVertex2f(renderInfo[1], -renderInfo[2])
+            glEnd()
+            glBindTexture(GL_TEXTURE_2D, 0)
+            glPopMatrix()</code></pre>
+</details>
+</dd>
+<dt id="AggiEngine.gamescreen.GameScreen.resizeGL"><code class="name flex">
+<span>def <span class="ident">resizeGL</span></span>(<span>self, w, h) ‑> NoneType</span>
+</code></dt>
+<dd>
+<div class="desc"><p>resizeGL(self, w: int, h: int) -&gt; None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def resizeGL(self, w, h) -&gt; None:
+    glViewport(0, 0, w, h)
+    glMatrixMode(GL_PROJECTION)
+    glLoadIdentity()
+    aspect = w / h
+    glOrtho(aspect, -aspect, -1.0, 1.0, 1.0, -1.0)
+    glMatrixMode(GL_MODELVIEW)
+    glLoadIdentity()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="AggiEngine" href="index.html">AggiEngine</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="AggiEngine.gamescreen.GameScreen" href="#AggiEngine.gamescreen.GameScreen">GameScreen</a></code></h4>
+<ul class="two-column">
+<li><code><a title="AggiEngine.gamescreen.GameScreen.image_loader" href="#AggiEngine.gamescreen.GameScreen.image_loader">image_loader</a></code></li>
+<li><code><a title="AggiEngine.gamescreen.GameScreen.initializeGL" href="#AggiEngine.gamescreen.GameScreen.initializeGL">initializeGL</a></code></li>
+<li><code><a title="AggiEngine.gamescreen.GameScreen.loadImageTexture" href="#AggiEngine.gamescreen.GameScreen.loadImageTexture">loadImageTexture</a></code></li>
+<li><code><a title="AggiEngine.gamescreen.GameScreen.loadTexture" href="#AggiEngine.gamescreen.GameScreen.loadTexture">loadTexture</a></code></li>
+<li><code><a title="AggiEngine.gamescreen.GameScreen.paintGL" href="#AggiEngine.gamescreen.GameScreen.paintGL">paintGL</a></code></li>
+<li><code><a title="AggiEngine.gamescreen.GameScreen.resizeGL" href="#AggiEngine.gamescreen.GameScreen.resizeGL">resizeGL</a></code></li>
+<li><code><a title="AggiEngine.gamescreen.GameScreen.staticMetaObject" href="#AggiEngine.gamescreen.GameScreen.staticMetaObject">staticMetaObject</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
