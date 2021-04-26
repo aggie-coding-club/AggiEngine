@@ -1,4 +1,5 @@
 import simpleaudio as sa
+from typing import Any
 
 
 class Sound:
