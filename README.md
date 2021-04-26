@@ -2,6 +2,13 @@
 
 AggiEngine is a 2D game engine, designed for making game development easier. AggiEngine provides GUI, physics, state management and more...
 
+
+## Easy Installation
+
+```bash
+pip install AggiEngine
+```
+
 ## Manual Installation
 ```bash
 pip install PySide2
@@ -11,12 +18,6 @@ pip install pytmx
 pip install pillow
 pip install numpy
 pip install simpleaudio
-```
-
-## Easy Installation
-
-```bash
-pip install AggiEngine
 ```
 
 ## Usage
