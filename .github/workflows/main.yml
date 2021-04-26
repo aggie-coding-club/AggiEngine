@@ -29,6 +29,7 @@ jobs:
       - name: Updates the documentation folder
         run: |
           rm -r ./docs/*
+          apt-get install build-essential
           pip install PySide2
           pip install PyOpenGL
           pip install Box2D
