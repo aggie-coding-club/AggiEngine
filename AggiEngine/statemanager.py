@@ -1,5 +1,7 @@
-from PySide2.QtCore import QRunnable, Slot, QThreadPool
+from typing import Callable
 
+from PySide2.QtCore import QRunnable, Slot, QThreadPool
+import PySide2
 from .state import State
 from .gamescreen import GameScreen
 
@@ -8,7 +10,7 @@ import time
 
 class Physics(QRunnable):
 
-    def __init__(self, fixedUpdate, state):
+    def __init__(self, fixedUpdate: Callable, state: State):
         QRunnable.__init__(self)
         self.fixedUpdate = fixedUpdate
         self.window = state.window
@@ -16,7 +18,7 @@ class Physics(QRunnable):
         self.setAutoDelete(False)
 
     @Slot()  # QtCore.Slot
-    def run(self):
+    def run(self) -> None:
         while self.state.active:
             start = time.perf_counter()
             self.fixedUpdate()
@@ -27,7 +29,7 @@ class Physics(QRunnable):
 
 class Rendering(QRunnable):
 
-    def __init__(self, update, state):
+    def __init__(self, update: Callable, state: State):
         QRunnable.__init__(self)
         self.update = update
         self.window = state.window
@@ -35,7 +37,7 @@ class Rendering(QRunnable):
         self.setAutoDelete(False)
 
     @Slot()  # QtCore.Slot
-    def run(self):
+    def run(self) -> None:
         while self.state.active:
             start = time.perf_counter()
             self.update()
@@ -48,12 +50,12 @@ class Rendering(QRunnable):
 
 class StateManager:
 
-    def __init__(self, window, state: State):
+    def __init__(self, window: object, state: State):
         self.window = window
         self.currentState = state
         self.threadPool = QThreadPool()
 
-    def changeState(self, state: State):
+    def changeState(self, state: State) -> None:
         """
         Switch states
         ``state:`` The next state to show  
@@ -65,47 +67,47 @@ class StateManager:
         self.currentState = state
         self.initializeState()
 
-    def update(self):
+    def update(self) -> None:
         self.currentState.updateGOH()
         self.currentState.update()
 
-    def fixedUpdate(self):
+    def fixedUpdate(self) -> None:
         self.currentState.fixedUpdateGOH()
         self.currentState.fixedUpdate()
 
-    def initializeState(self):
+    def initializeState(self) -> None:
         self.currentState.window = self.window  # Give the state a reference to the window
         self.currentState.loadUi()  # Load the states UI
         self.window.waitForLoad()
 
-    def start(self):
+    def start(self) -> None:
         self.window.gameScreen = self.window.findChild(GameScreen)
         self.currentState.startGOH()
         self.currentState.start()  # Start the state
         self.threadPool.start(Physics(self.fixedUpdate, self.currentState))
         self.threadPool.start(Rendering(self.update, self.currentState))
 
-    def exit(self):
+    def exit(self) -> None:
         self.currentState.active = False
         self.currentState.exitGOH()
         self.currentState.exit()
 
-    def keyPressed(self, event):
+    def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -> None:
         self.currentState.keyPressed(event)
         self.currentState.gameObjectHandler.keyPressed(event)
 
-    def keyReleased(self, event):
+    def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -> None:
         self.currentState.keyReleased(event)
         self.currentState.gameObjectHandler.keyReleased(event)
 
-    def mouseMoved(self, event):
+    def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -> None:
         self.currentState.mouseMoved(event)
         self.currentState.gameObjectHandler.mouseMoved(event)
 
-    def mousePressed(self, event):
+    def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -> None:
         self.currentState.mousePressed(event)
         self.currentState.gameObjectHandler.mousePressed(event)
 
-    def mouseReleased(self, event):
+    def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -> None:
         self.currentState.mouseReleased(event)
         self.currentState.gameObjectHandler.mouseReleased(event)

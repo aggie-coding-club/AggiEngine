@@ -1,3 +1,6 @@
+from typing import Optional
+
+import PySide2
 from AggiEngine.contactlistener import ContactListener
 import math
 
@@ -6,7 +9,7 @@ from Box2D import *
 
 class GameObjectHandler:
 
-    def __init__(self, window, scale=16):
+    def __init__(self, window, scale: Optional[float] = 16):
         self.timing = 1 / window.targetFixedFPS
         self.window = window
         
@@ -17,10 +20,10 @@ class GameObjectHandler:
         self.gameObjects = []  # game object list
         self.removeList = []
 
-    def setScale(self, scale):
+    def setScale(self, scale: float) -> None:
         self.scale = scale
 
-    def update(self):
+    def update(self) -> None:
         '''
         calls update on all game objects, not a fixed time interval
         '''
@@ -28,7 +31,7 @@ class GameObjectHandler:
             if gameObject.active:
                 gameObject.update()
 
-    def fixedUpdate(self):
+    def fixedUpdate(self) -> None:
         '''
         Updates the Box2D world on a fixed time interval
         '''
@@ -61,10 +64,9 @@ class GameObjectHandler:
             self.world.DestroyBody(gameObject.body)
         self.removeList = []
 
-    def add(self, gameObject, bodyDef=None, bodyFixtureDef=None, color=None):
-        '''
-        Adds a game object to the Box2D world
-        '''
+    def add(self, gameObject: object, bodyDef: Optional[b2BodyDef] = None,
+            bodyFixtureDef: Optional[b2FixtureDef] = None,
+            color: list = None) -> None:
         self.gameObjects.append(gameObject)  # adds game object to list of game objects
         gameObject.gameObjectHandler = self
 
@@ -98,7 +100,7 @@ class GameObjectHandler:
         gameObject.window = self.window
         gameObject.start()
 
-    def getGameObject(self, typeOf):
+    def getGameObject(self, typeOf: type):
         '''
         Returns the first instance of the gameObject with the type typeOf
         '''
@@ -106,7 +108,7 @@ class GameObjectHandler:
             if isinstance(gameObject, typeOf):
                 return gameObject
 
-    def getGameObjects(self, typeOf):
+    def getGameObjects(self, typeOf: type) -> object:
         '''
         Returns all instances of gameObjects with the type typeOf
         '''
@@ -116,13 +118,13 @@ class GameObjectHandler:
                 gameObjects.append(gameObject)
         return gameObjects
 
-    def removeGameObject(self, toRemove):
+    def removeGameObject(self, toRemove: object) -> None:
         '''
         Removes the gameObject toRemove
         '''
         self.removeList.append(toRemove)
 
-    def removeGameObjects(self, typeOf):
+    def removeGameObjects(self, typeOf: type) -> None:
         '''
         Removes all game objects with the type typeOf
         '''
@@ -130,26 +132,26 @@ class GameObjectHandler:
             if isinstance(gameObject, typeOf):
                 self.removeList.append(gameObject)
 
-    def exit(self):
+    def exit(self) -> None:
         for gameObject in self.gameObjects:
             gameObject.exit()
 
-    def keyPressed(self, event):
+    def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -> None:
         for gameObject in self.gameObjects:
             gameObject.keyPressed(event)
 
-    def keyReleased(self, event):
+    def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -> None:
         for gameObject in self.gameObjects:
             gameObject.keyReleased(event)
 
-    def mouseMoved(self, event):
+    def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -> None:
         for gameObject in self.gameObjects:
             gameObject.mouseMoved(event)
 
-    def mousePressed(self, event):
+    def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -> None:
         for gameObject in self.gameObjects:
             gameObject.mousePressed(event)
 
-    def mouseReleased(self, event):
+    def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -> None:
         for gameObject in self.gameObjects:
             gameObject.mouseReleased(event)
