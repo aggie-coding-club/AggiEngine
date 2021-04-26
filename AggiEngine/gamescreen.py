@@ -11,11 +11,11 @@ from PySide2.QtWidgets import QOpenGLWidget
 class GameScreen(QOpenGLWidget):
 
     def __init__(self, parent: QWidget):
-        """
+        '''
         Subclass of the QOpenGLWidget, this is promoted in Qt Designer so that
         we can draw to the widget.
         ``parent:`` The widget that the this held under usually MainWindow  
-        """
+        '''
         super(GameScreen, self).__init__(parent=parent)
 
         self.cameraPosition = [0, 0]
@@ -24,9 +24,9 @@ class GameScreen(QOpenGLWidget):
         self.bgColor = [0, 0, 0]
 
     def initializeGL(self) -> None:
-        """
-        Here we will override in order to setup OpenGL how we want
-        """
+        '''
+        Sets up OpenGL for rendering
+        '''
         glEnable(GL_BLEND)
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
         glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
@@ -34,9 +34,9 @@ class GameScreen(QOpenGLWidget):
         glEnable(GL_TEXTURE_2D)
 
     def paintGL(self) -> None:
-        """
-        This is the function we'll override to draw to screen
-        """
+        '''
+        Draws all game objects rect and texture id given by game object handler
+        '''
 
         glClearColor(self.bgColor[0], self.bgColor[1], self.bgColor[2], 1)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
@@ -76,6 +76,9 @@ class GameScreen(QOpenGLWidget):
                 glPopMatrix()
 
     def resizeGL(self, w, h) -> None:
+        '''
+        Resize event recalculates values to maintain the same image.
+        '''
         glViewport(0, 0, w, h)
         glMatrixMode(GL_PROJECTION)
         glLoadIdentity()
@@ -85,6 +88,10 @@ class GameScreen(QOpenGLWidget):
         glLoadIdentity()
 
     def loadTexture(self, imageData: [int], width: int, height: int) -> int:
+        '''
+        Loads the texture to the render device.
+        Returns it's texture id.
+        '''
         textureID = glGenTextures(1)
         glPixelStorei(GL_UNPACK_ALIGNMENT, 4)
         glBindTexture(GL_TEXTURE_2D, textureID)
@@ -96,6 +103,10 @@ class GameScreen(QOpenGLWidget):
         return textureID
 
     def loadImageTexture(self, fileName: str) -> int:
+        '''
+        Loads an image from a path and loads it to the render device.
+        Returns the texture id of the image.
+        '''
         image = Image.open(fileName)
 
         # Add alpha if the base image doesn't have one
@@ -107,6 +118,9 @@ class GameScreen(QOpenGLWidget):
         return self.loadTexture(imageData, image.width, image.height)
 
     def image_loader(self, filename: str, colorkey, **kwargs) -> Callable:
+        '''
+        The image loader used by pytmx so that all images are sent to the render devices memory for quick drawing.
+        '''
         image = Image.open(filename)
         transparent = filename.split(".")[-1] == "png"
 
