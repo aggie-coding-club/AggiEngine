@@ -43,7 +43,7 @@ jobs:
           git add .
           git commit -m "Auto updating docs"
       - name: Push changes # push the output folder to your repo
-        uses: ad-m/github-push-action@docs
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
