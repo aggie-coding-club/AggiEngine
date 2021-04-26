@@ -30,67 +30,67 @@
             <li>
                     <a class="class" href="#Physics">Physics</a>
                             <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#Physics.__init__">Physics</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Physics.run">run</a>
-                        </li>
-                </ul>
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#Physics.__init__&#34;&gt;Physics&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#Physics.run&#34;&gt;run&lt;/a&gt;
+                        &lt;/li&gt;
+                &lt;/ul&gt;
 
             </li>
             <li>
                     <a class="class" href="#Rendering">Rendering</a>
                             <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#Rendering.__init__">Rendering</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Rendering.run">run</a>
-                        </li>
-                </ul>
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#Rendering.__init__&#34;&gt;Rendering&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#Rendering.run&#34;&gt;run&lt;/a&gt;
+                        &lt;/li&gt;
+                &lt;/ul&gt;
 
             </li>
             <li>
                     <a class="class" href="#StateManager">StateManager</a>
                             <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#StateManager.__init__">StateManager</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#StateManager.changeState">changeState</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#StateManager.update">update</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#StateManager.fixedUpdate">fixedUpdate</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#StateManager.initializeState">initializeState</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#StateManager.start">start</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#StateManager.exit">exit</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#StateManager.keyPressed">keyPressed</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#StateManager.keyReleased">keyReleased</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#StateManager.mouseMoved">mouseMoved</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#StateManager.mousePressed">mousePressed</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#StateManager.mouseReleased">mouseReleased</a>
-                        </li>
-                </ul>
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#StateManager.__init__&#34;&gt;StateManager&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#StateManager.changeState&#34;&gt;changeState&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#StateManager.update&#34;&gt;update&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#StateManager.fixedUpdate&#34;&gt;fixedUpdate&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#StateManager.initializeState&#34;&gt;initializeState&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#StateManager.start&#34;&gt;start&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#StateManager.exit&#34;&gt;exit&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#StateManager.keyPressed&#34;&gt;keyPressed&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#StateManager.keyReleased&#34;&gt;keyReleased&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#StateManager.mouseMoved&#34;&gt;mouseMoved&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#StateManager.mousePressed&#34;&gt;mousePressed&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#StateManager.mouseReleased&#34;&gt;mouseReleased&lt;/a&gt;
+                        &lt;/li&gt;
+                &lt;/ul&gt;
 
             </li>
     </ul>
@@ -111,8 +111,10 @@
                 
                         <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">PySide2.QtCore</span> <span class="kn">import</span> <span class="n">QRunnable</span><span class="p">,</span> <span class="n">Slot</span><span class="p">,</span> <span class="n">QThreadPool</span>
+            <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span>
 
+<span class="kn">from</span> <span class="nn">PySide2.QtCore</span> <span class="kn">import</span> <span class="n">QRunnable</span><span class="p">,</span> <span class="n">Slot</span><span class="p">,</span> <span class="n">QThreadPool</span>
+<span class="kn">import</span> <span class="nn">PySide2</span>
 <span class="kn">from</span> <span class="nn">.state</span> <span class="kn">import</span> <span class="n">State</span>
 <span class="kn">from</span> <span class="nn">.gamescreen</span> <span class="kn">import</span> <span class="n">GameScreen</span>
 
@@ -121,15 +123,15 @@
 
 <span class="k">class</span> <span class="nc">Physics</span><span class="p">(</span><span class="n">QRunnable</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fixedUpdate</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fixedUpdate</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
         <span class="n">QRunnable</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedUpdate</span> <span class="o">=</span> <span class="n">fixedUpdate</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoDelete</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoDelete</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
 
     <span class="nd">@Slot</span><span class="p">()</span>  <span class="c1"># QtCore.Slot</span>
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">active</span><span class="p">:</span>
             <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fixedUpdate</span><span class="p">()</span>
@@ -140,15 +142,15 @@
 
 <span class="k">class</span> <span class="nc">Rendering</span><span class="p">(</span><span class="n">QRunnable</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
         <span class="n">QRunnable</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span> <span class="o">=</span> <span class="n">update</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoDelete</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoDelete</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
 
     <span class="nd">@Slot</span><span class="p">()</span>  <span class="c1"># QtCore.Slot</span>
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">active</span><span class="p">:</span>
             <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
@@ -161,65 +163,65 @@
 
 <span class="k">class</span> <span class="nc">StateManager</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span> <span class="o">=</span> <span class="n">state</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">threadPool</span> <span class="o">=</span> <span class="n">QThreadPool</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">changeState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">changeState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Switch states</span>
 <span class="sd">        ``state:`` The next state to show  </span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="bp">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">exitGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span> <span class="o">=</span> <span class="n">state</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">initializeState</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">updateGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">fixedUpdateGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">fixedUpdate</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">initializeState</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">initializeState</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span>  <span class="c1"># Give the state a reference to the window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">loadUi</span><span class="p">()</span>  <span class="c1"># Load the states UI</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">waitForLoad</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">GameScreen</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">startGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>  <span class="c1"># Start the state</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">threadPool</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">Physics</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fixedUpdate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">threadPool</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">Rendering</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="bp">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">exitGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">keyPressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">keyPressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">keyReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">keyReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">mouseMoved</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">mouseMoved</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">mousePressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">mousePressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">mouseReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">mouseReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
@@ -240,15 +242,15 @@
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Physics</span><span class="p">(</span><span class="n">QRunnable</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fixedUpdate</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fixedUpdate</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
         <span class="n">QRunnable</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedUpdate</span> <span class="o">=</span> <span class="n">fixedUpdate</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoDelete</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoDelete</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
 
     <span class="nd">@Slot</span><span class="p">()</span>  <span class="c1"># QtCore.Slot</span>
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">active</span><span class="p">:</span>
             <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fixedUpdate</span><span class="p">()</span>
@@ -267,17 +269,17 @@
                                         <div class="attr function"><a class="headerlink" href="#Physics.__init__">#&nbsp;&nbsp</a>
 
         
-            <span class="name">Physics</span><span class="signature">(fixedUpdate, state)</span>
+            <span class="name">Physics</span><span class="signature">(fixedUpdate: typing.Callable, state: <a href="state.html#State">AggiEngine.state.State</a>)</span>
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fixedUpdate</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fixedUpdate</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
         <span class="n">QRunnable</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedUpdate</span> <span class="o">=</span> <span class="n">fixedUpdate</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoDelete</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoDelete</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 
         </details>
@@ -291,13 +293,13 @@
                 <div class="decorator">@Slot()</div>
 
             <span class="def">def</span>
-            <span class="name">run</span><span class="signature">(self)</span>:
+            <span class="name">run</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="nd">@Slot</span><span class="p">()</span>  <span class="c1"># QtCore.Slot</span>
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">active</span><span class="p">:</span>
             <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fixedUpdate</span><span class="p">()</span>
@@ -337,15 +339,15 @@
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Rendering</span><span class="p">(</span><span class="n">QRunnable</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
         <span class="n">QRunnable</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span> <span class="o">=</span> <span class="n">update</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoDelete</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoDelete</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
 
     <span class="nd">@Slot</span><span class="p">()</span>  <span class="c1"># QtCore.Slot</span>
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">active</span><span class="p">:</span>
             <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
@@ -366,17 +368,17 @@
                                         <div class="attr function"><a class="headerlink" href="#Rendering.__init__">#&nbsp;&nbsp</a>
 
         
-            <span class="name">Rendering</span><span class="signature">(update, state)</span>
+            <span class="name">Rendering</span><span class="signature">(update: typing.Callable, state: <a href="state.html#State">AggiEngine.state.State</a>)</span>
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
         <span class="n">QRunnable</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">update</span> <span class="o">=</span> <span class="n">update</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoDelete</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setAutoDelete</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
 
         </details>
@@ -390,13 +392,13 @@
                 <div class="decorator">@Slot()</div>
 
             <span class="def">def</span>
-            <span class="name">run</span><span class="signature">(self)</span>:
+            <span class="name">run</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span>    <span class="nd">@Slot</span><span class="p">()</span>  <span class="c1"># QtCore.Slot</span>
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">active</span><span class="p">:</span>
             <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
@@ -438,65 +440,65 @@
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">StateManager</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span> <span class="o">=</span> <span class="n">state</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">threadPool</span> <span class="o">=</span> <span class="n">QThreadPool</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">changeState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">changeState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Switch states</span>
 <span class="sd">        ``state:`` The next state to show  </span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="bp">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">exitGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span> <span class="o">=</span> <span class="n">state</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">initializeState</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">updateGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">fixedUpdateGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">fixedUpdate</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">initializeState</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">initializeState</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span>  <span class="c1"># Give the state a reference to the window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">loadUi</span><span class="p">()</span>  <span class="c1"># Load the states UI</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">waitForLoad</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">GameScreen</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">startGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>  <span class="c1"># Start the state</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">threadPool</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">Physics</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fixedUpdate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">threadPool</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">Rendering</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="bp">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">exitGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">keyPressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">keyPressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">keyReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">keyReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">mouseMoved</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">mouseMoved</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">mousePressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">mousePressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">mouseReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">mouseReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
@@ -509,12 +511,12 @@
                                         <div class="attr function"><a class="headerlink" href="#StateManager.__init__">#&nbsp;&nbsp</a>
 
         
-            <span class="name">StateManager</span><span class="signature">(window, state: <a href="state.html#State">AggiEngine.state.State</a>)</span>
+            <span class="name">StateManager</span><span class="signature">(window: object, state: <a href="state.html#State">AggiEngine.state.State</a>)</span>
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span> <span class="o">=</span> <span class="n">state</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">threadPool</span> <span class="o">=</span> <span class="n">QThreadPool</span><span class="p">()</span>
@@ -530,18 +532,18 @@
 
         
             <span class="def">def</span>
-            <span class="name">changeState</span><span class="signature">(self, state: <a href="state.html#State">AggiEngine.state.State</a>)</span>:
+            <span class="name">changeState</span><span class="signature">(self, state: <a href="state.html#State">AggiEngine.state.State</a>) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">changeState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">changeState</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Switch states</span>
 <span class="sd">        ``state:`` The next state to show  </span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="bp">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">exitGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span> <span class="o">=</span> <span class="n">state</span>
@@ -561,12 +563,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">update</span><span class="signature">(self)</span>:
+            <span class="name">update</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">updateGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 </pre></div>
@@ -581,12 +583,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">fixedUpdate</span><span class="signature">(self)</span>:
+            <span class="name">fixedUpdate</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">fixedUpdateGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">fixedUpdate</span><span class="p">()</span>
 </pre></div>
@@ -601,12 +603,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">initializeState</span><span class="signature">(self)</span>:
+            <span class="name">initializeState</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">initializeState</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">initializeState</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span>  <span class="c1"># Give the state a reference to the window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">loadUi</span><span class="p">()</span>  <span class="c1"># Load the states UI</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">waitForLoad</span><span class="p">()</span>
@@ -622,12 +624,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">start</span><span class="signature">(self)</span>:
+            <span class="name">start</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">findChild</span><span class="p">(</span><span class="n">GameScreen</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">startGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>  <span class="c1"># Start the state</span>
@@ -645,13 +647,13 @@
 
         
             <span class="def">def</span>
-            <span class="name">exit</span><span class="signature">(self)</span>:
+            <span class="name">exit</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">False</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="bp">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">exitGOH</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
@@ -666,12 +668,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">keyPressed</span><span class="signature">(self, event)</span>:
+            <span class="name">keyPressed</span><span class="signature">(self, event: PySide2.QtGui.QKeyEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">keyPressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">keyPressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
@@ -686,12 +688,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">keyReleased</span><span class="signature">(self, event)</span>:
+            <span class="name">keyReleased</span><span class="signature">(self, event: PySide2.QtGui.QKeyEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">keyReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">keyReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
@@ -706,12 +708,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">mouseMoved</span><span class="signature">(self, event)</span>:
+            <span class="name">mouseMoved</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">mouseMoved</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">mouseMoved</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
@@ -726,12 +728,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">mousePressed</span><span class="signature">(self, event)</span>:
+            <span class="name">mousePressed</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">mousePressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">mousePressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
@@ -746,12 +748,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">mouseReleased</span><span class="signature">(self, event)</span>:
+            <span class="name">mouseReleased</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">mouseReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currentState</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">mouseReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>

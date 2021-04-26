@@ -30,55 +30,55 @@
             <li>
                     <a class="class" href="#State">State</a>
                             <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#State.__init__">State</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.loadMap">loadMap</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.loadUi">loadUi</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.startGOH">startGOH</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.updateGOH">updateGOH</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.fixedUpdateGOH">fixedUpdateGOH</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.exitGOH">exitGOH</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.start">start</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.update">update</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.fixedUpdate">fixedUpdate</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.exit">exit</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.keyPressed">keyPressed</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.keyReleased">keyReleased</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.mouseMoved">mouseMoved</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.mousePressed">mousePressed</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#State.mouseReleased">mouseReleased</a>
-                        </li>
-                </ul>
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.__init__&#34;&gt;State&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.loadMap&#34;&gt;loadMap&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.loadUi&#34;&gt;loadUi&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.startGOH&#34;&gt;startGOH&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.updateGOH&#34;&gt;updateGOH&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.fixedUpdateGOH&#34;&gt;fixedUpdateGOH&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.exitGOH&#34;&gt;exitGOH&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.start&#34;&gt;start&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.update&#34;&gt;update&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.fixedUpdate&#34;&gt;fixedUpdate&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.exit&#34;&gt;exit&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.keyPressed&#34;&gt;keyPressed&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.keyReleased&#34;&gt;keyReleased&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.mouseMoved&#34;&gt;mouseMoved&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.mousePressed&#34;&gt;mousePressed&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#State.mouseReleased&#34;&gt;mouseReleased&lt;/a&gt;
+                        &lt;/li&gt;
+                &lt;/ul&gt;
 
             </li>
     </ul>
@@ -99,62 +99,65 @@
                 
                         <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">.gameobjecthandler</span> <span class="kn">import</span> <span class="n">GameObjectHandler</span>
+            <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">import</span> <span class="nn">PySide2</span>
+<span class="kn">from</span> <span class="nn">.gameobjecthandler</span> <span class="kn">import</span> <span class="n">GameObjectHandler</span>
 <span class="kn">from</span> <span class="nn">.tileloader</span> <span class="kn">import</span> <span class="n">TileMap</span>
 
 
 <span class="k">class</span> <span class="nc">State</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ui_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ui_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">window</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">object</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span> <span class="o">=</span> <span class="n">ui_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="bp">True</span>
 
-    <span class="k">def</span> <span class="nf">loadMap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filePath</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">loadMap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filePath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">TileMap</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">loadUi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">uiManager</span><span class="o">.</span><span class="n">loadWidgets</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">loadUi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">uiManager</span><span class="o">.</span><span class="n">loadWidgets</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">startGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">startGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span> <span class="o">=</span> <span class="n">GameObjectHandler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">updateGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">updateGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">fixedUpdateGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fixedUpdateGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">fixedUpdate</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">exitGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">exitGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 </pre></div>
 
@@ -174,56 +177,56 @@
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">State</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ui_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ui_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">window</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">object</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span> <span class="o">=</span> <span class="n">ui_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="bp">True</span>
 
-    <span class="k">def</span> <span class="nf">loadMap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filePath</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">loadMap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filePath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">TileMap</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">loadUi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">uiManager</span><span class="o">.</span><span class="n">loadWidgets</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">loadUi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">uiManager</span><span class="o">.</span><span class="n">loadWidgets</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">startGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">startGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span> <span class="o">=</span> <span class="n">GameObjectHandler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">updateGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">updateGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">fixedUpdateGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fixedUpdateGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">fixedUpdate</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">exitGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">exitGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 
-    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 </pre></div>
 
@@ -235,16 +238,19 @@
                                         <div class="attr function"><a class="headerlink" href="#State.__init__">#&nbsp;&nbsp</a>
 
         
-            <span class="name">State</span><span class="signature">(ui_path=None, window=None)</span>
+            <span class="name">State</span><span class="signature">(
+    ui_path: typing.Union[str, NoneType] = None,
+    window: typing.Union[object, NoneType] = None
+)</span>
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ui_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ui_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">window</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">object</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span> <span class="o">=</span> <span class="n">ui_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="bp">True</span>
 </pre></div>
 
         </details>
@@ -257,12 +263,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">loadMap</span><span class="signature">(self, filePath)</span>:
+            <span class="name">loadMap</span><span class="signature">(self, filePath: str) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">loadMap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filePath</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">loadMap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filePath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">TileMap</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span><span class="p">)</span>
 </pre></div>
 
@@ -276,14 +282,14 @@
 
         
             <span class="def">def</span>
-            <span class="name">loadUi</span><span class="signature">(self)</span>:
+            <span class="name">loadUi</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">loadUi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">uiManager</span><span class="o">.</span><span class="n">loadWidgets</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">loadUi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">uiManager</span><span class="o">.</span><span class="n">loadWidgets</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ui_path</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
 </pre></div>
 
         </details>
@@ -296,12 +302,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">startGOH</span><span class="signature">(self)</span>:
+            <span class="name">startGOH</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">startGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">startGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span> <span class="o">=</span> <span class="n">GameObjectHandler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span>
 </pre></div>
 
@@ -315,12 +321,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">updateGOH</span><span class="signature">(self)</span>:
+            <span class="name">updateGOH</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">updateGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">updateGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 </pre></div>
 
@@ -334,12 +340,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">fixedUpdateGOH</span><span class="signature">(self)</span>:
+            <span class="name">fixedUpdateGOH</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">fixedUpdateGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">fixedUpdateGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">fixedUpdate</span><span class="p">()</span>
 </pre></div>
 
@@ -353,12 +359,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">exitGOH</span><span class="signature">(self)</span>:
+            <span class="name">exitGOH</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">exitGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">exitGOH</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjectHandler</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
 
@@ -372,12 +378,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">start</span><span class="signature">(self)</span>:
+            <span class="name">start</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 </pre></div>
 
@@ -391,12 +397,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">update</span><span class="signature">(self)</span>:
+            <span class="name">update</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 </pre></div>
 
@@ -410,12 +416,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">fixedUpdate</span><span class="signature">(self)</span>:
+            <span class="name">fixedUpdate</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 </pre></div>
 
@@ -429,12 +435,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">exit</span><span class="signature">(self)</span>:
+            <span class="name">exit</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 </pre></div>
 
@@ -448,12 +454,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">keyPressed</span><span class="signature">(self, event)</span>:
+            <span class="name">keyPressed</span><span class="signature">(self, event: PySide2.QtGui.QKeyEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 </pre></div>
 
@@ -467,12 +473,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">keyReleased</span><span class="signature">(self, event)</span>:
+            <span class="name">keyReleased</span><span class="signature">(self, event: PySide2.QtGui.QKeyEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 </pre></div>
 
@@ -486,12 +492,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">mouseMoved</span><span class="signature">(self, event)</span>:
+            <span class="name">mouseMoved</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 </pre></div>
 
@@ -505,12 +511,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">mousePressed</span><span class="signature">(self, event)</span>:
+            <span class="name">mousePressed</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 </pre></div>
 
@@ -524,12 +530,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">mouseReleased</span><span class="signature">(self, event)</span>:
+            <span class="name">mouseReleased</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">pass</span>
 </pre></div>
 

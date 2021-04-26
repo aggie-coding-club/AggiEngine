@@ -30,19 +30,19 @@
             <li>
                     <a class="class" href="#Sound">Sound</a>
                             <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#Sound.__init__">Sound</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Sound.load">load</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Sound.play">play</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Sound.stop_all">stop_all</a>
-                        </li>
-                </ul>
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#Sound.__init__&#34;&gt;Sound&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#Sound.load&#34;&gt;load&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#Sound.play&#34;&gt;play&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#Sound.stop_all&#34;&gt;stop_all&lt;/a&gt;
+                        &lt;/li&gt;
+                &lt;/ul&gt;
 
             </li>
     </ul>
@@ -63,28 +63,31 @@
                 
                         <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">simpleaudio</span> <span class="k">as</span> <span class="nn">sa</span>
+            <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">simpleaudio</span> <span class="kn">as</span> <span class="nn">sa</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
 
-<span class="k">class</span> <span class="nc">Sound</span><span class="p">():</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="k">class</span> <span class="nc">Sound</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sounds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
     
-    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">filestr</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">filestr</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Loads a wav file for future playback</span>
+<span class="sd">        ads a wav file for future playback</span>
 <span class="sd">        ``key:`` A key you will use to access the audio playback  </span>
 <span class="sd">        ``filestr:`` The file path for a wav file to play  </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sounds</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">WaveObject</span><span class="o">.</span><span class="n">from_wave_file</span><span class="p">(</span><span class="n">filestr</span><span class="p">)</span>
     
-    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">sa</span><span class="o">.</span><span class="n">PlayObject</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plays your sound</span>
 <span class="sd">        ``key:`` The key used when loading the sound  </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sounds</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
     
-    <span class="k">def</span> <span class="nf">stop_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">stop_all</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Stops all sounds from playing</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -105,26 +108,27 @@
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Sound</span><span class="p">():</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Sound</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sounds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
     
-    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">filestr</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">filestr</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Loads a wav file for future playback</span>
+<span class="sd">        ads a wav file for future playback</span>
 <span class="sd">        ``key:`` A key you will use to access the audio playback  </span>
 <span class="sd">        ``filestr:`` The file path for a wav file to play  </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sounds</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">sa</span><span class="o">.</span><span class="n">WaveObject</span><span class="o">.</span><span class="n">from_wave_file</span><span class="p">(</span><span class="n">filestr</span><span class="p">)</span>
     
-    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">sa</span><span class="o">.</span><span class="n">PlayObject</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plays your sound</span>
 <span class="sd">        ``key:`` The key used when loading the sound  </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sounds</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
     
-    <span class="k">def</span> <span class="nf">stop_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">stop_all</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Stops all sounds from playing</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -144,7 +148,7 @@
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sounds</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 </pre></div>
 
@@ -158,14 +162,14 @@
 
         
             <span class="def">def</span>
-            <span class="name">load</span><span class="signature">(self, key, filestr)</span>:
+            <span class="name">load</span><span class="signature">(self, key: typing.Any, filestr: str) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">filestr</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">filestr</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Loads a wav file for future playback</span>
+<span class="sd">        ads a wav file for future playback</span>
 <span class="sd">        ``key:`` A key you will use to access the audio playback  </span>
 <span class="sd">        ``filestr:`` The file path for a wav file to play  </span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -174,7 +178,7 @@
 
         </details>
 
-            <div class="docstring"><p>Loads a wav file for future playback
+            <div class="docstring"><p>ads a wav file for future playback
 <code>key:</code> A key you will use to access the audio playback <br />
 <code>filestr:</code> The file path for a wav file to play</p>
 </div>
@@ -186,12 +190,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">play</span><span class="signature">(self, key)</span>:
+            <span class="name">play</span><span class="signature">(self, key: typing.Any) -&gt; simpleaudio.shiny.PlayObject</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">sa</span><span class="o">.</span><span class="n">PlayObject</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Plays your sound</span>
 <span class="sd">        ``key:`` The key used when loading the sound  </span>
@@ -212,12 +216,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">stop_all</span><span class="signature">(self)</span>:
+            <span class="name">stop_all</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">stop_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">stop_all</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Stops all sounds from playing</span>
 <span class="sd">        &quot;&quot;&quot;</span>

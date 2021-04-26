@@ -30,40 +30,40 @@
             <li>
                     <a class="class" href="#MainWindow">MainWindow</a>
                             <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#MainWindow.__init__">MainWindow</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MainWindow.start">start</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MainWindow.closeEvent">closeEvent</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MainWindow.resizeEvent">resizeEvent</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MainWindow.keyPressEvent">keyPressEvent</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MainWindow.keyReleaseEvent">keyReleaseEvent</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MainWindow.mouseMoveEvent">mouseMoveEvent</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MainWindow.mousePressEvent">mousePressEvent</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MainWindow.mouseReleaseEvent">mouseReleaseEvent</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#MainWindow.waitForLoad">waitForLoad</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#MainWindow.staticMetaObject">staticMetaObject</a>
-                        </li>
-                </ul>
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#MainWindow.__init__&#34;&gt;MainWindow&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#MainWindow.start&#34;&gt;start&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#MainWindow.closeEvent&#34;&gt;closeEvent&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#MainWindow.resizeEvent&#34;&gt;resizeEvent&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#MainWindow.keyPressEvent&#34;&gt;keyPressEvent&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#MainWindow.keyReleaseEvent&#34;&gt;keyReleaseEvent&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#MainWindow.mouseMoveEvent&#34;&gt;mouseMoveEvent&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#MainWindow.mousePressEvent&#34;&gt;mousePressEvent&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#MainWindow.mouseReleaseEvent&#34;&gt;mouseReleaseEvent&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#MainWindow.waitForLoad&#34;&gt;waitForLoad&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;variable&#34; href=&#34;#MainWindow.staticMetaObject&#34;&gt;staticMetaObject&lt;/a&gt;
+                        &lt;/li&gt;
+                &lt;/ul&gt;
 
             </li>
     </ul>
@@ -85,10 +85,11 @@
                         <details>
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 
 <span class="kn">import</span> <span class="nn">PySide2</span>
 <span class="kn">from</span> <span class="nn">PySide2.QtCore</span> <span class="kn">import</span> <span class="n">QTimer</span><span class="p">,</span> <span class="n">Qt</span>
-<span class="kn">from</span> <span class="nn">PySide2.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span>
+<span class="kn">from</span> <span class="nn">PySide2.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QWidget</span>
 
 <span class="kn">from</span> <span class="nn">.uimanager</span> <span class="kn">import</span> <span class="n">UiManager</span>
 <span class="kn">from</span> <span class="nn">.statemanager</span> <span class="kn">import</span> <span class="n">StateManager</span>
@@ -98,7 +99,7 @@
 
 <span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">screenFPS</span><span class="p">,</span> <span class="n">fixedFPS</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">screenFPS</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">fixedFPS</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">QWidget</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The MainWindow is created by the application, here we handle ui/scenes and send out updates.</span>
 <span class="sd">        ``state:`` The current state we want to start with.  </span>
@@ -106,7 +107,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">QMainWindow</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">app</span>  <span class="c1"># the application created</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gameScreen</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># where all graphics are drawn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameScreen</span> <span class="o">=</span> <span class="bp">None</span>  <span class="c1"># where all graphics are drawn</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">uiManager</span> <span class="o">=</span> <span class="n">UiManager</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">customWidgets</span><span class="o">=</span><span class="p">[</span><span class="n">GameScreen</span><span class="p">])</span>  <span class="c1"># Loads widgets into window from a file</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span> <span class="o">=</span> <span class="n">StateManager</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>  <span class="c1"># Manages state updates and transitions</span>
 
@@ -126,26 +127,26 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedNeeded</span> <span class="o">=</span> <span class="n">fixedFPS</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">screenNeeded</span> <span class="o">=</span> <span class="n">screenFPS</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lastTime</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setMouseTracking</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMouseTracking</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">uiManager</span><span class="o">.</span><span class="n">keepWidgets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Called to start the window</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">initializeState</span><span class="p">()</span>  <span class="c1"># start the state</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">updateFPSTimer</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">closeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QCloseEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">closeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QCloseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Called when the window its closed</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Window closed.&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Window closed.&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">updateFPSTimer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">__calculateFPS</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__calculateFPS</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Averages FPS and adjust frame timings</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -166,26 +167,26 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">lastTime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">resizeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QResizeEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resizeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QResizeEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameScreen</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">gameScreen</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">())</span>
 
-    <span class="k">def</span> <span class="nf">keyPressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyPressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">keyPressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">keyReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">keyReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">mouseMoved</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">mousePressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">mouseReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">waitForLoad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">waitForLoad</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">QTimer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">singleShot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
 </pre></div>
 
@@ -205,7 +206,7 @@
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">screenFPS</span><span class="p">,</span> <span class="n">fixedFPS</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">screenFPS</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">fixedFPS</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">QWidget</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The MainWindow is created by the application, here we handle ui/scenes and send out updates.</span>
 <span class="sd">        ``state:`` The current state we want to start with.  </span>
@@ -213,7 +214,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">QMainWindow</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">app</span>  <span class="c1"># the application created</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gameScreen</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># where all graphics are drawn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameScreen</span> <span class="o">=</span> <span class="bp">None</span>  <span class="c1"># where all graphics are drawn</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">uiManager</span> <span class="o">=</span> <span class="n">UiManager</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">customWidgets</span><span class="o">=</span><span class="p">[</span><span class="n">GameScreen</span><span class="p">])</span>  <span class="c1"># Loads widgets into window from a file</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span> <span class="o">=</span> <span class="n">StateManager</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>  <span class="c1"># Manages state updates and transitions</span>
 
@@ -233,26 +234,26 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedNeeded</span> <span class="o">=</span> <span class="n">fixedFPS</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">screenNeeded</span> <span class="o">=</span> <span class="n">screenFPS</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lastTime</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setMouseTracking</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMouseTracking</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">uiManager</span><span class="o">.</span><span class="n">keepWidgets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Called to start the window</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">initializeState</span><span class="p">()</span>  <span class="c1"># start the state</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">updateFPSTimer</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">closeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QCloseEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">closeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QCloseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Called when the window its closed</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Window closed.&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Window closed.&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">updateFPSTimer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">__calculateFPS</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__calculateFPS</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Averages FPS and adjust frame timings</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -273,32 +274,32 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">lastTime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">resizeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QResizeEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">resizeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QResizeEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameScreen</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">gameScreen</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">())</span>
 
-    <span class="k">def</span> <span class="nf">keyPressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyPressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">keyPressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">keyReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">keyReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">mouseMoved</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">mousePressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">mouseReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">waitForLoad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">waitForLoad</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">QTimer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">singleShot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
 </pre></div>
 
         </details>
 
-            <div class="docstring"><p>QMainWindow(self, parent: typing.Optional[PySide2.QtWidgets.QWidget] = None, flags: PySide2.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
+            <div class="docstring"><p>QMainWindow(self, parent: typing.Union[PySide2.QtWidgets.QWidget, NoneType] = None, flags: PySide2.QtCore.Qt.WindowFlags = Default(Qt.WindowFlags)) -> None</p>
 </div>
 
 
@@ -306,12 +307,18 @@
                                         <div class="attr function"><a class="headerlink" href="#MainWindow.__init__">#&nbsp;&nbsp</a>
 
         
-            <span class="name">MainWindow</span><span class="signature">(app, state: <a href="state.html#State">AggiEngine.state.State</a>, screenFPS, fixedFPS, parent=None)</span>
+            <span class="name">MainWindow</span><span class="signature">(
+    app,
+    state: <a href="state.html#State">AggiEngine.state.State</a>,
+    screenFPS: int,
+    fixedFPS: int,
+    parent: typing.Union[PySide2.QtWidgets.QWidget, NoneType] = None
+)</span>
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">screenFPS</span><span class="p">,</span> <span class="n">fixedFPS</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">screenFPS</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">fixedFPS</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">QWidget</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The MainWindow is created by the application, here we handle ui/scenes and send out updates.</span>
 <span class="sd">        ``state:`` The current state we want to start with.  </span>
@@ -319,7 +326,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">QMainWindow</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="n">app</span>  <span class="c1"># the application created</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gameScreen</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># where all graphics are drawn</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gameScreen</span> <span class="o">=</span> <span class="bp">None</span>  <span class="c1"># where all graphics are drawn</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">uiManager</span> <span class="o">=</span> <span class="n">UiManager</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">customWidgets</span><span class="o">=</span><span class="p">[</span><span class="n">GameScreen</span><span class="p">])</span>  <span class="c1"># Loads widgets into window from a file</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span> <span class="o">=</span> <span class="n">StateManager</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>  <span class="c1"># Manages state updates and transitions</span>
 
@@ -339,7 +346,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">fixedNeeded</span> <span class="o">=</span> <span class="n">fixedFPS</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">screenNeeded</span> <span class="o">=</span> <span class="n">screenFPS</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lastTime</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setMouseTracking</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setMouseTracking</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">uiManager</span><span class="o">.</span><span class="n">keepWidgets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">children</span><span class="p">()</span>
 </pre></div>
@@ -358,12 +365,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">start</span><span class="signature">(self)</span>:
+            <span class="name">start</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Called to start the window</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -383,16 +390,16 @@
 
         
             <span class="def">def</span>
-            <span class="name">closeEvent</span><span class="signature">(self, event: PySide2.QtGui.QCloseEvent)</span>:
+            <span class="name">closeEvent</span><span class="signature">(self, event: PySide2.QtGui.QCloseEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">closeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QCloseEvent</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">closeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QCloseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Called when the window its closed</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Window closed.&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Window closed.&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">updateFPSTimer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
@@ -409,12 +416,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">resizeEvent</span><span class="signature">(self, event: PySide2.QtGui.QResizeEvent)</span>:
+            <span class="name">resizeEvent</span><span class="signature">(self, event: PySide2.QtGui.QResizeEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">resizeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QResizeEvent</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">resizeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QResizeEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameScreen</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">gameScreen</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">())</span>
 </pre></div>
@@ -431,12 +438,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">keyPressEvent</span><span class="signature">(self, event: PySide2.QtGui.QKeyEvent)</span>:
+            <span class="name">keyPressEvent</span><span class="signature">(self, event: PySide2.QtGui.QKeyEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyPressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyPressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">keyPressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
 
@@ -452,12 +459,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">keyReleaseEvent</span><span class="signature">(self, event: PySide2.QtGui.QKeyEvent)</span>:
+            <span class="name">keyReleaseEvent</span><span class="signature">(self, event: PySide2.QtGui.QKeyEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">keyReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
 
@@ -473,12 +480,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">mouseMoveEvent</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent)</span>:
+            <span class="name">mouseMoveEvent</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">mouseMoved</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
 
@@ -494,12 +501,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">mousePressEvent</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent)</span>:
+            <span class="name">mousePressEvent</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">mousePressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
 
@@ -515,12 +522,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">mouseReleaseEvent</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent)</span>:
+            <span class="name">mouseReleaseEvent</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseReleaseEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">mouseReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
 
@@ -536,12 +543,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">waitForLoad</span><span class="signature">(self)</span>:
+            <span class="name">waitForLoad</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">waitForLoad</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">waitForLoad</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="n">QTimer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">singleShot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stateManager</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
 </pre></div>
 
@@ -622,8 +629,8 @@
                 <dd id="MainWindow.ForceTabbedDocks" class="variable">ForceTabbedDocks</dd>
                 <dd id="MainWindow.VerticalTabs" class="variable">VerticalTabs</dd>
                 <dd id="MainWindow.GroupedDragging" class="variable">GroupedDragging</dd>
-                <dd id="MainWindow.tabifiedDockWidgetActivated" class="function">tabifiedDockWidgetActivated</dd>
                 <dd id="MainWindow.iconSizeChanged" class="function">iconSizeChanged</dd>
+                <dd id="MainWindow.tabifiedDockWidgetActivated" class="function">tabifiedDockWidgetActivated</dd>
                 <dd id="MainWindow.toolButtonStyleChanged" class="function">toolButtonStyleChanged</dd>
 
             </div>
@@ -887,9 +894,9 @@
                 <dd id="MainWindow.DrawChildren" class="variable">DrawChildren</dd>
                 <dd id="MainWindow.IgnoreMask" class="variable">IgnoreMask</dd>
                 <dd id="MainWindow.windowTitleChanged" class="function">windowTitleChanged</dd>
+                <dd id="MainWindow.windowIconChanged" class="function">windowIconChanged</dd>
                 <dd id="MainWindow.customContextMenuRequested" class="function">customContextMenuRequested</dd>
                 <dd id="MainWindow.windowIconTextChanged" class="function">windowIconTextChanged</dd>
-                <dd id="MainWindow.windowIconChanged" class="function">windowIconChanged</dd>
 
             </div>
             <div><dt>PySide2.QtCore.QObject</dt>

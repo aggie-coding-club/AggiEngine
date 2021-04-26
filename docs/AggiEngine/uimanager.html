@@ -30,19 +30,19 @@
             <li>
                     <a class="class" href="#UiManager">UiManager</a>
                             <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#UiManager.__init__">UiManager</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#UiManager.createWidget">createWidget</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#UiManager.loadWidgets">loadWidgets</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#UiManager.staticMetaObject">staticMetaObject</a>
-                        </li>
-                </ul>
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#UiManager.__init__&#34;&gt;UiManager&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#UiManager.createWidget&#34;&gt;createWidget&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#UiManager.loadWidgets&#34;&gt;loadWidgets&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;variable&#34; href=&#34;#UiManager.staticMetaObject&#34;&gt;staticMetaObject&lt;/a&gt;
+                        &lt;/li&gt;
+                &lt;/ul&gt;
 
             </li>
     </ul>
@@ -70,19 +70,19 @@
 
 <span class="k">class</span> <span class="nc">UiManager</span><span class="p">(</span><span class="n">QUiLoader</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">customWidgets</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">customWidgets</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="n">QUiLoader</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
 
         <span class="c1"># Register all the custom widgets so that they can be created later</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">customWidgets</span> <span class="o">=</span> <span class="n">customWidgets</span>
-        <span class="k">if</span> <span class="n">customWidgets</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">customWidgets</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">wid</span> <span class="ow">in</span> <span class="n">customWidgets</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">registerCustomWidget</span><span class="p">(</span><span class="n">wid</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">keepWidgets</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">createWidget</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">createWidget</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Overrides QUiLoader to createWidget in current window rather than a new one</span>
 <span class="sd">        ``class_name:`` The class we want to create  </span>
@@ -93,7 +93,7 @@
         <span class="k">if</span> <span class="n">class_name</span> <span class="ow">is</span> <span class="n">QMainWindow</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span>
 
-        <span class="k">if</span> <span class="n">parent</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">parent</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">availableWidgets</span><span class="p">():</span>
@@ -110,7 +110,7 @@
 
             <span class="k">return</span> <span class="n">widget</span>
 
-    <span class="k">def</span> <span class="nf">loadWidgets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ui_file</span><span class="p">,</span> <span class="n">deleteCurrent</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">loadWidgets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ui_file</span><span class="p">,</span> <span class="n">deleteCurrent</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Loads the current ui_file and if wanted deleted old widgets</span>
 <span class="sd">        ``ui_file:`` The file path to load  </span>
@@ -142,19 +142,19 @@
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">UiManager</span><span class="p">(</span><span class="n">QUiLoader</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">customWidgets</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">customWidgets</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="n">QUiLoader</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
 
         <span class="c1"># Register all the custom widgets so that they can be created later</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">customWidgets</span> <span class="o">=</span> <span class="n">customWidgets</span>
-        <span class="k">if</span> <span class="n">customWidgets</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">customWidgets</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">wid</span> <span class="ow">in</span> <span class="n">customWidgets</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">registerCustomWidget</span><span class="p">(</span><span class="n">wid</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">keepWidgets</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">createWidget</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">createWidget</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Overrides QUiLoader to createWidget in current window rather than a new one</span>
 <span class="sd">        ``class_name:`` The class we want to create  </span>
@@ -165,7 +165,7 @@
         <span class="k">if</span> <span class="n">class_name</span> <span class="ow">is</span> <span class="n">QMainWindow</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span>
 
-        <span class="k">if</span> <span class="n">parent</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">parent</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">availableWidgets</span><span class="p">():</span>
@@ -182,7 +182,7 @@
 
             <span class="k">return</span> <span class="n">widget</span>
 
-    <span class="k">def</span> <span class="nf">loadWidgets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ui_file</span><span class="p">,</span> <span class="n">deleteCurrent</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">loadWidgets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ui_file</span><span class="p">,</span> <span class="n">deleteCurrent</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Loads the current ui_file and if wanted deleted old widgets</span>
 <span class="sd">        ``ui_file:`` The file path to load  </span>
@@ -200,7 +200,7 @@
 
         </details>
 
-            <div class="docstring"><p>QUiLoader(self, parent: typing.Optional[PySide2.QtCore.QObject] = None) -> None</p>
+            <div class="docstring"><p>QUiLoader(self, parent: typing.Union[PySide2.QtCore.QObject, NoneType] = None) -> None</p>
 </div>
 
 
@@ -213,13 +213,13 @@
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">customWidgets</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">customWidgets</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="n">QUiLoader</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
 
         <span class="c1"># Register all the custom widgets so that they can be created later</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">customWidgets</span> <span class="o">=</span> <span class="n">customWidgets</span>
-        <span class="k">if</span> <span class="n">customWidgets</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">customWidgets</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">wid</span> <span class="ow">in</span> <span class="n">customWidgets</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">registerCustomWidget</span><span class="p">(</span><span class="n">wid</span><span class="p">)</span>
 
@@ -241,7 +241,7 @@
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">createWidget</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">createWidget</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Overrides QUiLoader to createWidget in current window rather than a new one</span>
 <span class="sd">        ``class_name:`` The class we want to create  </span>
@@ -252,7 +252,7 @@
         <span class="k">if</span> <span class="n">class_name</span> <span class="ow">is</span> <span class="n">QMainWindow</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span>
 
-        <span class="k">if</span> <span class="n">parent</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">parent</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">class_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">availableWidgets</span><span class="p">():</span>
@@ -290,7 +290,7 @@
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">loadWidgets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ui_file</span><span class="p">,</span> <span class="n">deleteCurrent</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">loadWidgets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ui_file</span><span class="p">,</span> <span class="n">deleteCurrent</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Loads the current ui_file and if wanted deleted old widgets</span>
 <span class="sd">        ``ui_file:`` The file path to load  </span>

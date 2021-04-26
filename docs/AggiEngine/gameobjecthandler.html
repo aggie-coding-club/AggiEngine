@@ -30,52 +30,52 @@
             <li>
                     <a class="class" href="#GameObjectHandler">GameObjectHandler</a>
                             <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#GameObjectHandler.__init__">GameObjectHandler</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#GameObjectHandler.setScale">setScale</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#GameObjectHandler.update">update</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#GameObjectHandler.fixedUpdate">fixedUpdate</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#GameObjectHandler.add">add</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#GameObjectHandler.getGameObject">getGameObject</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#GameObjectHandler.getGameObjects">getGameObjects</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#GameObjectHandler.removeGameObject">removeGameObject</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#GameObjectHandler.removeGameObjects">removeGameObjects</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#GameObjectHandler.exit">exit</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#GameObjectHandler.keyPressed">keyPressed</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#GameObjectHandler.keyReleased">keyReleased</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#GameObjectHandler.mouseMoved">mouseMoved</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#GameObjectHandler.mousePressed">mousePressed</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#GameObjectHandler.mouseReleased">mouseReleased</a>
-                        </li>
-                </ul>
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.__init__&#34;&gt;GameObjectHandler&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.setScale&#34;&gt;setScale&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.update&#34;&gt;update&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.fixedUpdate&#34;&gt;fixedUpdate&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.add&#34;&gt;add&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.getGameObject&#34;&gt;getGameObject&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.getGameObjects&#34;&gt;getGameObjects&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.removeGameObject&#34;&gt;removeGameObject&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.removeGameObjects&#34;&gt;removeGameObjects&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.exit&#34;&gt;exit&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.keyPressed&#34;&gt;keyPressed&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.keyReleased&#34;&gt;keyReleased&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.mouseMoved&#34;&gt;mouseMoved&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.mousePressed&#34;&gt;mousePressed&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#GameObjectHandler.mouseReleased&#34;&gt;mouseReleased&lt;/a&gt;
+                        &lt;/li&gt;
+                &lt;/ul&gt;
 
             </li>
     </ul>
@@ -96,7 +96,10 @@
                 
                         <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">AggiEngine.contactlistener</span> <span class="kn">import</span> <span class="n">ContactListener</span>
+            <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">import</span> <span class="nn">PySide2</span>
+<span class="kn">from</span> <span class="nn">AggiEngine.contactlistener</span> <span class="kn">import</span> <span class="n">ContactListener</span>
 <span class="kn">import</span> <span class="nn">math</span>
 
 <span class="kn">from</span> <span class="nn">Box2D</span> <span class="kn">import</span> <span class="o">*</span>
@@ -104,7 +107,7 @@
 
 <span class="k">class</span> <span class="nc">GameObjectHandler</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">16</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">timing</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">window</span><span class="o">.</span><span class="n">targetFixedFPS</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
         
@@ -115,10 +118,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># game object list</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">removeList</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">setScale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setScale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="n">scale</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        calls update on all game objects, not a fixed time interval</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -126,7 +129,7 @@
             <span class="k">if</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">active</span><span class="p">:</span>
                 <span class="n">gameObject</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Updates the Box2D world on a fixed time interval</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -146,12 +149,12 @@
 
             <span class="k">if</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">active</span><span class="p">:</span>
                 <span class="n">gameObject</span><span class="o">.</span><span class="n">fixedUpdate</span><span class="p">()</span>
-                <span class="k">if</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">body</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">body</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
                     <span class="n">gameObject</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">position</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
                     <span class="n">gameObject</span><span class="o">.</span><span class="n">rotation</span> <span class="o">=</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">angle</span>
                 <span class="n">info</span> <span class="o">+=</span> <span class="p">[</span><span class="n">gameObject</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">gameObject</span><span class="o">.</span><span class="n">rotation</span><span class="p">)]</span>
             <span class="n">newRenderInfoList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span><span class="o">.</span><span class="n">renderInfoList</span> <span class="o">=</span> <span class="n">newRenderInfoList</span>
 
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">removeList</span><span class="p">:</span>
@@ -159,10 +162,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">world</span><span class="o">.</span><span class="n">DestroyBody</span><span class="p">(</span><span class="n">gameObject</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">removeList</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gameObject</span><span class="p">,</span> <span class="n">bodyDef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bodyFixtureDef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        Adds a game object to the Box2D world</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gameObject</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">bodyDef</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">b2BodyDef</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">bodyFixtureDef</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">b2FixtureDef</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">color</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gameObject</span><span class="p">)</span>  <span class="c1"># adds game object to list of game objects</span>
         <span class="n">gameObject</span><span class="o">.</span><span class="n">gameObjectHandler</span> <span class="o">=</span> <span class="bp">self</span>
 
@@ -187,7 +189,7 @@
                                      <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">rad</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">bodyFixtureDef</span><span class="o">.</span><span class="n">shape</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">))])</span>
                 <span class="n">gameObject</span><span class="o">.</span><span class="n">vertices</span> <span class="o">=</span> <span class="n">vertices</span>
 
-            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
                 <span class="n">gameObject</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">gameObject</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
@@ -196,7 +198,7 @@
         <span class="n">gameObject</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span>
         <span class="n">gameObject</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">getGameObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">getGameObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">:</span> <span class="nb">type</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Returns the first instance of the gameObject with the type typeOf</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -204,7 +206,7 @@
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">):</span>
                 <span class="k">return</span> <span class="n">gameObject</span>
 
-    <span class="k">def</span> <span class="nf">getGameObjects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">getGameObjects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">:</span> <span class="nb">type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Returns all instances of gameObjects with the type typeOf</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -214,13 +216,13 @@
                 <span class="n">gameObjects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gameObject</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">gameObjects</span>
 
-    <span class="k">def</span> <span class="nf">removeGameObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">toRemove</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">removeGameObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">toRemove</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Removes the gameObject toRemove</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">removeList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">toRemove</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">removeGameObjects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">removeGameObjects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">:</span> <span class="nb">type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Removes all game objects with the type typeOf</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -228,27 +230,27 @@
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">removeList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gameObject</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">keyPressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">keyReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">mouseMoved</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">mousePressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">mouseReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
@@ -269,7 +271,7 @@
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">GameObjectHandler</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">16</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">timing</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">window</span><span class="o">.</span><span class="n">targetFixedFPS</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
         
@@ -280,10 +282,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># game object list</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">removeList</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">setScale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setScale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="n">scale</span>
 
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        calls update on all game objects, not a fixed time interval</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -291,7 +293,7 @@
             <span class="k">if</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">active</span><span class="p">:</span>
                 <span class="n">gameObject</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Updates the Box2D world on a fixed time interval</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -311,12 +313,12 @@
 
             <span class="k">if</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">active</span><span class="p">:</span>
                 <span class="n">gameObject</span><span class="o">.</span><span class="n">fixedUpdate</span><span class="p">()</span>
-                <span class="k">if</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">body</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">body</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
                     <span class="n">gameObject</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">position</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
                     <span class="n">gameObject</span><span class="o">.</span><span class="n">rotation</span> <span class="o">=</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">angle</span>
                 <span class="n">info</span> <span class="o">+=</span> <span class="p">[</span><span class="n">gameObject</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">gameObject</span><span class="o">.</span><span class="n">rotation</span><span class="p">)]</span>
             <span class="n">newRenderInfoList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span><span class="o">.</span><span class="n">renderInfoList</span> <span class="o">=</span> <span class="n">newRenderInfoList</span>
 
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">removeList</span><span class="p">:</span>
@@ -324,10 +326,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">world</span><span class="o">.</span><span class="n">DestroyBody</span><span class="p">(</span><span class="n">gameObject</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">removeList</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gameObject</span><span class="p">,</span> <span class="n">bodyDef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bodyFixtureDef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        Adds a game object to the Box2D world</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gameObject</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">bodyDef</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">b2BodyDef</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">bodyFixtureDef</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">b2FixtureDef</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">color</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gameObject</span><span class="p">)</span>  <span class="c1"># adds game object to list of game objects</span>
         <span class="n">gameObject</span><span class="o">.</span><span class="n">gameObjectHandler</span> <span class="o">=</span> <span class="bp">self</span>
 
@@ -352,7 +353,7 @@
                                      <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">rad</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">bodyFixtureDef</span><span class="o">.</span><span class="n">shape</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">))])</span>
                 <span class="n">gameObject</span><span class="o">.</span><span class="n">vertices</span> <span class="o">=</span> <span class="n">vertices</span>
 
-            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
                 <span class="n">gameObject</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">gameObject</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
@@ -361,7 +362,7 @@
         <span class="n">gameObject</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span>
         <span class="n">gameObject</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">getGameObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">getGameObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">:</span> <span class="nb">type</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Returns the first instance of the gameObject with the type typeOf</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -369,7 +370,7 @@
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">):</span>
                 <span class="k">return</span> <span class="n">gameObject</span>
 
-    <span class="k">def</span> <span class="nf">getGameObjects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">getGameObjects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">:</span> <span class="nb">type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Returns all instances of gameObjects with the type typeOf</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -379,13 +380,13 @@
                 <span class="n">gameObjects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gameObject</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">gameObjects</span>
 
-    <span class="k">def</span> <span class="nf">removeGameObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">toRemove</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">removeGameObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">toRemove</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Removes the gameObject toRemove</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">removeList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">toRemove</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">removeGameObjects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">removeGameObjects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">:</span> <span class="nb">type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Removes all game objects with the type typeOf</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -393,27 +394,27 @@
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">removeList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gameObject</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">keyPressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">keyReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">mouseMoved</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">mousePressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">mouseReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
@@ -426,12 +427,12 @@
                                         <div class="attr function"><a class="headerlink" href="#GameObjectHandler.__init__">#&nbsp;&nbsp</a>
 
         
-            <span class="name">GameObjectHandler</span><span class="signature">(window, scale=16)</span>
+            <span class="name">GameObjectHandler</span><span class="signature">(window, scale: typing.Union[float, NoneType] = 16)</span>
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">16</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">timing</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">window</span><span class="o">.</span><span class="n">targetFixedFPS</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
         
@@ -453,12 +454,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">setScale</span><span class="signature">(self, scale)</span>:
+            <span class="name">setScale</span><span class="signature">(self, scale: float) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">setScale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">setScale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">scale</span> <span class="o">=</span> <span class="n">scale</span>
 </pre></div>
 
@@ -472,12 +473,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">update</span><span class="signature">(self)</span>:
+            <span class="name">update</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        calls update on all game objects, not a fixed time interval</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -498,12 +499,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">fixedUpdate</span><span class="signature">(self)</span>:
+            <span class="name">fixedUpdate</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">fixedUpdate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Updates the Box2D world on a fixed time interval</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -523,12 +524,12 @@
 
             <span class="k">if</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">active</span><span class="p">:</span>
                 <span class="n">gameObject</span><span class="o">.</span><span class="n">fixedUpdate</span><span class="p">()</span>
-                <span class="k">if</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">body</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">body</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
                     <span class="n">gameObject</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">position</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span>
                     <span class="n">gameObject</span><span class="o">.</span><span class="n">rotation</span> <span class="o">=</span> <span class="n">gameObject</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">angle</span>
                 <span class="n">info</span> <span class="o">+=</span> <span class="p">[</span><span class="n">gameObject</span><span class="o">.</span><span class="n">position</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">gameObject</span><span class="o">.</span><span class="n">rotation</span><span class="p">)]</span>
             <span class="n">newRenderInfoList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">gameScreen</span><span class="o">.</span><span class="n">renderInfoList</span> <span class="o">=</span> <span class="n">newRenderInfoList</span>
 
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">removeList</span><span class="p">:</span>
@@ -549,15 +550,20 @@
 
         
             <span class="def">def</span>
-            <span class="name">add</span><span class="signature">(self, gameObject, bodyDef=None, bodyFixtureDef=None, color=None)</span>:
+            <span class="name">add</span><span class="signature">(
+    self,
+    gameObject: object,
+    bodyDef: typing.Union[Box2D.Box2D.b2BodyDef, NoneType] = None,
+    bodyFixtureDef: typing.Union[Box2D.Box2D.b2FixtureDef, NoneType] = None,
+    color: list = None
+) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gameObject</span><span class="p">,</span> <span class="n">bodyDef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bodyFixtureDef</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        Adds a game object to the Box2D world</span>
-<span class="sd">        &#39;&#39;&#39;</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gameObject</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">bodyDef</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">b2BodyDef</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">bodyFixtureDef</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">b2FixtureDef</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+            <span class="n">color</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gameObject</span><span class="p">)</span>  <span class="c1"># adds game object to list of game objects</span>
         <span class="n">gameObject</span><span class="o">.</span><span class="n">gameObjectHandler</span> <span class="o">=</span> <span class="bp">self</span>
 
@@ -582,7 +588,7 @@
                                      <span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">rad</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">bodyFixtureDef</span><span class="o">.</span><span class="n">shape</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">scale</span><span class="p">))])</span>
                 <span class="n">gameObject</span><span class="o">.</span><span class="n">vertices</span> <span class="o">=</span> <span class="n">vertices</span>
 
-            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
                 <span class="n">gameObject</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">gameObject</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span>
@@ -594,9 +600,7 @@
 
         </details>
 
-            <div class="docstring"><p>Adds a game object to the Box2D world</p>
-</div>
-
+    
 
                             </div>
                             <div id="GameObjectHandler.getGameObject" class="classattr">
@@ -604,12 +608,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">getGameObject</span><span class="signature">(self, typeOf)</span>:
+            <span class="name">getGameObject</span><span class="signature">(self, typeOf: type)</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">getGameObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">getGameObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">:</span> <span class="nb">type</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Returns the first instance of the gameObject with the type typeOf</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -630,12 +634,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">getGameObjects</span><span class="signature">(self, typeOf)</span>:
+            <span class="name">getGameObjects</span><span class="signature">(self, typeOf: type) -&gt; object</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">getGameObjects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">getGameObjects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">:</span> <span class="nb">type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">object</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Returns all instances of gameObjects with the type typeOf</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -658,12 +662,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">removeGameObject</span><span class="signature">(self, toRemove)</span>:
+            <span class="name">removeGameObject</span><span class="signature">(self, toRemove: object) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">removeGameObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">toRemove</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">removeGameObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">toRemove</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Removes the gameObject toRemove</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -682,12 +686,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">removeGameObjects</span><span class="signature">(self, typeOf)</span>:
+            <span class="name">removeGameObjects</span><span class="signature">(self, typeOf: type) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">removeGameObjects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">removeGameObjects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">typeOf</span><span class="p">:</span> <span class="nb">type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Removes all game objects with the type typeOf</span>
 <span class="sd">        &#39;&#39;&#39;</span>
@@ -708,12 +712,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">exit</span><span class="signature">(self)</span>:
+            <span class="name">exit</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
 </pre></div>
@@ -728,12 +732,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">keyPressed</span><span class="signature">(self, event)</span>:
+            <span class="name">keyPressed</span><span class="signature">(self, event: PySide2.QtGui.QKeyEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyPressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">keyPressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
@@ -748,12 +752,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">keyReleased</span><span class="signature">(self, event)</span>:
+            <span class="name">keyReleased</span><span class="signature">(self, event: PySide2.QtGui.QKeyEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">keyReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QKeyEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">keyReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
@@ -768,12 +772,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">mouseMoved</span><span class="signature">(self, event)</span>:
+            <span class="name">mouseMoved</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">mouseMoved</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
@@ -788,12 +792,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">mousePressed</span><span class="signature">(self, event)</span>:
+            <span class="name">mousePressed</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mousePressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">mousePressed</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>
@@ -808,12 +812,12 @@
 
         
             <span class="def">def</span>
-            <span class="name">mouseReleased</span><span class="signature">(self, event)</span>:
+            <span class="name">mouseReleased</span><span class="signature">(self, event: PySide2.QtGui.QMouseEvent) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">mouseReleased</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">PySide2</span><span class="o">.</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QMouseEvent</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">gameObject</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gameObjects</span><span class="p">:</span>
             <span class="n">gameObject</span><span class="o">.</span><span class="n">mouseReleased</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
 </pre></div>

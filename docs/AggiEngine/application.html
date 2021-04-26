@@ -30,16 +30,16 @@
             <li>
                     <a class="class" href="#Application">Application</a>
                             <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#Application.__init__">Application</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Application.run">run</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Application.staticMetaObject">staticMetaObject</a>
-                        </li>
-                </ul>
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#Application.__init__&#34;&gt;Application&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;function&#34; href=&#34;#Application.run&#34;&gt;run&lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                                &lt;a class=&#34;variable&#34; href=&#34;#Application.staticMetaObject&#34;&gt;staticMetaObject&lt;/a&gt;
+                        &lt;/li&gt;
+                &lt;/ul&gt;
 
             </li>
     </ul>
@@ -60,13 +60,18 @@
                 
                         <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">PySide2.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+            <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="kn">from</span> <span class="nn">PySide2.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span>
+
+<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">State</span>
 <span class="kn">from</span> <span class="nn">.mainwindow</span> <span class="kn">import</span> <span class="n">MainWindow</span>
 
 
 <span class="k">class</span> <span class="nc">Application</span><span class="p">(</span><span class="n">QApplication</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">screenFps</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">fixedFps</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">screenFps</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span> <span class="n">fixedFps</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span>
+                 <span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates and starts the application.  </span>
 <span class="sd">        ``state:`` The initial state to launch the Application with    </span>
@@ -80,7 +85,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">screenFps</span><span class="p">,</span> <span class="n">fixedFps</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Execute the application, this will start the state</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -105,7 +110,8 @@
             <summary>View Source</summary>
             <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Application</span><span class="p">(</span><span class="n">QApplication</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">screenFps</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">fixedFps</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">screenFps</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span> <span class="n">fixedFps</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span>
+                 <span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates and starts the application.  </span>
 <span class="sd">        ``state:`` The initial state to launch the Application with    </span>
@@ -119,7 +125,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">MainWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">screenFps</span><span class="p">,</span> <span class="n">fixedFps</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Execute the application, this will start the state</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -139,12 +145,18 @@ QApplication(self, arg__1: typing.Sequence[str]) -> None</p>
                                         <div class="attr function"><a class="headerlink" href="#Application.__init__">#&nbsp;&nbsp</a>
 
         
-            <span class="name">Application</span><span class="signature">(state, screenFps=120, fixedFps=60, args=None)</span>
+            <span class="name">Application</span><span class="signature">(
+    state: <a href="state.html#State">AggiEngine.state.State</a>,
+    screenFps: typing.Union[float, NoneType] = 120,
+    fixedFps: typing.Union[float, NoneType] = 60,
+    args: typing.Union[list, NoneType] = None
+)</span>
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">screenFps</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span> <span class="n">fixedFps</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">screenFps</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span> <span class="n">fixedFps</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span>
+                 <span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates and starts the application.  </span>
 <span class="sd">        ``state:`` The initial state to launch the Application with    </span>
@@ -174,12 +186,12 @@ QApplication(self, arg__1: typing.Sequence[str]) -> None</p>
 
         
             <span class="def">def</span>
-            <span class="name">run</span><span class="signature">(self)</span>:
+            <span class="name">run</span><span class="signature">(self) -&gt; None</span>:
     </div>
 
                 <details>
             <summary>View Source</summary>
-            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Execute the application, this will start the state</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -306,20 +318,20 @@ QApplication(self, arg__1: typing.Sequence[str]) -> None</p>
                 <dd id="Application.styleHints" class="function">styleHints</dd>
                 <dd id="Application.sync" class="function">sync</dd>
                 <dd id="Application.topLevelWindows" class="function">topLevelWindows</dd>
-                <dd id="Application.fontChanged" class="function">fontChanged</dd>
-                <dd id="Application.focusObjectChanged" class="function">focusObjectChanged</dd>
-                <dd id="Application.layoutDirectionChanged" class="function">layoutDirectionChanged</dd>
-                <dd id="Application.focusWindowChanged" class="function">focusWindowChanged</dd>
-                <dd id="Application.primaryScreenChanged" class="function">primaryScreenChanged</dd>
-                <dd id="Application.screenRemoved" class="function">screenRemoved</dd>
-                <dd id="Application.commitDataRequest" class="function">commitDataRequest</dd>
-                <dd id="Application.applicationDisplayNameChanged" class="function">applicationDisplayNameChanged</dd>
-                <dd id="Application.saveStateRequest" class="function">saveStateRequest</dd>
-                <dd id="Application.applicationStateChanged" class="function">applicationStateChanged</dd>
-                <dd id="Application.screenAdded" class="function">screenAdded</dd>
                 <dd id="Application.paletteChanged" class="function">paletteChanged</dd>
-                <dd id="Application.fontDatabaseChanged" class="function">fontDatabaseChanged</dd>
                 <dd id="Application.lastWindowClosed" class="function">lastWindowClosed</dd>
+                <dd id="Application.applicationDisplayNameChanged" class="function">applicationDisplayNameChanged</dd>
+                <dd id="Application.fontDatabaseChanged" class="function">fontDatabaseChanged</dd>
+                <dd id="Application.applicationStateChanged" class="function">applicationStateChanged</dd>
+                <dd id="Application.commitDataRequest" class="function">commitDataRequest</dd>
+                <dd id="Application.saveStateRequest" class="function">saveStateRequest</dd>
+                <dd id="Application.fontChanged" class="function">fontChanged</dd>
+                <dd id="Application.screenAdded" class="function">screenAdded</dd>
+                <dd id="Application.layoutDirectionChanged" class="function">layoutDirectionChanged</dd>
+                <dd id="Application.screenRemoved" class="function">screenRemoved</dd>
+                <dd id="Application.primaryScreenChanged" class="function">primaryScreenChanged</dd>
+                <dd id="Application.focusObjectChanged" class="function">focusObjectChanged</dd>
+                <dd id="Application.focusWindowChanged" class="function">focusWindowChanged</dd>
 
             </div>
             <div><dt>PySide2.QtCore.QCoreApplication</dt>
@@ -366,11 +378,11 @@ QApplication(self, arg__1: typing.Sequence[str]) -> None</p>
                 <dd id="Application.testAttribute" class="function">testAttribute</dd>
                 <dd id="Application.translate" class="function">translate</dd>
                 <dd id="Application.ApplicationFlags" class="variable">ApplicationFlags</dd>
-                <dd id="Application.aboutToQuit" class="function">aboutToQuit</dd>
                 <dd id="Application.organizationDomainChanged" class="function">organizationDomainChanged</dd>
+                <dd id="Application.organizationNameChanged" class="function">organizationNameChanged</dd>
+                <dd id="Application.aboutToQuit" class="function">aboutToQuit</dd>
                 <dd id="Application.applicationNameChanged" class="function">applicationNameChanged</dd>
                 <dd id="Application.applicationVersionChanged" class="function">applicationVersionChanged</dd>
-                <dd id="Application.organizationNameChanged" class="function">organizationNameChanged</dd>
 
             </div>
             <div><dt>PySide2.QtCore.QObject</dt>
