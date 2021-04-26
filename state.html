@@ -36,55 +36,111 @@ from .tileloader import TileMap
 class State:
 
     def __init__(self, ui_path: Optional[str] = None, window: Optional[object] = None):
+        &#39;&#39;&#39;
+        Initialized class variables.
+        ``ui_path:`` The path to the .ui file for the State to display
+        ``window:`` The main window class for the whole application
+        &#39;&#39;&#39;
         self.ui_path = ui_path
         self.window = window
         self.gameObjectHandler = None
         self.active = True
 
     def loadMap(self, filePath: str) -&gt; None:
+        &#39;&#39;&#39;
+        Loads the TMX file and creates the contained game objects
+        ``filePath:`` The path to the .tmx file to load game objects
+        &#39;&#39;&#39;
         TileMap(filePath, self.gameObjectHandler, self.window.gameScreen)
 
     def loadUi(self) -&gt; None:
+        &#39;&#39;&#39;
+        Loads the widgets in the .ui file
+        &#39;&#39;&#39;
         if self.ui_path is not None:
             self.window.uiManager.loadWidgets(self.ui_path, True)
 
     def startGOH(self) -&gt; None:
+        &#39;&#39;&#39;
+        Starts the game object handler
+        &#39;&#39;&#39;
         self.gameObjectHandler = GameObjectHandler(self.window)
 
     def updateGOH(self) -&gt; None:
+        &#39;&#39;&#39;
+        Updates the game object handler after a screen draw
+        &#39;&#39;&#39;
         self.gameObjectHandler.update()
 
     def fixedUpdateGOH(self) -&gt; None:
+        &#39;&#39;&#39;
+        Updates the game object handler after a physics update
+        &#39;&#39;&#39;
         self.gameObjectHandler.fixedUpdate()
 
     def exitGOH(self) -&gt; None:
+        &#39;&#39;&#39;
+        Stops the game object handler
+        &#39;&#39;&#39;
         self.gameObjectHandler.exit()
 
     def start(self) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when the State is first activated
+        &#39;&#39;&#39;
         pass
 
     def update(self) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered after a screen draw
+        &#39;&#39;&#39;
         pass
 
     def fixedUpdate(self) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered after a physics update
+        &#39;&#39;&#39;
         pass
 
     def exit(self) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when the State stops
+        &#39;&#39;&#39;
         pass
 
     def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when a key is pressed down
+        ``event:`` The key event contains the key(s) pressed
+        &#39;&#39;&#39;
         pass
 
     def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when a key is released
+        ``event:`` The key event contains the key(s) released
+        &#39;&#39;&#39;
         pass
 
     def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when the mouse is moved
+        ``event:`` The mouse event contains the new mouse positions
+        &#39;&#39;&#39;
         pass
 
     def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when mouse buttons are pressed
+        ``event:`` The mouse event contains the mouse buttons pressed
+        &#39;&#39;&#39;
         pass
 
     def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when mouse buttons are released
+        ``event:`` The mouse event contains the mouse buttons released
+        &#39;&#39;&#39;
         pass</code></pre>
 </details>
 </section>
@@ -102,7 +158,9 @@ class State:
 <span>(</span><span>ui_path: typing.Union[str, NoneType] = None, window: typing.Union[object, NoneType] = None)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Initialized class variables.
+<code>ui_path:</code> The path to the .ui file for the State to display
+<code>window:</code> The main window class for the whole application</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -110,55 +168,111 @@ class State:
 <pre><code class="python">class State:
 
     def __init__(self, ui_path: Optional[str] = None, window: Optional[object] = None):
+        &#39;&#39;&#39;
+        Initialized class variables.
+        ``ui_path:`` The path to the .ui file for the State to display
+        ``window:`` The main window class for the whole application
+        &#39;&#39;&#39;
         self.ui_path = ui_path
         self.window = window
         self.gameObjectHandler = None
         self.active = True
 
     def loadMap(self, filePath: str) -&gt; None:
+        &#39;&#39;&#39;
+        Loads the TMX file and creates the contained game objects
+        ``filePath:`` The path to the .tmx file to load game objects
+        &#39;&#39;&#39;
         TileMap(filePath, self.gameObjectHandler, self.window.gameScreen)
 
     def loadUi(self) -&gt; None:
+        &#39;&#39;&#39;
+        Loads the widgets in the .ui file
+        &#39;&#39;&#39;
         if self.ui_path is not None:
             self.window.uiManager.loadWidgets(self.ui_path, True)
 
     def startGOH(self) -&gt; None:
+        &#39;&#39;&#39;
+        Starts the game object handler
+        &#39;&#39;&#39;
         self.gameObjectHandler = GameObjectHandler(self.window)
 
     def updateGOH(self) -&gt; None:
+        &#39;&#39;&#39;
+        Updates the game object handler after a screen draw
+        &#39;&#39;&#39;
         self.gameObjectHandler.update()
 
     def fixedUpdateGOH(self) -&gt; None:
+        &#39;&#39;&#39;
+        Updates the game object handler after a physics update
+        &#39;&#39;&#39;
         self.gameObjectHandler.fixedUpdate()
 
     def exitGOH(self) -&gt; None:
+        &#39;&#39;&#39;
+        Stops the game object handler
+        &#39;&#39;&#39;
         self.gameObjectHandler.exit()
 
     def start(self) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when the State is first activated
+        &#39;&#39;&#39;
         pass
 
     def update(self) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered after a screen draw
+        &#39;&#39;&#39;
         pass
 
     def fixedUpdate(self) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered after a physics update
+        &#39;&#39;&#39;
         pass
 
     def exit(self) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when the State stops
+        &#39;&#39;&#39;
         pass
 
     def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when a key is pressed down
+        ``event:`` The key event contains the key(s) pressed
+        &#39;&#39;&#39;
         pass
 
     def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when a key is released
+        ``event:`` The key event contains the key(s) released
+        &#39;&#39;&#39;
         pass
 
     def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when the mouse is moved
+        ``event:`` The mouse event contains the new mouse positions
+        &#39;&#39;&#39;
         pass
 
     def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when mouse buttons are pressed
+        ``event:`` The mouse event contains the mouse buttons pressed
+        &#39;&#39;&#39;
         pass
 
     def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Triggered when mouse buttons are released
+        ``event:`` The mouse event contains the mouse buttons released
+        &#39;&#39;&#39;
         pass</code></pre>
 </details>
 <h3>Methods</h3>
@@ -167,12 +281,15 @@ class State:
 <span>def <span class="ident">exit</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered when the State stops</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def exit(self) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered when the State stops
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -180,12 +297,15 @@ class State:
 <span>def <span class="ident">exitGOH</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Stops the game object handler</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def exitGOH(self) -&gt; None:
+    &#39;&#39;&#39;
+    Stops the game object handler
+    &#39;&#39;&#39;
     self.gameObjectHandler.exit()</code></pre>
 </details>
 </dd>
@@ -193,12 +313,15 @@ class State:
 <span>def <span class="ident">fixedUpdate</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered after a physics update</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def fixedUpdate(self) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered after a physics update
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -206,12 +329,15 @@ class State:
 <span>def <span class="ident">fixedUpdateGOH</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Updates the game object handler after a physics update</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def fixedUpdateGOH(self) -&gt; None:
+    &#39;&#39;&#39;
+    Updates the game object handler after a physics update
+    &#39;&#39;&#39;
     self.gameObjectHandler.fixedUpdate()</code></pre>
 </details>
 </dd>
@@ -219,12 +345,17 @@ class State:
 <span>def <span class="ident">keyPressed</span></span>(<span>self, event: PySide2.QtGui.QKeyEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered when a key is pressed down
+<code>event:</code> The key event contains the key(s) pressed</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered when a key is pressed down
+    ``event:`` The key event contains the key(s) pressed
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -232,12 +363,17 @@ class State:
 <span>def <span class="ident">keyReleased</span></span>(<span>self, event: PySide2.QtGui.QKeyEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered when a key is released
+<code>event:</code> The key event contains the key(s) released</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered when a key is released
+    ``event:`` The key event contains the key(s) released
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -245,12 +381,17 @@ class State:
 <span>def <span class="ident">loadMap</span></span>(<span>self, filePath: str) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Loads the TMX file and creates the contained game objects
+<code>filePath:</code> The path to the .tmx file to load game objects</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def loadMap(self, filePath: str) -&gt; None:
+    &#39;&#39;&#39;
+    Loads the TMX file and creates the contained game objects
+    ``filePath:`` The path to the .tmx file to load game objects
+    &#39;&#39;&#39;
     TileMap(filePath, self.gameObjectHandler, self.window.gameScreen)</code></pre>
 </details>
 </dd>
@@ -258,12 +399,15 @@ class State:
 <span>def <span class="ident">loadUi</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Loads the widgets in the .ui file</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def loadUi(self) -&gt; None:
+    &#39;&#39;&#39;
+    Loads the widgets in the .ui file
+    &#39;&#39;&#39;
     if self.ui_path is not None:
         self.window.uiManager.loadWidgets(self.ui_path, True)</code></pre>
 </details>
@@ -272,12 +416,17 @@ class State:
 <span>def <span class="ident">mouseMoved</span></span>(<span>self, event: PySide2.QtGui.QMouseEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered when the mouse is moved
+<code>event:</code> The mouse event contains the new mouse positions</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered when the mouse is moved
+    ``event:`` The mouse event contains the new mouse positions
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -285,12 +434,17 @@ class State:
 <span>def <span class="ident">mousePressed</span></span>(<span>self, event: PySide2.QtGui.QMouseEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered when mouse buttons are pressed
+<code>event:</code> The mouse event contains the mouse buttons pressed</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered when mouse buttons are pressed
+    ``event:`` The mouse event contains the mouse buttons pressed
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -298,12 +452,17 @@ class State:
 <span>def <span class="ident">mouseReleased</span></span>(<span>self, event: PySide2.QtGui.QMouseEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered when mouse buttons are released
+<code>event:</code> The mouse event contains the mouse buttons released</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered when mouse buttons are released
+    ``event:`` The mouse event contains the mouse buttons released
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -311,12 +470,15 @@ class State:
 <span>def <span class="ident">start</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered when the State is first activated</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def start(self) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered when the State is first activated
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -324,12 +486,15 @@ class State:
 <span>def <span class="ident">startGOH</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Starts the game object handler</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def startGOH(self) -&gt; None:
+    &#39;&#39;&#39;
+    Starts the game object handler
+    &#39;&#39;&#39;
     self.gameObjectHandler = GameObjectHandler(self.window)</code></pre>
 </details>
 </dd>
@@ -337,12 +502,15 @@ class State:
 <span>def <span class="ident">update</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Triggered after a screen draw</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def update(self) -&gt; None:
+    &#39;&#39;&#39;
+    Triggered after a screen draw
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -350,12 +518,15 @@ class State:
 <span>def <span class="ident">updateGOH</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Updates the game object handler after a screen draw</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def updateGOH(self) -&gt; None:
+    &#39;&#39;&#39;
+    Updates the game object handler after a screen draw
+    &#39;&#39;&#39;
     self.gameObjectHandler.update()</code></pre>
 </details>
 </dd>
