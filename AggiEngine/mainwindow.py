@@ -14,11 +14,11 @@ from .gamescreen import GameScreen
 class MainWindow(QMainWindow):
 
     def __init__(self, app, state: State, screenFPS: int, fixedFPS: int, parent: Optional[QWidget] = None):
-        """
+        '''
         The MainWindow is created by the application, here we handle ui/scenes and send out updates.
         ``state:`` The current state we want to start with.  
         ``parent:`` The widget this held under, None by default because this is top widget  
-        """
+        '''
         QMainWindow.__init__(self, parent)
         self.app = app  # the application created
         self.gameScreen = None  # where all graphics are drawn
@@ -46,24 +46,24 @@ class MainWindow(QMainWindow):
         self.uiManager.keepWidgets = self.children()
 
     def start(self) -> None:
-        """
-        Called to start the window
-        """
+        '''
+        Called when application.run() is executed. Starts the actual engine.
+        '''
         self.stateManager.initializeState()  # start the state
         self.updateFPSTimer.start(100)
 
     def closeEvent(self, event: PySide2.QtGui.QCloseEvent) -> None:
-        """
-        Called when the window its closed
-        """
+        '''
+        Called when the window is closed
+        '''
         print("Window closed.")
         self.updateFPSTimer.stop()
         self.stateManager.exit()
 
     def __calculateFPS(self) -> None:
-        """
-        Averages FPS and adjust frame timings
-        """
+        '''
+        Averages FPS and adjust frame timings to meet the targets
+        '''
 
         self.fixedFps = self.fixedFrames / (time.perf_counter() - self.lastTime)
         self.fixedFrames = 0
@@ -82,23 +82,44 @@ class MainWindow(QMainWindow):
         self.lastTime = time.perf_counter()
 
     def resizeEvent(self, event: PySide2.QtGui.QResizeEvent) -> None:
+        '''
+        Triggered when the screen is resized and passes down the event.
+        '''
         if self.gameScreen:
             self.gameScreen.setGeometry(0, 0, self.width(), self.height())
 
     def keyPressEvent(self, event: PySide2.QtGui.QKeyEvent) -> None:
+        '''
+        Triggered when a key is pressed and passes down the event.
+        '''
         self.stateManager.keyPressed(event)
 
     def keyReleaseEvent(self, event: PySide2.QtGui.QKeyEvent) -> None:
+        '''
+        Triggered when a key is released and passes down the event.
+        '''
         self.stateManager.keyReleased(event)
 
     def mouseMoveEvent(self, event: PySide2.QtGui.QMouseEvent) -> None:
+        '''
+        Triggered when the mouse is moved and passes down the event.
+        '''
         self.stateManager.mouseMoved(event)
 
     def mousePressEvent(self, event: PySide2.QtGui.QMouseEvent) -> None:
+        '''
+        Triggered when a mouse key is pressed and passes down the event.
+        '''
         self.stateManager.mousePressed(event)
 
     def mouseReleaseEvent(self, event: PySide2.QtGui.QMouseEvent) -> None:
+        '''
+        Triggered when a mouse key is released and passes down the event.
+        '''
         self.stateManager.mouseReleased(event)
 
     def waitForLoad(self) -> None:
+        '''
+        Makes state manager wait until the current state finishes loading widgets.
+        '''
         QTimer(self).singleShot(0, self.stateManager.start)
