@@ -37,8 +37,8 @@ jobs:
           pip install pillow
           pip install numpy
           pip install simpleaudio
-          pip install pdoc==6.4.4
-          pdoc -o ./docs ./AggiEngine
+          pip install pdoc3
+          pdoc3 --html --output-dir ./docs ./AggiEngine
           git config --local user.name "action"
           git add .
           git commit -m "Auto updating docs"
