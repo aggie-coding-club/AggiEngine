@@ -16,8 +16,8 @@ class MainWindow(QMainWindow):
     def __init__(self, app, state: State, screenFPS: int, fixedFPS: int, parent: Optional[QWidget] = None):
         """
         The MainWindow is created by the application, here we handle ui/scenes and send out updates.
-        :param state: The current state we want to start with.
-        :param parent: The widget this held under, None by default because this is top widget
+        ``state:`` The current state we want to start with.  
+        ``parent:`` The widget this held under, None by default because this is top widget  
         """
         QMainWindow.__init__(self, parent)
         self.app = app  # the application created
@@ -48,7 +48,6 @@ class MainWindow(QMainWindow):
     def start(self) -> None:
         """
         Called to start the window
-        :return: None
         """
         self.stateManager.initializeState()  # start the state
         self.updateFPSTimer.start(100)
@@ -56,7 +55,6 @@ class MainWindow(QMainWindow):
     def closeEvent(self, event: PySide2.QtGui.QCloseEvent) -> None:
         """
         Called when the window its closed
-        :return: None
         """
         print("Window closed.")
         self.updateFPSTimer.stop()
@@ -65,7 +63,6 @@ class MainWindow(QMainWindow):
     def __calculateFPS(self) -> None:
         """
         Averages FPS and adjust frame timings
-        :return: None
         """
 
         self.fixedFps = self.fixedFrames / (time.perf_counter() - self.lastTime)

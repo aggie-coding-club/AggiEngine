@@ -11,10 +11,10 @@ class Application(QApplication):
     def __init__(self, state: State, screenFps: Optional[float] = 120, fixedFps: Optional[float] = 60,
                  args: Optional[list] = None) -> None:
         """
-        Creates and starts the application.
-        :param state: The initial state to launch the Application with
-        :param args: System arguments passed in
-        :param config: Set application parameters
+        Creates and starts the application.  
+        ``state:`` The initial state to launch the Application with    
+        ``args:`` System arguments passed in    
+        ``config:`` Set application parameters    
         """
         if args:
             super(Application, self).__init__(args)
@@ -26,7 +26,6 @@ class Application(QApplication):
     def run(self) -> None:
         """
         Execute the application, this will start the state
-        :return: None
         """
         self.window.start()
         self.window.show()
