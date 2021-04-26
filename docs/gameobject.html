@@ -47,60 +47,107 @@ class GameObject:
         self.width = 1
 
     def getWidth(self) -&gt; int:
-        &#34;&#34;&#34;
-        Returns the width of the GameObject
-        &#34;&#34;&#34;
+        &#39;&#39;&#39;
+        Returns the width of the GameObject.
+        &#39;&#39;&#39;
         return self.width * 2
 
     def getHeight(self) -&gt; int:
-        &#34;&#34;&#34;
-        Returns the height
-        &#34;&#34;&#34;
+        &#39;&#39;&#39;
+        Returns the height.
+        &#39;&#39;&#39;
         return self.height * 2
 
     def setWidth(self, width: int) -&gt; None:
+        &#39;&#39;&#39;
+        Sets the GameObject&#39;s width.
+        &#39;&#39;&#39;
         self.width = width / 2
 
     def setHeight(self, height: int) -&gt; None:
+        &#39;&#39;&#39;
+        Sets the GameObject&#39;s height.
+        &#39;&#39;&#39;
         self.height = height / 2
 
     def start(self) -&gt; None:
+        &#39;&#39;&#39;
+        Called when the GameObject is created.
+        &#39;&#39;&#39;
         pass
 
     def update(self) -&gt; None:
+        &#39;&#39;&#39;
+        Called everytime the screen is rendered.
+        &#39;&#39;&#39;
         pass
 
     def fixedUpdate(self) -&gt; None:
+        &#39;&#39;&#39;
+        Called everytime Box2D finishes a physics update.
+        &#39;&#39;&#39;
         pass
 
     def exit(self) -&gt; None:
+        &#39;&#39;&#39;
+        Called when the GameObject is destroyed.
+        &#39;&#39;&#39;
         pass
 
     def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Called when a key is pushed down.
+        &#39;&#39;&#39;
         pass
 
     def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Called when a key is released.
+        &#39;&#39;&#39;
         pass
 
     def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Called when the cursor moves.
+        &#39;&#39;&#39;
         pass
 
     def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Called when a mouse button is pressed.
+        &#39;&#39;&#39;
         pass
 
     def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Called when a mouse button is released.
+        &#39;&#39;&#39;
         pass
 
     def beginContact(self, body: object) -&gt; None:
+        &#39;&#39;&#39;
+        Called whenever a GameObject&#39;s object first makes contact with another body.
+        &#39;&#39;&#39;
         pass
 
     def endContact(self, body: object) -&gt; None:
+        &#39;&#39;&#39;
+        Called whenever a GameObject&#39;s object stops making contact with another.
+        &#39;&#39;&#39;
         pass
     
     def preSolve(self, contact: b2Contact, manifold: b2Manifold) -&gt; None:
+        &#39;&#39;&#39;
+        Called whenever a GameObject&#39;s body&#39;s shape is overlapping another.
+        Gravity and other forces will trigger this even if the body hasn&#39;t stopped making contact.
+        &#39;&#39;&#39;
         pass
 
     def postSolve(self, contact: b2Contact, impulse: b2Vec2) -&gt; None:
+        &#39;&#39;&#39;
+        Called whenever a GameObject&#39;s body&#39;s shape is not longer overlapping another.
+        Gravity and other forces will trigger this even if the body hasn&#39;t stopped making contact.
+        &#39;&#39;&#39;
         pass</code></pre>
 </details>
 </section>
@@ -139,60 +186,107 @@ class GameObject:
         self.width = 1
 
     def getWidth(self) -&gt; int:
-        &#34;&#34;&#34;
-        Returns the width of the GameObject
-        &#34;&#34;&#34;
+        &#39;&#39;&#39;
+        Returns the width of the GameObject.
+        &#39;&#39;&#39;
         return self.width * 2
 
     def getHeight(self) -&gt; int:
-        &#34;&#34;&#34;
-        Returns the height
-        &#34;&#34;&#34;
+        &#39;&#39;&#39;
+        Returns the height.
+        &#39;&#39;&#39;
         return self.height * 2
 
     def setWidth(self, width: int) -&gt; None:
+        &#39;&#39;&#39;
+        Sets the GameObject&#39;s width.
+        &#39;&#39;&#39;
         self.width = width / 2
 
     def setHeight(self, height: int) -&gt; None:
+        &#39;&#39;&#39;
+        Sets the GameObject&#39;s height.
+        &#39;&#39;&#39;
         self.height = height / 2
 
     def start(self) -&gt; None:
+        &#39;&#39;&#39;
+        Called when the GameObject is created.
+        &#39;&#39;&#39;
         pass
 
     def update(self) -&gt; None:
+        &#39;&#39;&#39;
+        Called everytime the screen is rendered.
+        &#39;&#39;&#39;
         pass
 
     def fixedUpdate(self) -&gt; None:
+        &#39;&#39;&#39;
+        Called everytime Box2D finishes a physics update.
+        &#39;&#39;&#39;
         pass
 
     def exit(self) -&gt; None:
+        &#39;&#39;&#39;
+        Called when the GameObject is destroyed.
+        &#39;&#39;&#39;
         pass
 
     def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Called when a key is pushed down.
+        &#39;&#39;&#39;
         pass
 
     def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Called when a key is released.
+        &#39;&#39;&#39;
         pass
 
     def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Called when the cursor moves.
+        &#39;&#39;&#39;
         pass
 
     def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Called when a mouse button is pressed.
+        &#39;&#39;&#39;
         pass
 
     def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Called when a mouse button is released.
+        &#39;&#39;&#39;
         pass
 
     def beginContact(self, body: object) -&gt; None:
+        &#39;&#39;&#39;
+        Called whenever a GameObject&#39;s object first makes contact with another body.
+        &#39;&#39;&#39;
         pass
 
     def endContact(self, body: object) -&gt; None:
+        &#39;&#39;&#39;
+        Called whenever a GameObject&#39;s object stops making contact with another.
+        &#39;&#39;&#39;
         pass
     
     def preSolve(self, contact: b2Contact, manifold: b2Manifold) -&gt; None:
+        &#39;&#39;&#39;
+        Called whenever a GameObject&#39;s body&#39;s shape is overlapping another.
+        Gravity and other forces will trigger this even if the body hasn&#39;t stopped making contact.
+        &#39;&#39;&#39;
         pass
 
     def postSolve(self, contact: b2Contact, impulse: b2Vec2) -&gt; None:
+        &#39;&#39;&#39;
+        Called whenever a GameObject&#39;s body&#39;s shape is not longer overlapping another.
+        Gravity and other forces will trigger this even if the body hasn&#39;t stopped making contact.
+        &#39;&#39;&#39;
         pass</code></pre>
 </details>
 <h3>Methods</h3>
@@ -201,12 +295,15 @@ class GameObject:
 <span>def <span class="ident">beginContact</span></span>(<span>self, body: object) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Called whenever a GameObject's object first makes contact with another body.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def beginContact(self, body: object) -&gt; None:
+    &#39;&#39;&#39;
+    Called whenever a GameObject&#39;s object first makes contact with another body.
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -214,12 +311,15 @@ class GameObject:
 <span>def <span class="ident">endContact</span></span>(<span>self, body: object) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Called whenever a GameObject's object stops making contact with another.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def endContact(self, body: object) -&gt; None:
+    &#39;&#39;&#39;
+    Called whenever a GameObject&#39;s object stops making contact with another.
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -227,12 +327,15 @@ class GameObject:
 <span>def <span class="ident">exit</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Called when the GameObject is destroyed.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def exit(self) -&gt; None:
+    &#39;&#39;&#39;
+    Called when the GameObject is destroyed.
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -240,12 +343,15 @@ class GameObject:
 <span>def <span class="ident">fixedUpdate</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Called everytime Box2D finishes a physics update.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def fixedUpdate(self) -&gt; None:
+    &#39;&#39;&#39;
+    Called everytime Box2D finishes a physics update.
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -253,15 +359,15 @@ class GameObject:
 <span>def <span class="ident">getHeight</span></span>(<span>self) ‑> int</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns the height</p></div>
+<div class="desc"><p>Returns the height.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def getHeight(self) -&gt; int:
-    &#34;&#34;&#34;
-    Returns the height
-    &#34;&#34;&#34;
+    &#39;&#39;&#39;
+    Returns the height.
+    &#39;&#39;&#39;
     return self.height * 2</code></pre>
 </details>
 </dd>
@@ -269,15 +375,15 @@ class GameObject:
 <span>def <span class="ident">getWidth</span></span>(<span>self) ‑> int</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns the width of the GameObject</p></div>
+<div class="desc"><p>Returns the width of the GameObject.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def getWidth(self) -&gt; int:
-    &#34;&#34;&#34;
-    Returns the width of the GameObject
-    &#34;&#34;&#34;
+    &#39;&#39;&#39;
+    Returns the width of the GameObject.
+    &#39;&#39;&#39;
     return self.width * 2</code></pre>
 </details>
 </dd>
@@ -285,12 +391,15 @@ class GameObject:
 <span>def <span class="ident">keyPressed</span></span>(<span>self, event: PySide2.QtGui.QKeyEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Called when a key is pushed down.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Called when a key is pushed down.
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -298,12 +407,15 @@ class GameObject:
 <span>def <span class="ident">keyReleased</span></span>(<span>self, event: PySide2.QtGui.QKeyEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Called when a key is released.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Called when a key is released.
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -311,12 +423,15 @@ class GameObject:
 <span>def <span class="ident">mouseMoved</span></span>(<span>self, event: PySide2.QtGui.QMouseEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Called when the cursor moves.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Called when the cursor moves.
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -324,12 +439,15 @@ class GameObject:
 <span>def <span class="ident">mousePressed</span></span>(<span>self, event: PySide2.QtGui.QMouseEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Called when a mouse button is pressed.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Called when a mouse button is pressed.
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -337,12 +455,15 @@ class GameObject:
 <span>def <span class="ident">mouseReleased</span></span>(<span>self, event: PySide2.QtGui.QMouseEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Called when a mouse button is released.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Called when a mouse button is released.
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -350,12 +471,17 @@ class GameObject:
 <span>def <span class="ident">postSolve</span></span>(<span>self, contact: Box2D.Box2D.b2Contact, impulse: Box2D.Box2D.b2Vec2) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Called whenever a GameObject's body's shape is not longer overlapping another.
+Gravity and other forces will trigger this even if the body hasn't stopped making contact.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def postSolve(self, contact: b2Contact, impulse: b2Vec2) -&gt; None:
+    &#39;&#39;&#39;
+    Called whenever a GameObject&#39;s body&#39;s shape is not longer overlapping another.
+    Gravity and other forces will trigger this even if the body hasn&#39;t stopped making contact.
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -363,12 +489,17 @@ class GameObject:
 <span>def <span class="ident">preSolve</span></span>(<span>self, contact: Box2D.Box2D.b2Contact, manifold: Box2D.Box2D.b2Manifold) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Called whenever a GameObject's body's shape is overlapping another.
+Gravity and other forces will trigger this even if the body hasn't stopped making contact.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def preSolve(self, contact: b2Contact, manifold: b2Manifold) -&gt; None:
+    &#39;&#39;&#39;
+    Called whenever a GameObject&#39;s body&#39;s shape is overlapping another.
+    Gravity and other forces will trigger this even if the body hasn&#39;t stopped making contact.
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -376,12 +507,15 @@ class GameObject:
 <span>def <span class="ident">setHeight</span></span>(<span>self, height: int) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Sets the GameObject's height.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def setHeight(self, height: int) -&gt; None:
+    &#39;&#39;&#39;
+    Sets the GameObject&#39;s height.
+    &#39;&#39;&#39;
     self.height = height / 2</code></pre>
 </details>
 </dd>
@@ -389,12 +523,15 @@ class GameObject:
 <span>def <span class="ident">setWidth</span></span>(<span>self, width: int) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Sets the GameObject's width.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def setWidth(self, width: int) -&gt; None:
+    &#39;&#39;&#39;
+    Sets the GameObject&#39;s width.
+    &#39;&#39;&#39;
     self.width = width / 2</code></pre>
 </details>
 </dd>
@@ -402,12 +539,15 @@ class GameObject:
 <span>def <span class="ident">start</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Called when the GameObject is created.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def start(self) -&gt; None:
+    &#39;&#39;&#39;
+    Called when the GameObject is created.
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>
@@ -415,12 +555,15 @@ class GameObject:
 <span>def <span class="ident">update</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Called everytime the screen is rendered.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def update(self) -&gt; None:
+    &#39;&#39;&#39;
+    Called everytime the screen is rendered.
+    &#39;&#39;&#39;
     pass</code></pre>
 </details>
 </dd>

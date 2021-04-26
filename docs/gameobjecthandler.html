@@ -49,11 +49,14 @@ class GameObjectHandler:
         self.removeList = []
 
     def setScale(self, scale: float) -&gt; None:
+        &#39;&#39;&#39;
+        Set the pixels per meter scale for TMX, OpenGL, and Box2D calculations
+        &#39;&#39;&#39;
         self.scale = scale
 
     def update(self) -&gt; None:
         &#39;&#39;&#39;
-        calls update on all game objects, not a fixed time interval
+        Calls update on all game objects, variable timing rate. Triggered back screen draws.
         &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             if gameObject.active:
@@ -61,7 +64,7 @@ class GameObjectHandler:
 
     def fixedUpdate(self) -&gt; None:
         &#39;&#39;&#39;
-        Updates the Box2D world on a fixed time interval
+        Updates the Box2D world then game objects on a fixed time interval.
         &#39;&#39;&#39;
         self.world.Step(self.timing, 6, 2)
         self.world.ClearForces()
@@ -95,6 +98,9 @@ class GameObjectHandler:
     def add(self, gameObject: object, bodyDef: Optional[b2BodyDef] = None,
             bodyFixtureDef: Optional[b2FixtureDef] = None,
             color: list = None) -&gt; None:
+        &#39;&#39;&#39;
+        Creates a game object.
+        &#39;&#39;&#39;
         self.gameObjects.append(gameObject)  # adds game object to list of game objects
         gameObject.gameObjectHandler = self
 
@@ -130,7 +136,7 @@ class GameObjectHandler:
 
     def getGameObject(self, typeOf: type):
         &#39;&#39;&#39;
-        Returns the first instance of the gameObject with the type typeOf
+        Returns the first instance of the game object with the type passed
         &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             if isinstance(gameObject, typeOf):
@@ -138,7 +144,7 @@ class GameObjectHandler:
 
     def getGameObjects(self, typeOf: type) -&gt; object:
         &#39;&#39;&#39;
-        Returns all instances of gameObjects with the type typeOf
+        Returns all instances of game objects with the type passed
         &#39;&#39;&#39;
         gameObjects = []
         for gameObject in self.gameObjects:
@@ -148,39 +154,57 @@ class GameObjectHandler:
 
     def removeGameObject(self, toRemove: object) -&gt; None:
         &#39;&#39;&#39;
-        Removes the gameObject toRemove
+        Removes the gameObject passed
         &#39;&#39;&#39;
         self.removeList.append(toRemove)
 
     def removeGameObjects(self, typeOf: type) -&gt; None:
         &#39;&#39;&#39;
-        Removes all game objects with the type typeOf
+        Removes all game objects with the type passed
         &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             if isinstance(gameObject, typeOf):
                 self.removeList.append(gameObject)
 
     def exit(self) -&gt; None:
+        &#39;&#39;&#39;
+        Trigger exit on all game objects, called when state exits
+        &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             gameObject.exit()
 
     def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Trigger keyPressed on all game objects, called when a key is pressed
+        &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             gameObject.keyPressed(event)
 
     def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Trigger keyReleased on all game objects, called when a key is released
+        &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             gameObject.keyReleased(event)
 
     def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Trigger mouseMoved on all game objects, called when the mouse is moved
+        &#39;&#39;&#39;    
         for gameObject in self.gameObjects:
             gameObject.mouseMoved(event)
 
     def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Trigger mousePressed on all game objects, called when a mouse key is pressed
+        &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             gameObject.mousePressed(event)
 
     def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Trigger mouseReleased on all game objects, called when a mouse key is released
+        &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             gameObject.mouseReleased(event)</code></pre>
 </details>
@@ -218,11 +242,14 @@ class GameObjectHandler:
         self.removeList = []
 
     def setScale(self, scale: float) -&gt; None:
+        &#39;&#39;&#39;
+        Set the pixels per meter scale for TMX, OpenGL, and Box2D calculations
+        &#39;&#39;&#39;
         self.scale = scale
 
     def update(self) -&gt; None:
         &#39;&#39;&#39;
-        calls update on all game objects, not a fixed time interval
+        Calls update on all game objects, variable timing rate. Triggered back screen draws.
         &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             if gameObject.active:
@@ -230,7 +257,7 @@ class GameObjectHandler:
 
     def fixedUpdate(self) -&gt; None:
         &#39;&#39;&#39;
-        Updates the Box2D world on a fixed time interval
+        Updates the Box2D world then game objects on a fixed time interval.
         &#39;&#39;&#39;
         self.world.Step(self.timing, 6, 2)
         self.world.ClearForces()
@@ -264,6 +291,9 @@ class GameObjectHandler:
     def add(self, gameObject: object, bodyDef: Optional[b2BodyDef] = None,
             bodyFixtureDef: Optional[b2FixtureDef] = None,
             color: list = None) -&gt; None:
+        &#39;&#39;&#39;
+        Creates a game object.
+        &#39;&#39;&#39;
         self.gameObjects.append(gameObject)  # adds game object to list of game objects
         gameObject.gameObjectHandler = self
 
@@ -299,7 +329,7 @@ class GameObjectHandler:
 
     def getGameObject(self, typeOf: type):
         &#39;&#39;&#39;
-        Returns the first instance of the gameObject with the type typeOf
+        Returns the first instance of the game object with the type passed
         &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             if isinstance(gameObject, typeOf):
@@ -307,7 +337,7 @@ class GameObjectHandler:
 
     def getGameObjects(self, typeOf: type) -&gt; object:
         &#39;&#39;&#39;
-        Returns all instances of gameObjects with the type typeOf
+        Returns all instances of game objects with the type passed
         &#39;&#39;&#39;
         gameObjects = []
         for gameObject in self.gameObjects:
@@ -317,39 +347,57 @@ class GameObjectHandler:
 
     def removeGameObject(self, toRemove: object) -&gt; None:
         &#39;&#39;&#39;
-        Removes the gameObject toRemove
+        Removes the gameObject passed
         &#39;&#39;&#39;
         self.removeList.append(toRemove)
 
     def removeGameObjects(self, typeOf: type) -&gt; None:
         &#39;&#39;&#39;
-        Removes all game objects with the type typeOf
+        Removes all game objects with the type passed
         &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             if isinstance(gameObject, typeOf):
                 self.removeList.append(gameObject)
 
     def exit(self) -&gt; None:
+        &#39;&#39;&#39;
+        Trigger exit on all game objects, called when state exits
+        &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             gameObject.exit()
 
     def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Trigger keyPressed on all game objects, called when a key is pressed
+        &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             gameObject.keyPressed(event)
 
     def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Trigger keyReleased on all game objects, called when a key is released
+        &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             gameObject.keyReleased(event)
 
     def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Trigger mouseMoved on all game objects, called when the mouse is moved
+        &#39;&#39;&#39;    
         for gameObject in self.gameObjects:
             gameObject.mouseMoved(event)
 
     def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Trigger mousePressed on all game objects, called when a mouse key is pressed
+        &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             gameObject.mousePressed(event)
 
     def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+        &#39;&#39;&#39;
+        Trigger mouseReleased on all game objects, called when a mouse key is released
+        &#39;&#39;&#39;
         for gameObject in self.gameObjects:
             gameObject.mouseReleased(event)</code></pre>
 </details>
@@ -359,7 +407,7 @@ class GameObjectHandler:
 <span>def <span class="ident">add</span></span>(<span>self, gameObject: object, bodyDef: typing.Union[Box2D.Box2D.b2BodyDef, NoneType] = None, bodyFixtureDef: typing.Union[Box2D.Box2D.b2FixtureDef, NoneType] = None, color: list = None) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Creates a game object.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -367,6 +415,9 @@ class GameObjectHandler:
 <pre><code class="python">def add(self, gameObject: object, bodyDef: Optional[b2BodyDef] = None,
         bodyFixtureDef: Optional[b2FixtureDef] = None,
         color: list = None) -&gt; None:
+    &#39;&#39;&#39;
+    Creates a game object.
+    &#39;&#39;&#39;
     self.gameObjects.append(gameObject)  # adds game object to list of game objects
     gameObject.gameObjectHandler = self
 
@@ -405,12 +456,15 @@ class GameObjectHandler:
 <span>def <span class="ident">exit</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Trigger exit on all game objects, called when state exits</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def exit(self) -&gt; None:
+    &#39;&#39;&#39;
+    Trigger exit on all game objects, called when state exits
+    &#39;&#39;&#39;
     for gameObject in self.gameObjects:
         gameObject.exit()</code></pre>
 </details>
@@ -419,14 +473,14 @@ class GameObjectHandler:
 <span>def <span class="ident">fixedUpdate</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Updates the Box2D world on a fixed time interval</p></div>
+<div class="desc"><p>Updates the Box2D world then game objects on a fixed time interval.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def fixedUpdate(self) -&gt; None:
     &#39;&#39;&#39;
-    Updates the Box2D world on a fixed time interval
+    Updates the Box2D world then game objects on a fixed time interval.
     &#39;&#39;&#39;
     self.world.Step(self.timing, 6, 2)
     self.world.ClearForces()
@@ -462,14 +516,14 @@ class GameObjectHandler:
 <span>def <span class="ident">getGameObject</span></span>(<span>self, typeOf: type)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns the first instance of the gameObject with the type typeOf</p></div>
+<div class="desc"><p>Returns the first instance of the game object with the type passed</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def getGameObject(self, typeOf: type):
     &#39;&#39;&#39;
-    Returns the first instance of the gameObject with the type typeOf
+    Returns the first instance of the game object with the type passed
     &#39;&#39;&#39;
     for gameObject in self.gameObjects:
         if isinstance(gameObject, typeOf):
@@ -480,14 +534,14 @@ class GameObjectHandler:
 <span>def <span class="ident">getGameObjects</span></span>(<span>self, typeOf: type) ‑> object</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Returns all instances of gameObjects with the type typeOf</p></div>
+<div class="desc"><p>Returns all instances of game objects with the type passed</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def getGameObjects(self, typeOf: type) -&gt; object:
     &#39;&#39;&#39;
-    Returns all instances of gameObjects with the type typeOf
+    Returns all instances of game objects with the type passed
     &#39;&#39;&#39;
     gameObjects = []
     for gameObject in self.gameObjects:
@@ -500,12 +554,15 @@ class GameObjectHandler:
 <span>def <span class="ident">keyPressed</span></span>(<span>self, event: PySide2.QtGui.QKeyEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Trigger keyPressed on all game objects, called when a key is pressed</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Trigger keyPressed on all game objects, called when a key is pressed
+    &#39;&#39;&#39;
     for gameObject in self.gameObjects:
         gameObject.keyPressed(event)</code></pre>
 </details>
@@ -514,12 +571,15 @@ class GameObjectHandler:
 <span>def <span class="ident">keyReleased</span></span>(<span>self, event: PySide2.QtGui.QKeyEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Trigger keyReleased on all game objects, called when a key is released</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Trigger keyReleased on all game objects, called when a key is released
+    &#39;&#39;&#39;
     for gameObject in self.gameObjects:
         gameObject.keyReleased(event)</code></pre>
 </details>
@@ -528,12 +588,15 @@ class GameObjectHandler:
 <span>def <span class="ident">mouseMoved</span></span>(<span>self, event: PySide2.QtGui.QMouseEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Trigger mouseMoved on all game objects, called when the mouse is moved</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Trigger mouseMoved on all game objects, called when the mouse is moved
+    &#39;&#39;&#39;    
     for gameObject in self.gameObjects:
         gameObject.mouseMoved(event)</code></pre>
 </details>
@@ -542,12 +605,15 @@ class GameObjectHandler:
 <span>def <span class="ident">mousePressed</span></span>(<span>self, event: PySide2.QtGui.QMouseEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Trigger mousePressed on all game objects, called when a mouse key is pressed</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Trigger mousePressed on all game objects, called when a mouse key is pressed
+    &#39;&#39;&#39;
     for gameObject in self.gameObjects:
         gameObject.mousePressed(event)</code></pre>
 </details>
@@ -556,12 +622,15 @@ class GameObjectHandler:
 <span>def <span class="ident">mouseReleased</span></span>(<span>self, event: PySide2.QtGui.QMouseEvent) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Trigger mouseReleased on all game objects, called when a mouse key is released</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -&gt; None:
+    &#39;&#39;&#39;
+    Trigger mouseReleased on all game objects, called when a mouse key is released
+    &#39;&#39;&#39;
     for gameObject in self.gameObjects:
         gameObject.mouseReleased(event)</code></pre>
 </details>
@@ -570,14 +639,14 @@ class GameObjectHandler:
 <span>def <span class="ident">removeGameObject</span></span>(<span>self, toRemove: object) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Removes the gameObject toRemove</p></div>
+<div class="desc"><p>Removes the gameObject passed</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def removeGameObject(self, toRemove: object) -&gt; None:
     &#39;&#39;&#39;
-    Removes the gameObject toRemove
+    Removes the gameObject passed
     &#39;&#39;&#39;
     self.removeList.append(toRemove)</code></pre>
 </details>
@@ -586,14 +655,14 @@ class GameObjectHandler:
 <span>def <span class="ident">removeGameObjects</span></span>(<span>self, typeOf: type) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Removes all game objects with the type typeOf</p></div>
+<div class="desc"><p>Removes all game objects with the type passed</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def removeGameObjects(self, typeOf: type) -&gt; None:
     &#39;&#39;&#39;
-    Removes all game objects with the type typeOf
+    Removes all game objects with the type passed
     &#39;&#39;&#39;
     for gameObject in self.gameObjects:
         if isinstance(gameObject, typeOf):
@@ -604,12 +673,15 @@ class GameObjectHandler:
 <span>def <span class="ident">setScale</span></span>(<span>self, scale: float) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Set the pixels per meter scale for TMX, OpenGL, and Box2D calculations</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def setScale(self, scale: float) -&gt; None:
+    &#39;&#39;&#39;
+    Set the pixels per meter scale for TMX, OpenGL, and Box2D calculations
+    &#39;&#39;&#39;
     self.scale = scale</code></pre>
 </details>
 </dd>
@@ -617,14 +689,14 @@ class GameObjectHandler:
 <span>def <span class="ident">update</span></span>(<span>self) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"><p>calls update on all game objects, not a fixed time interval</p></div>
+<div class="desc"><p>Calls update on all game objects, variable timing rate. Triggered back screen draws.</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def update(self) -&gt; None:
     &#39;&#39;&#39;
-    calls update on all game objects, not a fixed time interval
+    Calls update on all game objects, variable timing rate. Triggered back screen draws.
     &#39;&#39;&#39;
     for gameObject in self.gameObjects:
         if gameObject.active:

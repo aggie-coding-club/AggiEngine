@@ -21,11 +21,14 @@ class GameObjectHandler:
         self.removeList = []
 
     def setScale(self, scale: float) -> None:
+        '''
+        Set the pixels per meter scale for TMX, OpenGL, and Box2D calculations
+        '''
         self.scale = scale
 
     def update(self) -> None:
         '''
-        calls update on all game objects, not a fixed time interval
+        Calls update on all game objects, variable timing rate. Triggered back screen draws.
         '''
         for gameObject in self.gameObjects:
             if gameObject.active:
@@ -33,7 +36,7 @@ class GameObjectHandler:
 
     def fixedUpdate(self) -> None:
         '''
-        Updates the Box2D world on a fixed time interval
+        Updates the Box2D world then game objects on a fixed time interval.
         '''
         self.world.Step(self.timing, 6, 2)
         self.world.ClearForces()
@@ -67,6 +70,9 @@ class GameObjectHandler:
     def add(self, gameObject: object, bodyDef: Optional[b2BodyDef] = None,
             bodyFixtureDef: Optional[b2FixtureDef] = None,
             color: list = None) -> None:
+        '''
+        Creates a game object.
+        '''
         self.gameObjects.append(gameObject)  # adds game object to list of game objects
         gameObject.gameObjectHandler = self
 
@@ -102,7 +108,7 @@ class GameObjectHandler:
 
     def getGameObject(self, typeOf: type):
         '''
-        Returns the first instance of the gameObject with the type typeOf
+        Returns the first instance of the game object with the type passed
         '''
         for gameObject in self.gameObjects:
             if isinstance(gameObject, typeOf):
@@ -110,7 +116,7 @@ class GameObjectHandler:
 
     def getGameObjects(self, typeOf: type) -> object:
         '''
-        Returns all instances of gameObjects with the type typeOf
+        Returns all instances of game objects with the type passed
         '''
         gameObjects = []
         for gameObject in self.gameObjects:
@@ -120,38 +126,56 @@ class GameObjectHandler:
 
     def removeGameObject(self, toRemove: object) -> None:
         '''
-        Removes the gameObject toRemove
+        Removes the gameObject passed
         '''
         self.removeList.append(toRemove)
 
     def removeGameObjects(self, typeOf: type) -> None:
         '''
-        Removes all game objects with the type typeOf
+        Removes all game objects with the type passed
         '''
         for gameObject in self.gameObjects:
             if isinstance(gameObject, typeOf):
                 self.removeList.append(gameObject)
 
     def exit(self) -> None:
+        '''
+        Trigger exit on all game objects, called when state exits
+        '''
         for gameObject in self.gameObjects:
             gameObject.exit()
 
     def keyPressed(self, event: PySide2.QtGui.QKeyEvent) -> None:
+        '''
+        Trigger keyPressed on all game objects, called when a key is pressed
+        '''
         for gameObject in self.gameObjects:
             gameObject.keyPressed(event)
 
     def keyReleased(self, event: PySide2.QtGui.QKeyEvent) -> None:
+        '''
+        Trigger keyReleased on all game objects, called when a key is released
+        '''
         for gameObject in self.gameObjects:
             gameObject.keyReleased(event)
 
     def mouseMoved(self, event: PySide2.QtGui.QMouseEvent) -> None:
+        '''
+        Trigger mouseMoved on all game objects, called when the mouse is moved
+        '''    
         for gameObject in self.gameObjects:
             gameObject.mouseMoved(event)
 
     def mousePressed(self, event: PySide2.QtGui.QMouseEvent) -> None:
+        '''
+        Trigger mousePressed on all game objects, called when a mouse key is pressed
+        '''
         for gameObject in self.gameObjects:
             gameObject.mousePressed(event)
 
     def mouseReleased(self, event: PySide2.QtGui.QMouseEvent) -> None:
+        '''
+        Trigger mouseReleased on all game objects, called when a mouse key is released
+        '''
         for gameObject in self.gameObjects:
             gameObject.mouseReleased(event)
