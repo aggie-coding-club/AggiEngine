@@ -39,6 +39,7 @@ jobs:
           pip install simpleaudio
           pip install pdoc==6.4.4
           pdoc -o ./docs ./AggiEngine
+          git config --local user.name "action"
           git add .
           git commit -m "Auto updating docs"
       - name: Push changes # push the output folder to your repo
