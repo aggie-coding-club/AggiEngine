@@ -35,6 +35,9 @@ class Particles:
         self.time = 0
 
     def update(self) -> None:
+        '''
+        Updates the particles, color, size and  deletes old particles.
+        '''
         toRemove = []
         for particle in self.particles:
             if abs(particle[1][0][0] - particle[1][1][0]) < self.endSize:
@@ -54,14 +57,23 @@ class Particles:
         self.time += self.rate
 
     def emit(self, position: list) -> None:
+        '''
+        Appends are new particle to the particle list.
+        '''
+        
         if self.time > 1:
             if len(self.particles) < self.count:
                 self.particles.append([-1, self.shape, self.getColor(0), position, 0, 0])
             self.time = 0
 
     def getColor(self, amount: float) -> list:
+        '''
+        Interpolates the start and end color values and returns the value.
+        '''
+        
         r = abs(self.startColor[0] - self.endColor[0]) * amount + self.startColor[0]
         g = abs(self.startColor[1] - self.endColor[1]) * amount + self.startColor[1]
         b = abs(self.startColor[2] - self.endColor[2]) * amount + self.startColor[2]
         a = abs(self.startColor[3] - self.endColor[3]) * amount + self.startColor[3]
+        
         return [max(r, self.endColor[0]), max(g, self.endColor[1]), max(b, self.endColor[2]), max(a, self.endColor[3])]
