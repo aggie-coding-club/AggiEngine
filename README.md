@@ -1,4 +1,4 @@
-[![Build Status](https://img.shields.io/github/actions/workflow/status/aggie-coding-club/AggiEngine/CI?style=for-the-badge)](https://github.com/aggie-coding-club/AggiEngine/actions)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/aggie-coding-club/AggiEngine/main.yml?branch=master)](https://github.com/aggie-coding-club/AggiEngine/actions)
 [![AggiEngine on PyPI](https://img.shields.io/pypi/v/AggiEngine.svg?color=blue&style=for-the-badge)](https://pypi.org/project/AggiEngine)
 [![package downloads](https://img.shields.io/pypi/dm/AggiEngine.svg?color=skyblue&style=for-the-badge)](https://pypi.org/project/AggiEngine)
 
